@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "The Clash of The Smitten.sln"
+    "dotnet.defaultSolution": "Clash of the Smittens.sln"
 }
