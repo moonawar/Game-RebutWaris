@@ -12,6 +12,8 @@ public class FlowManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+    
+        currentScene = SceneManager.GetActiveScene().name;
     }
 
     private void LoadScene(string sceneName)
