@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PrincessRadar : MonoBehaviour
 {
-    public bool isArea;
+    private bool isArea;
     private float increaseTime = 0;
     private float decreaseTime = 0;
     [SerializeField] public GameObject fill;

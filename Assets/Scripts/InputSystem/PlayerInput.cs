@@ -10,11 +10,13 @@ class PlayerInput : ScriptableObject
     public KeyCode Left;
     public KeyCode Right;
     
-    [Header("Skill Keys")]
-    public KeyCode Skill;
+    [Header("Action Keys")]
+    public KeyCode Bonk;
 
     public Vector2 MoveInput => new Vector2(
         Convert.ToInt32(Input.GetKey(Right)) - Convert.ToInt32(Input.GetKey(Left)),
         Convert.ToInt32(Input.GetKey(Up)) - Convert.ToInt32(Input.GetKey(Down))
     );
+
+    public bool BonkInput => Input.GetKeyDown(Bonk);
 }

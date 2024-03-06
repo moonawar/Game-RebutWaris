@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
+using System.Collections;
 
 public enum PlayerId {
     Player1, Player2, Player3, Player4, None
 }
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     /* Public fields */
     public PlayerId playerId;
@@ -29,11 +27,29 @@ public class PlayerController : MonoBehaviour
         lookDirection = transform.rotation.y == 0 ? RIGHT : LEFT;
     }
 
+    #region knockback
+    public void Knockback(Vector2 direction, float distance, float duration)
+    {
+        StartCoroutine(KnockbackRoutine(direction, distance, duration));
+    }
+
+    private IEnumerator KnockbackRoutine(Vector2 direction, float distance, float duration)
+    {
+        float timer = 0;
+        while (timer < duration)
+        {
+            transform.position += distance * Time.deltaTime * (Vector3) direction / duration;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+    #endregion
+
     void Update()
     {
         // Input
         Vector2 moveInput = playerInput.MoveInput;
-        Vector3 move = new Vector3(moveInput.x, moveInput.y, 0);
+        Vector3 move = new(moveInput.x, moveInput.y, 0);
 
         // Flip the player if the direction changes
         if (Mathf.Sign(move.x) != lookDirection && move.x != 0) {
@@ -44,6 +60,6 @@ public class PlayerController : MonoBehaviour
         }
 
         // Movement
-        transform.position += move * speed * Time.deltaTime;
+        transform.position += speed * Time.deltaTime * move;
     }
 }
