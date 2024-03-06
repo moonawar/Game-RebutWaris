@@ -47,7 +47,10 @@ MonoBehaviour:
   bonkRadius: 1.2
   knockbackDistance: 5
   knockbackDuration: 0.2
+  stunDuration: 1.2
   playerInput: {fileID: 0}
+  playerMovement: {fileID: 8652144860922909440}
+  selfCollider: {fileID: 2908538235702975309}
 --- !u!1 &1488344755701259389
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2237978438d8c03428d535d66b196212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isArea: 0
   fill: {fileID: 0}
   loveMeter: {fileID: 0}
   increaseRate: 2

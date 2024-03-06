@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     /* Public fields */
     public PlayerId playerId;
+    public bool IsStunned {get; private set;} = false;
 
     /* Inspector fields */
     [Header("Input Settings")]
@@ -28,12 +29,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #region knockback
-    public void Knockback(Vector2 direction, float distance, float duration)
+    public void Knockback(Vector2 direction, float distance, float duration, float stunDuration)
     {
-        StartCoroutine(KnockbackRoutine(direction, distance, duration));
+        StartCoroutine(KnockbackRoutine(direction, distance, duration, stunDuration));
     }
 
-    private IEnumerator KnockbackRoutine(Vector2 direction, float distance, float duration)
+    private IEnumerator KnockbackRoutine(Vector2 direction, float distance, float duration, float stunDuration)
     {
         float timer = 0;
         while (timer < duration)
@@ -42,11 +43,16 @@ public class PlayerMovement : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
+        IsStunned = true;
+        yield return new WaitForSeconds(stunDuration);
+        IsStunned = false;
     }
     #endregion
 
     void Update()
     {
+        if (IsStunned) return; // Do nothing
+
         // Input
         Vector2 moveInput = playerInput.MoveInput;
         Vector3 move = new(moveInput.x, moveInput.y, 0);

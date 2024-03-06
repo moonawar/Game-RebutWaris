@@ -1264,6 +1264,10 @@ PrefabInstance:
       propertyPath: loveMeter
       value: 
       objectReference: {fileID: 701170846}
+    - target: {fileID: 6170278068948282777, guid: 0774b87bc9505744eb003ea822c99f30, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 11400000, guid: 439ec27fa9bcc0249bac25d30b29504c, type: 2}
     - target: {fileID: 7054710613867731208, guid: 0774b87bc9505744eb003ea822c99f30, type: 3}
       propertyPath: m_Name
       value: Player 2
@@ -1635,6 +1639,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6170278068948282777, guid: 0774b87bc9505744eb003ea822c99f30, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 11400000, guid: c64b30fcf28bde34abe736481120ba64, type: 2}
     - target: {fileID: 6367064103638636164, guid: 0774b87bc9505744eb003ea822c99f30, type: 3}
       propertyPath: m_text
       value: 'Player 1
