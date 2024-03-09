@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private const int LEFT = -1;
     private const int RIGHT = 1;
     private int lookDirection;
+    private Vector3 move;
 
     private void Awake()
     {
@@ -55,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Input
         Vector2 moveInput = playerInput.MoveInput;
-        Vector3 move = new(moveInput.x, moveInput.y, 0);
+        move = new(moveInput.x, moveInput.y, 0);
 
         // Flip the player if the direction changes
         if (Mathf.Sign(move.x) != lookDirection && move.x != 0) {
@@ -64,8 +65,11 @@ public class PlayerMovement : MonoBehaviour
             int yRot = lookDirection == 1 ? 0 : 180;
             transform.rotation = Quaternion.Euler(0, yRot, 0);
         }
+    }
 
+    private void FixedUpdate() {
+        if (IsStunned) return; // Do nothing
         // Movement
-        transform.position += speed * Time.deltaTime * move;
+        transform.position += speed * Time.fixedDeltaTime * move;
     }
 }

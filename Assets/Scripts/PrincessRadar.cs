@@ -6,12 +6,12 @@ public class PrincessRadar : MonoBehaviour
     private bool isArea;
     private float increaseTime = 0;
     private float decreaseTime = 0;
-    [SerializeField] public GameObject fill;
-    [SerializeField] public Slider loveMeter;
-    [SerializeField] public float increaseRate;
-    [SerializeField] public float decreaseRate;
-    [SerializeField] public int loveLevel = 0;
-    [SerializeField] public GameObject heart;
+    [SerializeField] private GameObject fill;
+    [SerializeField] private Slider loveMeter;
+    [SerializeField] private float increaseRate;
+    [SerializeField] private float decreaseRate;
+    [SerializeField] private int loveLevel = 0;
+    [SerializeField] private GameObject heart;
 
     private void Start()
     {
@@ -32,7 +32,6 @@ public class PrincessRadar : MonoBehaviour
                     fill.SetActive(true);
                     increaseTime = Time.time;
                     loveMeter.value += increaseRate;
-                    Debug.Log($"Love {loveMeter.value}%");
                 }
             }
             else
@@ -49,13 +48,13 @@ public class PrincessRadar : MonoBehaviour
 
             if (loveMeter.value == 100)
             {
-                changePhase();
+                ChangePhase();
             }
         }
         
     }
 
-    void changePhase()
+    void ChangePhase()
     {
         loveLevel++;
 
@@ -85,20 +84,18 @@ public class PrincessRadar : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "NPC")
+        if(collider.CompareTag("NPC"))
         {
             decreaseTime = 0;
-            Debug.Log("Princess in the area!");
             isArea = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.tag == "NPC")
+        if (collider.CompareTag("NPC"))
         {
             increaseTime = 0;
-            Debug.Log("Princess leaves the area!");
             isArea = false;
         }
     }

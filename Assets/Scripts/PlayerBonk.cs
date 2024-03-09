@@ -13,10 +13,11 @@ public class PlayerBonk : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Collider2D selfCollider;
 
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, bonkRadius);
-    }
+    // For debug purposes only
+    // private void OnDrawGizmos() {
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawWireSphere(transform.position, bonkRadius);
+    // }
 
     private void TryBonk() {
         if (playerMovement.IsStunned) return;
