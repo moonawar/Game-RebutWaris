@@ -84,24 +84,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate() {
         if (IsStunned) return; // Do nothing
-        
-        if (move.magnitude == 0) { // No input, decelerate
+
+        bool shouldDecelerate = move.magnitude == 0;
+
+        if (shouldDecelerate) {
             CurrentSpeed -= deceleration * Time.fixedDeltaTime;
         } else {
-            if ( // If the player changes direction, decelerate
-                Mathf.Sign(move.x) != Mathf.Sign(previousMove.x) && move.x != 0 &&
-                Mathf.Sign(move.y) != Mathf.Sign(previousMove.y) && move.y != 0
-            ){
-                CurrentSpeed -= deceleration * Time.fixedDeltaTime;
-            } else { // Accelerate normally
-                CurrentSpeed += acceleration * Time.fixedDeltaTime;
-            }
+            CurrentSpeed += acceleration * Time.fixedDeltaTime;
         }
 
         CurrentSpeed = Mathf.Clamp(CurrentSpeed, 0, maxSpeed);
 
-        // If the input is 0, use the buffer to maintain the last move until current speed is 0
-        Vector3 appliedMove = move.magnitude == 0 ? bufferMove : move; 
+        // If the input is 0, use the buffer to maintain the last movement until current speed is 0
+        Vector3 appliedMove = shouldDecelerate ? bufferMove : move; 
         transform.position += CurrentSpeed * Time.fixedDeltaTime * appliedMove;
     }
 }
