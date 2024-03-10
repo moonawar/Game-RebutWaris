@@ -16,17 +16,27 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerInput playerInput;
 
     [Header("Player Settings")]
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float maxSpeed = 5f;
+    public float CurrentSpeed {get; private set;} = 0;
+    [SerializeField] private float timeToAccelerate = 0.2f;
+    private float acceleration;
+    [SerializeField] private float timeToDecelerate = 0.12f;
+    private float deceleration;
+
     
     /* Private fields */
     private const int LEFT = -1;
     private const int RIGHT = 1;
     private int lookDirection;
-    private Vector3 move;
+    private Vector3 move; // Store the move on the current frame
+    private Vector3 previousMove; // Store the move on the previous frame
+    private Vector3 bufferMove; // Store the last move before the input went to 0
 
     private void Awake()
     {
         lookDirection = transform.rotation.y == 0 ? RIGHT : LEFT;
+        acceleration = maxSpeed / timeToAccelerate;
+        deceleration = maxSpeed / timeToDecelerate;
     }
 
     #region knockback
@@ -56,7 +66,12 @@ public class PlayerMovement : MonoBehaviour
 
         // Input
         Vector2 moveInput = playerInput.MoveInput;
+        previousMove = move;
         move = new(moveInput.x, moveInput.y, 0);
+
+        if (previousMove.magnitude > 0 && move.magnitude == 0) {
+            bufferMove = previousMove;
+        }
 
         // Flip the player if the direction changes
         if (Mathf.Sign(move.x) != lookDirection && move.x != 0) {
@@ -69,7 +84,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate() {
         if (IsStunned) return; // Do nothing
-        // Movement
-        transform.position += speed * Time.fixedDeltaTime * move;
+        
+        if (move.magnitude == 0) { // No input, decelerate
+            CurrentSpeed -= deceleration * Time.fixedDeltaTime;
+        } else {
+            if ( // If the player changes direction, decelerate
+                Mathf.Sign(move.x) != Mathf.Sign(previousMove.x) && move.x != 0 &&
+                Mathf.Sign(move.y) != Mathf.Sign(previousMove.y) && move.y != 0
+            ){
+                CurrentSpeed -= deceleration * Time.fixedDeltaTime;
+            } else { // Accelerate normally
+                CurrentSpeed += acceleration * Time.fixedDeltaTime;
+            }
+        }
+
+        CurrentSpeed = Mathf.Clamp(CurrentSpeed, 0, maxSpeed);
+
+        // If the input is 0, use the buffer to maintain the last move until current speed is 0
+        Vector3 appliedMove = move.magnitude == 0 ? bufferMove : move; 
+        transform.position += CurrentSpeed * Time.fixedDeltaTime * appliedMove;
     }
 }

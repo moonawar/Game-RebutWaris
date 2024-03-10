@@ -320,6 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fd48cf22bcf2d479b6df3532b84906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerId: 4
-  playerInput: {fileID: 0}
-  speed: 8
+  playerId: 0
+  playerInput: {fileID: 11400000, guid: c64b30fcf28bde34abe736481120ba64, type: 2}
+  maxSpeed: 8
+  timeToAccelerate: 0.3
+  timeToDecelerate: 0.2
