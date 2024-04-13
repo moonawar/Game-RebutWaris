@@ -17,3 +17,6 @@ MonoBehaviour:
   Left: 97
   Right: 100
   Bonk: 101
+  Grab: 103
+  Throw: 116
+  Mash: 32

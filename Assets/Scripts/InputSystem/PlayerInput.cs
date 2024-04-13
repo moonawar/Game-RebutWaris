@@ -12,6 +12,9 @@ class PlayerInput : ScriptableObject
     
     [Header("Action Keys")]
     public KeyCode Bonk;
+    public KeyCode Grab;
+    public KeyCode Throw;
+    public KeyCode Mash;
 
     public Vector2 MoveInput => new Vector2(
         Convert.ToInt32(Input.GetKey(Right)) - Convert.ToInt32(Input.GetKey(Left)),
@@ -19,4 +22,7 @@ class PlayerInput : ScriptableObject
     );
 
     public bool BonkInput => Input.GetKeyDown(Bonk);
+    public bool MashInput => Input.GetKeyDown(Mash);
+    public bool GrabInput => Input.GetKeyDown(Grab);
+    public bool ThrowInput => Input.GetKeyDown(Throw);
 }

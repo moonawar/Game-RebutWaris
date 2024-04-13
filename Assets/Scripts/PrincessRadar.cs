@@ -2,41 +2,66 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PrincessRadar : MonoBehaviour
-{
-    private bool isArea;
+{   
     private float increaseTime = 0;
     private float decreaseTime = 0;
+    private float nextPhaseValue;
+    private float baseValue = 0;
+    private int loveLevel = 0;
+    [SerializeField] private float[] PhaseLimits = new float[3];
+    [SerializeField] private float[] PhaseIncrease = new float[3];
+    [SerializeField] private float radius = 4f;
+    [SerializeField] private PlayerInput input;
     [SerializeField] private GameObject fill;
     [SerializeField] private Slider loveMeter;
-    [SerializeField] private float increaseRate;
+    private float increaseRate;
     [SerializeField] private float decreaseRate;
-    [SerializeField] private int loveLevel = 0;
     [SerializeField] private GameObject heart;
 
-    private void Start()
+    private void Awake()
     {
+        nextPhaseValue = PhaseLimits[loveLevel];
         fill.GetComponent<Image>().color = Color.green;
         fill.SetActive(false);
-        heart.SetActive(false);
+        heart.GetComponent<SpriteRenderer>().color = Color.white;
+        increaseRate = PhaseIncrease[loveLevel];
+    }
+
+    private bool isPrincessInArea()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.tag == "NPC") return true;
+        }
+        return false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (loveLevel != 3)
         {
-            if (isArea)
+            if (isPrincessInArea())
             {
-                if (increaseTime == 0 || Time.time - increaseTime >= 0.1)
+                if (input.MashInput)
                 {
                     fill.SetActive(true);
-                    increaseTime = Time.time;
+                    //increaseTime = Time.time;
                     loveMeter.value += increaseRate;
                 }
+
+                //if (increaseTime == 0 || Time.time - increaseTime >= 0.1)
+                //{
+                //    fill.SetActive(true);
+                //    increaseTime = Time.time;
+                //    loveMeter.value += increaseRate;
+                //}
             }
             else
             {
-                if (decreaseTime == 0 || Time.time - decreaseTime >= 0.1)
+                if ((decreaseTime == 0 || Time.time - decreaseTime >= 0.1) && loveMeter.value >= baseValue)
                 {
                     decreaseTime = Time.time;
                     loveMeter.value -= decreaseRate;
@@ -46,9 +71,13 @@ public class PrincessRadar : MonoBehaviour
 
             }
 
-            if (loveMeter.value == 100)
+            if (loveMeter.value >= nextPhaseValue)
             {
                 ChangePhase();
+                baseValue = nextPhaseValue;
+                nextPhaseValue = PhaseLimits[loveLevel];
+                increaseRate = PhaseIncrease[loveLevel];
+
             }
         }
         
@@ -63,16 +92,12 @@ public class PrincessRadar : MonoBehaviour
             heart.SetActive(true);
             heart.GetComponent<SpriteRenderer>().color = Color.green;
             fill.GetComponent<Image>().color = Color.red;
-            increaseRate /= 1.5f;
-            loveMeter.value = 0;
         }
         else if (loveLevel == 2)
         {
             heart.SetActive(true);
             heart.GetComponent<SpriteRenderer>().color = Color.red;
             fill.GetComponent<Image>().color = new Color32(224, 55, 204, 255);
-            increaseRate /= 1.5f;
-            loveMeter.value = 0;
         }
         else
         {
@@ -80,24 +105,7 @@ public class PrincessRadar : MonoBehaviour
             heart.GetComponent<SpriteRenderer>().color = new Color32(224, 55, 204, 255);
         }
 
-    }
 
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if(collider.CompareTag("NPC"))
-        {
-            decreaseTime = 0;
-            isArea = true;
-        }
-    }
 
-    private void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.CompareTag("NPC"))
-        {
-            increaseTime = 0;
-            isArea = false;
-        }
     }
-
 }
