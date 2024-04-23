@@ -8,12 +8,12 @@ public enum PlayerId {
 public class PlayerMovement : MonoBehaviour
 {
     /* Public fields */
-    public PlayerId playerId;
+    [HideInInspector] public PlayerId playerId;
     public bool IsStunned {get; private set;} = false;
 
     /* Inspector fields */
     [Header("Input Settings")]
-    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private GamePlayerInput playerInput;
 
     [Header("Player Settings")]
     [SerializeField] private float maxSpeed = 5f;

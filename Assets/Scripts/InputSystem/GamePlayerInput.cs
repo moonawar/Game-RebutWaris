@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerInput", menuName = "Input/PlayerInput")]
-class PlayerInput : ScriptableObject
+public class GamePlayerInput : ScriptableObject
 {
     [Header("Movement Keys")]
     public KeyCode Up;

@@ -50,7 +50,7 @@ MonoBehaviour:
   stunDuration: 1.2
   playerInput: {fileID: 11400000, guid: c64b30fcf28bde34abe736481120ba64, type: 2}
   playerMovement: {fileID: 8652144860922909440}
-  selfCollider: {fileID: 2908538235702975309}
+  selfCollider: {fileID: 0}
 --- !u!1 &2513635539657623769
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,9 +211,11 @@ GameObject:
   - component: {fileID: 7054710613867731214}
   - component: {fileID: 7054710613867731209}
   - component: {fileID: 7460199878472092201}
-  - component: {fileID: 2908538235702975309}
   - component: {fileID: 2837753835299683755}
   - component: {fileID: 8652144860922909440}
+  - component: {fileID: 3970601843587144837}
+  - component: {fileID: 7787768088860118804}
+  - component: {fileID: 2328531826491803853}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -310,32 +312,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &2908538235702975309
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7054710613867731208}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.4754897}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.6685715, y: 2.9509795}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.83, y: 2.41}
-  m_EdgeRadius: 0
 --- !u!50 &2837753835299683755
 Rigidbody2D:
   serializedVersion: 4
@@ -374,3 +350,75 @@ MonoBehaviour:
   maxSpeed: 8
   timeToAccelerate: 0.3
   timeToDecelerate: 0.2
+--- !u!58 &3970601843587144837
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054710613867731208}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.4754897}
+  serializedVersion: 2
+  m_Radius: 4
+--- !u!114 &7787768088860118804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054710613867731208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ec6e4b837ff5743b428be3956832fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PhaseLimits:
+  - 0
+  - 0
+  - 0
+  PhaseIncrease:
+  - 0
+  - 0
+  - 0
+  radius: 4
+  input: {fileID: 0}
+  fill: {fileID: 0}
+  loveMeter: {fileID: 0}
+  decreaseRate: 0
+  heart: {fileID: 0}
+--- !u!114 &2328531826491803853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054710613867731208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: b2911aa91bc22f6499978be9c9909a69, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
