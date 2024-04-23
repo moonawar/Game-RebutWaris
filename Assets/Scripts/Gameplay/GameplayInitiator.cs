@@ -16,19 +16,19 @@ public class PlayerData {
 
 public class GameplayInitiator : MonoBehaviour
 {
-    [SerializeField] private PlayerData data_player1;
-    [SerializeField] private PlayerData data_player2;
+    [SerializeField] private PlayerData dataPlayer1;
+    [SerializeField] private PlayerData dataPlayer2;
 
     public void OnPlayerJoined(GameObject playerObj, int playerIndex)  {
         PrincessRadar radar = playerObj.GetComponent<PrincessRadar>();
         SpriteRenderer spriteRenderer = playerObj.GetComponent<SpriteRenderer>();
 
         if (playerIndex == 0) {
-            radar.InitUIs(data_player1.uiRefs);
-            spriteRenderer.sprite = data_player1.sprite;
+            radar.InitUIs(dataPlayer1.uiRefs);
+            spriteRenderer.sprite = dataPlayer1.sprite;
         } else if (playerIndex == 1) {
-            radar.InitUIs(data_player2.uiRefs);
-            spriteRenderer.sprite = data_player2.sprite;
+            radar.InitUIs(dataPlayer2.uiRefs);
+            spriteRenderer.sprite = dataPlayer2.sprite;
         }
     }
 }

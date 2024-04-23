@@ -14,29 +14,36 @@ class DeviceManagerScreenUIRefs
 
 public class DeviceManagerUI : MonoBehaviour
 {
-    [SerializeField] private DeviceManagerScreenUIRefs refs_player1;
-    [SerializeField] private DeviceManagerScreenUIRefs refs_player2;
+    [SerializeField] private DeviceManagerScreenUIRefs refsPlayer1;
+    [SerializeField] private DeviceManagerScreenUIRefs refsPlayer2;
 
     [Header("References")]
     [SerializeField] private GameplayInitiator gameplayInitiator;
+
+    private bool listenForReadyPlayer1 = false;
+    private bool listenForReadyPlayer2 = false;
 
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         if (playerInput.playerIndex == 0)
         {
-            refs_player1.DeviceNotConnected.SetActive(false);
-            refs_player1.DeviceConnected.SetActive(true);
-            refs_player1.DeviceUsedText.text = "Device Used : " + playerInput.devices[0].name;
+            refsPlayer1.DeviceNotConnected.SetActive(false);
+            refsPlayer1.DeviceConnected.SetActive(true);
+            refsPlayer1.DeviceUsedText.text = "Device Used : " + playerInput.devices[0].name;
 
             gameplayInitiator.OnPlayerJoined(playerInput.gameObject, playerInput.playerIndex);
         }
         else if (playerInput.playerIndex == 1)
         {
-            refs_player2.DeviceNotConnected.SetActive(false);
-            refs_player2.DeviceConnected.SetActive(true);
-            refs_player2.DeviceUsedText.text = "Device Used : " + playerInput.devices[0].name;
+            refsPlayer2.DeviceNotConnected.SetActive(false);
+            refsPlayer2.DeviceConnected.SetActive(true);
+            refsPlayer2.DeviceUsedText.text = "Device Used : " + playerInput.devices[0].name;
 
             gameplayInitiator.OnPlayerJoined(playerInput.gameObject, playerInput.playerIndex);
         }
+    }
+
+    private void Update() {
+        
     }
 }
