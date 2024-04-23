@@ -20,6 +20,8 @@ public class GameplayInitiator : MonoBehaviour
     [SerializeField] private PlayerData dataPlayer1;
     [SerializeField] private PlayerData dataPlayer2;
 
+    [SerializeField] private GameObject gameplayUI;
+
     public void OnPlayerJoined(GameObject playerObj, int playerIndex)  {
         PrincessRadar radar = playerObj.GetComponent<PrincessRadar>();
         SpriteRenderer spriteRenderer = playerObj.GetComponent<SpriteRenderer>();
@@ -34,7 +36,10 @@ public class GameplayInitiator : MonoBehaviour
     }
 
     public void StartGame(PlayerInput p1, PlayerInput p2) {
+        Debug.Log("Game started");
         p1.SwitchCurrentActionMap("Gameplay");
         p2.SwitchCurrentActionMap("Gameplay");
+
+        gameplayUI.SetActive(true);
     }
 }

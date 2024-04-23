@@ -180,19 +180,19 @@
             "id": "a6664623-38ef-4ccc-96f7-fe517762af85",
             "actions": [
                 {
-                    "name": "Ready",
-                    "type": "Button",
-                    "id": "1129a700-9e08-4d1d-9406-c71438811d26",
-                    "expectedControlType": "Button",
+                    "name": "Movement",
+                    "type": "PassThrough",
+                    "id": "24311741-ada1-4613-9361-4e8d0c073412",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Movement",
-                    "type": "PassThrough",
-                    "id": "24311741-ada1-4613-9361-4e8d0c073412",
-                    "expectedControlType": "Vector2",
+                    "name": "Ready",
+                    "type": "Button",
+                    "id": "1129a700-9e08-4d1d-9406-c71438811d26",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -222,7 +222,7 @@
                 {
                     "name": "",
                     "id": "4531bdef-9e5f-4bf5-96c5-8072ca612928",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -233,10 +233,21 @@
                 {
                     "name": "",
                     "id": "ecc084ec-bfbb-4bd4-afc7-2b64231d517a",
-                    "path": "",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Unready",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c53bdf6c-fb81-4791-8ba6-31b2f65a5da2",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Unready",
                     "isComposite": false,
                     "isPartOfComposite": false
