@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public enum PlayerId {
     Player1, Player2, Player3, Player4, None
@@ -12,9 +13,6 @@ public class PlayerMovement : MonoBehaviour
     public bool IsStunned {get; private set;} = false;
 
     /* Inspector fields */
-    [Header("Input Settings")]
-    [SerializeField] private GamePlayerInput playerInput;
-
     [Header("Player Settings")]
     [SerializeField] private float maxSpeed = 5f;
     public float CurrentSpeed {get; private set;} = 0;
@@ -32,11 +30,19 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 previousMove; // Store the move on the previous frame
     private Vector3 bufferMove; // Store the last move before the input went to 0
 
+    /* Inputs */
+    private Vector2 moveInput;
+
     private void Awake()
     {
         lookDirection = transform.rotation.y == 0 ? RIGHT : LEFT;
         acceleration = maxSpeed / timeToAccelerate;
         deceleration = maxSpeed / timeToDecelerate;
+    }
+
+    public void OnMovement(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
     }
 
     #region knockback
@@ -65,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
         if (IsStunned) return; // Do nothing
 
         // Input
-        Vector2 moveInput = playerInput.MoveInput;
         previousMove = move;
         move = new(moveInput.x, moveInput.y, 0);
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -30,5 +31,10 @@ public class GameplayInitiator : MonoBehaviour
             radar.InitUIs(dataPlayer2.uiRefs);
             spriteRenderer.sprite = dataPlayer2.sprite;
         }
+    }
+
+    public void StartGame(PlayerInput p1, PlayerInput p2) {
+        p1.SwitchCurrentActionMap("Gameplay");
+        p2.SwitchCurrentActionMap("Gameplay");
     }
 }

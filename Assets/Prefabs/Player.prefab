@@ -346,7 +346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 0
-  playerInput: {fileID: 11400000, guid: c64b30fcf28bde34abe736481120ba64, type: 2}
   maxSpeed: 8
   timeToAccelerate: 0.3
   timeToDecelerate: 0.2
@@ -405,7 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: b2911aa91bc22f6499978be9c9909a69, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -416,9 +415,65 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8652144860922909440}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 53d0de3d-dbb8-489d-a76a-ec17e5f23f02
+    m_ActionName: Gameplay/Movement[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d14d0488-ab79-4f99-b6bd-ef08c7d5210c
+    m_ActionName: Gameplay/Bonk[/Keyboard/e,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5d2a1ea5-9eb5-42f2-bab5-b18e8ec1108e
+    m_ActionName: Gameplay/Grab
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8c162c4f-dd37-436b-a3e9-78c1dfe835f9
+    m_ActionName: Gameplay/Throw
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 70be5c38-cfd8-44c9-b4ad-1e7b77e99b05
+    m_ActionName: Gameplay/Mash
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1129a700-9e08-4d1d-9406-c71438811d26
+    m_ActionName: PreGame/Ready[/Keyboard/e,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a1071190-32c7-4064-85b2-e9af9c87aaea
+    m_ActionName: PreGame/Unready
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8652144860922909440}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 24311741-ada1-4613-9361-4e8d0c073412
+    m_ActionName: PreGame/Movement[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Gameplay
+  m_DefaultActionMap: PreGame
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
