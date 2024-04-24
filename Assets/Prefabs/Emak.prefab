@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3458124581005683654}
   - component: {fileID: 8135241663369063708}
   m_Layer: 0
-  m_Name: Princess
+  m_Name: Emak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e90efcc21acfe3c4c86d295a663271f2, type: 3}
-  m_Color: {r: 0.9390611, g: 0.6581524, b: 0.9622642, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ee5d38ab7811308449081b319c89dbf3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -126,7 +126,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2.1786666, y: 3.0899649}
+    oldSize: {x: 2.6608696, y: 3.1826086}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

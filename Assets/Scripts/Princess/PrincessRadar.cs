@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class PrincessRadar : MonoBehaviour
 {   
-    private float increaseTime = 0;
     private float decreaseTime = 0;
     private float nextPhaseValue;
     private float baseValue = 0;
@@ -11,19 +10,26 @@ public class PrincessRadar : MonoBehaviour
     [SerializeField] private float[] PhaseLimits = new float[3];
     [SerializeField] private float[] PhaseIncrease = new float[3];
     [SerializeField] private float radius = 4f;
-    [SerializeField] private PlayerInput input;
+    [SerializeField] private GamePlayerInput input;
     [SerializeField] private GameObject fill;
     [SerializeField] private Slider loveMeter;
     private float increaseRate;
     [SerializeField] private float decreaseRate;
     [SerializeField] private GameObject heart;
 
-    private void Awake()
-    {
-        nextPhaseValue = PhaseLimits[loveLevel];
+    public void InitUIs(InGamePlayerUIRefs uiRefs) {
+        fill = uiRefs.fill;
+        loveMeter = uiRefs.loveMeter;
+        heart = uiRefs.heart;
+
         fill.GetComponent<Image>().color = Color.green;
         fill.SetActive(false);
         heart.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    private void Awake()
+    {
+        nextPhaseValue = PhaseLimits[loveLevel];
         increaseRate = PhaseIncrease[loveLevel];
     }
 

@@ -11,15 +11,12 @@ public enum PlayerId {
 public class PlayerMovement : MonoBehaviour
 {
     /* Public fields */
-    public PlayerId playerId;
-    public bool IsStunned {get; set;} = false;
+    [HideInInspector] public PlayerId playerId;
+    public bool IsStunned {get; private set;} = false;
     public bool IsGrabbed {get; set;} = false;
     private Vector2 grabbedPos = Vector2.zero;
 
     /* Inspector fields */
-    [Header("Input Settings")]
-    [SerializeField] private PlayerInput playerInput;
-
     [Header("Player Settings")]
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private float grabbedSpeed = 5f;
@@ -38,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 previousMove; // Store the move on the previous frame
     private Vector3 bufferMove; // Store the last move before the input went to 0
 
+    /* Inputs */
+    private Vector2 moveInput;
+
     private void Awake()
     {
         lookDirection = transform.rotation.y == 0 ? RIGHT : LEFT;
@@ -54,42 +54,16 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator StunRoutine(float stunDuration)
     {
         IsStunned = true;
-        //Debug.Log($"{playerId} is stunned!");
         yield return new WaitForSeconds(stunDuration);
         IsStunned = false;
     }
 
     public void grab(Vector2 destination)
     {
-        //StartCoroutine(GrabRoutine(destination));
         Debug.Log("is grabbed!");
         IsGrabbed = true;
-        //Debug.Log($"{playerId} is stunned!");
         grabbedPos = destination;
-        //while (!(Math.Abs(destination.x - gameObject.transform.position.x) < 1 && Math.Abs(destination.y - gameObject.transform.position.y) < 1))
-        //{
-        //    MoveToGrabber(destination);
-
-        //}
-        //IsGrabbed = false;
-
-        //if ((Math.Abs(destination.x - gameObject.transform.position.x) < 1 && Math.Abs(destination.y - gameObject.transform.position.y) < 1))
-        //{
-        //}
     }
-
-    //private IEnumerator GrabRoutine(Vector2 destination)
-    //{
-    //    IsGrabbed = true;
-    //    WaitForSeconds wait  = new WaitForSeconds(3);
-    //    //Debug.Log($"{playerId} is stunned!");
-    //    Vector2 direction = destination - (Vector2)gameObject.transform.position;
-    //    gameObject.transform.position += grabbedSpeed * Time.deltaTime * (Vector3)direction.normalized;
-    //    yield return wait;
-    //    //MoveToGrabber(destination);
-    //    IsGrabbed = false;
-    //}
-
     private void MoveToGrabber(Vector2 destination)
     {
         Debug.Log("move to grabber!");
@@ -101,6 +75,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #endregion
+
+    public void OnMovement(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+    }
 
     #region knockback
     public void Knockback(Vector2 direction, float distance, float duration, float stunDuration)
@@ -129,7 +108,6 @@ public class PlayerMovement : MonoBehaviour
         if (IsStunned) return; // Do nothing
 
         // Input
-        Vector2 moveInput = playerInput.MoveInput;
         previousMove = move;
         move = new(moveInput.x, moveInput.y, 0);
         if (IsGrabbed)

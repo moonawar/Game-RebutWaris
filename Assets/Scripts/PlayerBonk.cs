@@ -9,7 +9,7 @@ public class PlayerBonk : MonoBehaviour
     [SerializeField] private float stunDuration = 1.2f;
 
     [Header("Input Settings")]
-    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private GamePlayerInput playerInput;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Collider2D selfCollider;
 
