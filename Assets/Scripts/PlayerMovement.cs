@@ -58,16 +58,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void grab(Vector2 destination)
     {
-        Debug.Log("is grabbed!");
         IsGrabbed = true;
         grabbedPos = destination;
     }
     private void MoveToGrabber(Vector2 destination)
     {
-        Debug.Log("move to grabber!");
-        Debug.Log("grabber: " +  destination.ToString());
-        Debug.Log("grabbed: " + gameObject.transform.position.ToString() + " id: " + playerId.ToString());
-
         Vector2 direction = destination - (Vector2)gameObject.transform.position;
         gameObject.transform.position += grabbedSpeed * Time.deltaTime * (Vector3)direction.normalized;
     }
@@ -133,7 +128,6 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
-        Debug.Log("Move:" + move.ToString());
 
         if (previousMove.magnitude > 0 && move.magnitude == 0) {
             bufferMove = previousMove;

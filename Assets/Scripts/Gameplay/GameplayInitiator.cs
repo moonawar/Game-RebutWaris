@@ -36,7 +36,6 @@ public class GameplayInitiator : MonoBehaviour
     }
 
     public void StartGame(PlayerInput p1, PlayerInput p2) {
-        Debug.Log("Game started");
         p1.SwitchCurrentActionMap("Gameplay");
         p2.SwitchCurrentActionMap("Gameplay");
 
