@@ -651,6 +651,7 @@ GameObject:
   - component: {fileID: 219025246}
   - component: {fileID: 219025248}
   - component: {fileID: 219025247}
+  - component: {fileID: 219025249}
   m_Layer: 5
   m_Name: Press_any_key
   m_TagString: Untagged
@@ -775,6 +776,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219025245}
   m_CullTransparentMesh: 1
+--- !u!114 &219025249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219025245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c008bc2397a9ce640a897ae033dfbaec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceRange:
+    min: 1
+    max: 1.05
+  bounceDuration: 0.4
 --- !u!1 &220618940
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,6 +2610,7 @@ GameObject:
   - component: {fileID: 762915812}
   - component: {fileID: 762915814}
   - component: {fileID: 762915813}
+  - component: {fileID: 762915815}
   m_Layer: 5
   m_Name: Game Starting
   m_TagString: Untagged
@@ -2717,6 +2735,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762915811}
   m_CullTransparentMesh: 1
+--- !u!114 &762915815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762915811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c008bc2397a9ce640a897ae033dfbaec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceRange:
+    min: 1
+    max: 1.05
+  bounceDuration: 0.4
 --- !u!1 &799537184
 GameObject:
   m_ObjectHideFlags: 0
@@ -4593,6 +4627,7 @@ GameObject:
   - component: {fileID: 2129858919}
   - component: {fileID: 2129858921}
   - component: {fileID: 2129858920}
+  - component: {fileID: 2129858922}
   m_Layer: 5
   m_Name: Press_any_key
   m_TagString: Untagged
@@ -4717,3 +4752,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129858918}
   m_CullTransparentMesh: 1
+--- !u!114 &2129858922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129858918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c008bc2397a9ce640a897ae033dfbaec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceRange:
+    min: 1
+    max: 1.05
+  bounceDuration: 0.4
