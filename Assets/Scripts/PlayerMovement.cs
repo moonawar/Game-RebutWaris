@@ -1,8 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System.Collections;
-using System.Diagnostics;
-using Debug = UnityEngine.Debug;
-using System;
 
 public enum PlayerId {
     Player1, Player2, Player3, Player4, None
@@ -113,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrabbed)
         {
 
-            if(Math.Abs(grabbedPos.x - gameObject.transform.position.x) <= 1 && Math.Abs(grabbedPos.y - gameObject.transform.position.y) <= 1)
+            if(Mathf.Abs(grabbedPos.x - gameObject.transform.position.x) <= 1 && Mathf.Abs(grabbedPos.y - gameObject.transform.position.y) <= 1)
             {
                 IsGrabbed = false;
             }

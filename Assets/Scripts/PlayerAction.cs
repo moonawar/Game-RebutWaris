@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
@@ -11,7 +8,7 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] private GameObject throwDirection;
 
     [Header("Input Settings")]
-    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private GamePlayerInput playerInput;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Collider2D selfCollider;
 
