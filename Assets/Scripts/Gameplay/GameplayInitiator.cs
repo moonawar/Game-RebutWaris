@@ -1,18 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-
-[System.Serializable]
-public class InGamePlayerUIRefs {
-    public GameObject fill;
-    public Slider loveMeter;
-    public GameObject heart;
-}
 
 [System.Serializable]
 public class PlayerData {
     public Sprite sprite;
-    public InGamePlayerUIRefs uiRefs;
+    public PlayerRadarUIRefs uiRefs;
 }
 
 public class GameplayInitiator : MonoBehaviour
