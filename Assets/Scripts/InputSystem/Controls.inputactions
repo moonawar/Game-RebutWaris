@@ -165,7 +165,18 @@
                 {
                     "name": "",
                     "id": "d214a2e6-36ba-48e4-a34c-dd82f635c5fd",
-                    "path": "",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b7b2d4f3-37fe-4a7d-ab89-4b0a52a052ae",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

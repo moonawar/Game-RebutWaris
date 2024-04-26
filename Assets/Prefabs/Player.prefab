@@ -44,11 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9069f256926b2654ca8fdd735c983fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonkRadius: 4
-  knockbackDistance: 7
-  knockbackDuration: 0.15
+  radius: 0.8
   stunDuration: 1.2
-  playerInput: {fileID: 11400000, guid: c64b30fcf28bde34abe736481120ba64, type: 2}
   playerMovement: {fileID: 8652144860922909440}
   selfCollider: {fileID: 0}
 --- !u!1 &2513635539657623769
@@ -213,7 +210,6 @@ GameObject:
   - component: {fileID: 7460199878472092201}
   - component: {fileID: 2837753835299683755}
   - component: {fileID: 8652144860922909440}
-  - component: {fileID: 3970601843587144837}
   - component: {fileID: 7787768088860118804}
   - component: {fileID: 2328531826491803853}
   m_Layer: 0
@@ -347,24 +343,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 0
   maxSpeed: 8
+  grabbedSpeed: 5
   timeToAccelerate: 0.3
   timeToDecelerate: 0.2
---- !u!58 &3970601843587144837
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7054710613867731208}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.4754897}
-  serializedVersion: 2
-  m_Radius: 4
 --- !u!114 &7787768088860118804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,20 +358,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ec6e4b837ff5743b428be3956832fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhaseLimits:
-  - 0
-  - 0
-  - 0
-  PhaseIncrease:
-  - 0
-  - 0
-  - 0
   radius: 4
-  input: {fileID: 0}
-  fill: {fileID: 0}
-  loveMeter: {fileID: 0}
-  decreaseRate: 0
-  heart: {fileID: 0}
+  offsetY: 0.7
+  offsetX: 0
+  phases:
+  - limit: 30
+    increase: 10
+  - limit: 70
+    increase: 10
+  - limit: 100
+    increase: 10
+  decreaseRate: 2
+  timeToStartDecreasing: 3
 --- !u!114 &2328531826491803853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,7 +424,19 @@ MonoBehaviour:
     m_ActionId: 8c162c4f-dd37-436b-a3e9-78c1dfe835f9
     m_ActionName: Gameplay/Throw
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7787768088860118804}
+        m_TargetAssemblyTypeName: EmakRadar, Assembly-CSharp
+        m_MethodName: OnMashInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 70be5c38-cfd8-44c9-b4ad-1e7b77e99b05
     m_ActionName: Gameplay/Mash
   - m_PersistentCalls:
