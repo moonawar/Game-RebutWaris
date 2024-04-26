@@ -1,21 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PrincessRadar : MonoBehaviour
+
+public class EmakRadar : MonoBehaviour
 {   
+    [Header("Detection")]
+    [SerializeField] private float radius = 4f;
+
+    [Header("Phase Properties")]
+    [SerializeField] private float[] phaseLimits = new float[3];
+    [SerializeField] private float[] phaseIncrease = new float[3];
+    [SerializeField] private Phase[] phases = new Phase[3];
+    private float increaseRate;
+    [SerializeField] private float decreaseRate;
     private float decreaseTime = 0;
     private float nextPhaseValue;
     private float baseValue = 0;
     private int loveLevel = 0;
-    [SerializeField] private float[] PhaseLimits = new float[3];
-    [SerializeField] private float[] PhaseIncrease = new float[3];
-    [SerializeField] private float radius = 4f;
-    [SerializeField] private GamePlayerInput input;
-    [SerializeField] private GameObject fill;
-    [SerializeField] private Slider loveMeter;
-    private float increaseRate;
-    [SerializeField] private float decreaseRate;
-    [SerializeField] private GameObject heart;
+
+    // UI Components
+    private GamePlayerInput input;
+    private GameObject fill;
+    private Slider loveMeter;
+    private GameObject heart;
 
     public void InitUIs(InGamePlayerUIRefs uiRefs) {
         fill = uiRefs.fill;
@@ -29,8 +36,8 @@ public class PrincessRadar : MonoBehaviour
 
     private void Awake()
     {
-        nextPhaseValue = PhaseLimits[loveLevel];
-        increaseRate = PhaseIncrease[loveLevel];
+        nextPhaseValue = phaseLimits[loveLevel];
+        increaseRate = phaseIncrease[loveLevel];
     }
 
     private bool isPrincessInArea()
@@ -81,8 +88,8 @@ public class PrincessRadar : MonoBehaviour
             {
                 ChangePhase();
                 baseValue = nextPhaseValue;
-                nextPhaseValue = PhaseLimits[loveLevel];
-                increaseRate = PhaseIncrease[loveLevel];
+                nextPhaseValue = phaseLimits[loveLevel];
+                increaseRate = phaseIncrease[loveLevel];
 
             }
         }

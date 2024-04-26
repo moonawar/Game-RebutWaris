@@ -1,18 +1,18 @@
 using UnityEngine;
 
 [System.Serializable]
-public class PrincessRoamProperties
+public class EmakRoamProperties
 {
     public float RoamWalkSpeed;
     public Collider2D RoamArea;
 }
 
-public class PrincessRoam : PrincessState
+public class EmakRoam : EmakState
 {
-    private readonly PrincessRoamProperties props;
+    private readonly EmakRoamProperties props;
     private Vector2 destination;
 
-    public PrincessRoam(PrincessRoamProperties properties)
+    public EmakRoam(EmakRoamProperties properties)
     {
         this.props = properties;
     }
@@ -27,7 +27,7 @@ public class PrincessRoam : PrincessState
         return randomDest;
     }
 
-    public override void OnEnter(PrincessStateMachine princess)
+    public override void OnEnter(EmakStateMachine princess)
     {
         destination = GetRandomDestination();
         float yRot = destination.x > princess.transform.position.x ? 0 : 180;
@@ -35,7 +35,7 @@ public class PrincessRoam : PrincessState
     }
 
 
-    public override void OnUpdate(PrincessStateMachine princess)
+    public override void OnUpdate(EmakStateMachine princess)
     {
         if (Vector2.Distance(princess.transform.position, destination) < 0.1f)
         {
