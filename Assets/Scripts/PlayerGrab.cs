@@ -9,6 +9,7 @@ public class PlayerGrab : MonoBehaviour
     [SerializeField] private float radius = 4;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Collider2D selfCollider;
+    [SerializeField] private Transform arrow;
 
     public void OnGrab(InputAction.CallbackContext context)
     {
@@ -25,8 +26,11 @@ public class PlayerGrab : MonoBehaviour
                 if (collider.TryGetComponent(out PlayerMovement player))
                 {
                     player.grab(gameObject.transform.position);
+                    arrow.gameObject.SetActive(true);
+                    playerMovement.grabMode = true;
                 }
             }
+
         }
 
         if(context.canceled)
@@ -44,6 +48,7 @@ public class PlayerGrab : MonoBehaviour
                     //while (context.performed) 
                     //{
                     player.ungrab();
+                    arrow.gameObject.SetActive(false);
                     //}
                 }
             }

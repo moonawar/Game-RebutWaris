@@ -13,10 +13,12 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public PlayerId playerId;
     public bool IsStunned { get; private set; } = false;
     public bool IsGrabbed { get; set; } = false;
+    public bool grabMode { get; set; } = false;
     private Vector2 grabbedPos = Vector2.zero;
 
     /* Inspector fields */
     [Header("Player Settings")]
+    [SerializeField] private Transform arrow;
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private float grabbedSpeed = 5f;
     public float CurrentSpeed { get; private set; } = 0;
@@ -112,34 +114,52 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("I have been stunned!");
             return;
         }
+
+        
         // Input
         previousMove = move;
         move = new(moveInput.x, moveInput.y, 0);
-        //if (IsGrabbed)
-        //{
+        
+        if (grabMode)
+        {
+            print("The dir");
+            print("x:" + move.x);
+            print("y: " + move.y);
+            //print("Masuk");
+            int xDir = 0;
+            int yDir = 0;
+            
 
-        //    if (Mathf.Abs(grabbedPos.x - gameObject.transform.position.x) <= 1 && Mathf.Abs(grabbedPos.y - gameObject.transform.position.y) <= 1)
-        //    {
-        //        IsGrabbed = false;
-        //    }
+            if (move.y == 1)
+            {
+                yDir = 90;
+                if(move.x != 0)
+                {
+                    //print("bareng");
 
-        //    float x = 1;
-        //    float y = 1;
-        //    if (grabbedPos.x <= gameObject.transform.position.x)
-        //    {
-        //        x *= -1;
-        //    }
+                    yDir = 45;
+                }
+            }
+            else if (move.y == -1)
+            {
+                yDir = -90;
+                if (move.x != 0)
+                {
+                    //print("bareng");
+                    yDir = -45;
+                }
+            }
 
-        //    if (grabbedPos.y <= gameObject.transform.position.y)
-        //    {
-        //        y *= -1;
-        //    }
-
-        //    //move = new(x, y, 0);
-        //    move = new(grabbedPos.x - gameObject.transform.position.x, grabbedPos.y - gameObject.transform.position.y, 0);
+            if (move.x == -1)
+            {
+                xDir = 180;
+                yDir *= -1;
+            }
 
 
-        //}
+            arrow.rotation = Quaternion.Euler(0f, 0f, xDir+yDir);
+            return;
+        }
 
         if (previousMove.magnitude > 0 && move.magnitude == 0)
         {
@@ -159,6 +179,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (IsStunned) return; // Do nothing
+        if (grabMode) return;
 
         bool shouldDecelerate = move.magnitude == 0;
 
