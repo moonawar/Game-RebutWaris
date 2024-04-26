@@ -23,7 +23,7 @@ public class GameplayInitiator : MonoBehaviour
     [SerializeField] private GameObject gameplayUI;
 
     public void OnPlayerJoined(GameObject playerObj, int playerIndex)  {
-        PrincessRadar radar = playerObj.GetComponent<PrincessRadar>();
+        EmakRadar radar = playerObj.GetComponent<EmakRadar>();
         SpriteRenderer spriteRenderer = playerObj.GetComponent<SpriteRenderer>();
 
         if (playerIndex == 0) {

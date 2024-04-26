@@ -2,26 +2,26 @@ using System.Collections;
 using UnityEngine;
 
 [System.Serializable]
-public class PrincessIdleProperties
+public class EmakIdleProperties
 {
     public Range IdleDuration;
 }
 
-public class PrincessIdle : PrincessState
+public class EmakIdle : EmakState
 {
-    private readonly PrincessIdleProperties properties;
+    private readonly EmakIdleProperties properties;
 
-    public PrincessIdle(PrincessIdleProperties properties)
+    public EmakIdle(EmakIdleProperties properties)
     {
         this.properties = properties;
     }
 
-    public override void OnEnter(PrincessStateMachine princess)
+    public override void OnEnter(EmakStateMachine princess)
     {
         princess.StartCoroutine(Idle(princess));
     }
 
-    private IEnumerator Idle(PrincessStateMachine princess)
+    private IEnumerator Idle(EmakStateMachine princess)
     {
         yield return new WaitForSeconds(properties.IdleDuration.RandomValue());
         princess.ChangeState(princess.RoamState);
