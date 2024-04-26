@@ -143,10 +143,10 @@
                 {
                     "name": "",
                     "id": "69e91e7f-adda-44f7-9ed1-65ca16e692e7",
-                    "path": "",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard+Mouse",
                     "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -1,39 +1,33 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerBonk : MonoBehaviour
 {
     [Header("Bonk Settings")]
-    [SerializeField] private float bonkRadius = 0.8f;
-    [SerializeField] private float knockbackDistance = 5f;
-    [SerializeField] private float knockbackDuration = 0.2f;
+    [SerializeField] private float radius = 0.8f;
     [SerializeField] private float stunDuration = 1.2f;
-
-    [Header("Input Settings")]
-    [SerializeField] private GamePlayerInput playerInput;
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] public PlayerMovement playerMovement;
     [SerializeField] private Collider2D selfCollider;
 
-    // For debug purposes only
-    // private void OnDrawGizmos() {
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawWireSphere(transform.position, bonkRadius);
-    // }
+    private bool flag = false;
 
-    private void TryBonk() {
-        if (playerMovement.IsStunned) return;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, bonkRadius);
-        foreach (Collider2D collider in colliders) {
-            if (collider == selfCollider) continue;
-            if (collider.TryGetComponent(out PlayerMovement player)) {
-                Vector2 knockbackDirection = (player.transform.position - selfCollider.transform.position).normalized;
-                player.Knockback(knockbackDirection, knockbackDistance, knockbackDuration, stunDuration);
-            }
+    public void OnBonk(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            print("ITS BEING PERFORMED");
         }
-    }
+        if (playerMovement.IsStunned) return;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider == selfCollider) continue;
 
-    private void Update() {
-        if (playerInput.BonkInput) {
-            TryBonk();
+
+            if (collider.TryGetComponent(out PlayerMovement player))
+            {
+                player.stun(stunDuration);
+            }
         }
     }
 }
