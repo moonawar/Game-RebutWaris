@@ -31,4 +31,9 @@ public class FlowManager : MonoBehaviour
     {
         LoadScene("MainMenu");
     }
+
+    public void RestartGame()
+    {
+        LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

@@ -29,6 +29,8 @@ public class EmakRadar : MonoBehaviour
 
     private int loveLevel = 0;
 
+    private int playerIdx;
+
     // UI Components
     private GameObject fill;
     private Slider loveMeter;
@@ -48,6 +50,8 @@ public class EmakRadar : MonoBehaviour
     {
         nextPhaseValue = phases[loveLevel].limit;
         increaseRate = phases[loveLevel].increase;
+
+        playerIdx = GetComponent<PlayerInput>().playerIndex;
     }
 
     public void OnMashInput(InputAction.CallbackContext context) {
@@ -89,7 +93,7 @@ public class EmakRadar : MonoBehaviour
 
         if (Time.time - lastTimePrincessInArea >= timeToStartDecreasing && loveMeter.value >= baseValue)
         {
-            loveMeter.value -= decreaseRate;
+            loveMeter.value -= decreaseRate * Time.deltaTime;
         }
 
         if (loveMeter.value == 0) { fill.SetActive(false); }
@@ -100,7 +104,8 @@ public class EmakRadar : MonoBehaviour
         loveLevel++;
 
         if (loveLevel >= 3) {
-            // End the game
+            GameplayManager.Instance.EndTheGame(playerIdx);
+            return;
         }
         baseValue = nextPhaseValue;
         nextPhaseValue = phases[loveLevel].limit;

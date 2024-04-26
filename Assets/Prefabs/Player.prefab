@@ -44,11 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9069f256926b2654ca8fdd735c983fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonkRadius: 4
-  knockbackDistance: 7
-  knockbackDuration: 0.15
+  radius: 0.8
   stunDuration: 1.2
-  playerInput: {fileID: 11400000, guid: c64b30fcf28bde34abe736481120ba64, type: 2}
   playerMovement: {fileID: 8652144860922909440}
   selfCollider: {fileID: 0}
 --- !u!1 &2513635539657623769
@@ -366,12 +363,12 @@ MonoBehaviour:
   offsetX: 0
   phases:
   - limit: 30
-    increase: 1
+    increase: 10
   - limit: 70
-    increase: 1
+    increase: 10
   - limit: 100
-    increase: 1
-  decreaseRate: 0.5
+    increase: 10
+  decreaseRate: 2
   timeToStartDecreasing: 3
 --- !u!114 &2328531826491803853
 MonoBehaviour:
