@@ -32,18 +32,20 @@ public class EmakRadar : MonoBehaviour
     private int playerIdx;
 
     // UI Components
-    private GameObject fill;
-    private Slider loveMeter;
-    private GameObject heart;
+    [SerializeField]private GameObject fill;
+    [SerializeField] private Slider loveMeter;
+    [SerializeField] private GameObject heart;
 
     public void InitUIs(PlayerRadarUIRefs uiRefs) {
         fill = uiRefs.fill;
         loveMeter = uiRefs.loveMeter;
         heart = uiRefs.heart;
 
+        print(heart.name);
+
         fill.GetComponent<Image>().color = Color.green;
         fill.SetActive(false);
-        heart.GetComponent<Image>().color = Color.white;
+        heart.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     private void Awake()

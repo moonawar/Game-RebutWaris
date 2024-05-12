@@ -20,13 +20,14 @@ public class PlayerGrab : MonoBehaviour
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
             foreach (Collider2D collider in colliders)
             {
-                if (collider == selfCollider) continue;
+                //if (collider == selfCollider) continue;
 
 
-                if (collider.TryGetComponent(out PlayerMovement player))
+                if (collider != selfCollider && collider.TryGetComponent(out PlayerMovement player))
                 {
                     player.grab(gameObject.transform.position);
                     arrow.gameObject.SetActive(true);
+                    //arrow.RotateAround(transform.position, Vector3.forward, 30f);
                     playerMovement.grabMode = true;
                 }
             }
@@ -47,7 +48,20 @@ public class PlayerGrab : MonoBehaviour
                 {
                     //while (context.performed) 
                     //{
-                    player.ungrab();
+                    playerMovement.grabMode = false;
+                    //player.ungrab(arrow.transform.position.x, arrow.transform.position.y);
+                    arrow.RotateAround(transform.position, Vector3.forward, 0f);
+                    if(Mathf.Abs(transform.rotation.eulerAngles.y) == 180)
+                    {
+                        player.ungrab(arrow.transform.rotation.eulerAngles.z, -1);
+
+                    }
+                    else
+                    {
+                        player.ungrab(arrow.transform.rotation.eulerAngles.z, 1);
+
+                    }
+
                     arrow.gameObject.SetActive(false);
                     //}
                 }

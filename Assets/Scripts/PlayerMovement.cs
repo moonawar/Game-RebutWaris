@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
     private float acceleration;
     [SerializeField] private float timeToDecelerate = 0.12f;
     private float deceleration;
+    private bool isRotating = false;
+    private bool isThrown = false;
+    private Vector3 thrownAngle;
 
 
     /* Private fields */
@@ -61,17 +64,43 @@ public class PlayerMovement : MonoBehaviour
 
     public void grab(Vector2 destination)
     {
+        print(gameObject.name + "is grabbed!");
         IsGrabbed = true;
         IsStunned = true;
-        gameObject.transform.position = destination;
-        //grabbedPos = destination;
+
+        if(Mathf.Abs(transform.eulerAngles.y) != 180)
+        {
+            gameObject.transform.position = destination + new Vector2(-2, 3.5f);
+        }
+        else
+        {
+            gameObject.transform.position = destination + new Vector2(2, 3.5f);
+        }
+        gameObject.transform.eulerAngles += new Vector3(0, 0, -90);
     }
-    public void ungrab()
+    public void ungrab(float theta, int flip)
     {
         IsGrabbed = false;
+        isThrown = true;
+
+        if (Mathf.Abs(transform.eulerAngles.y) != 180)
+        {
+            gameObject.transform.position += new Vector3(2, -3.5f);
+
+        }
+        else
+        {
+            gameObject.transform.position += new Vector3(-2, -3.5f);
+        }
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         IsStunned = false;
-        //grabbedPos = destination;
+        thrownAngle = new Vector3(Mathf.Cos(theta * Mathf.Deg2Rad), Mathf.Sin(theta * Mathf.Deg2Rad), 0);
+        thrownAngle.x *= flip;
+
+        print("is thrown in x:" + thrownAngle.x + " y: " + thrownAngle.y);
+        CurrentSpeed = 50;
     }
+
     private void MoveToGrabber(Vector2 destination)
     {
         Vector2 direction = destination - (Vector2)gameObject.transform.position;
@@ -111,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (IsStunned)
         {
-            Debug.Log("I have been stunned!");
+            Debug.Log(gameObject.name + "have been stunned!");
             return;
         }
 
@@ -119,45 +148,65 @@ public class PlayerMovement : MonoBehaviour
         // Input
         previousMove = move;
         move = new(moveInput.x, moveInput.y, 0);
+        //print("X: " + move.x + "Y: " + move.y);
         
         if (grabMode)
         {
-            print("The dir");
-            print("x:" + move.x);
-            print("y: " + move.y);
-            //print("Masuk");
-            int xDir = 0;
-            int yDir = 0;
-            
+            //int dir = 0;
 
-            if (move.y == 1)
-            {
-                yDir = 90;
-                if(move.x != 0)
-                {
-                    //print("bareng");
+            //if (move.y > 0)
+            //{
+            //    dir = 90;
 
-                    yDir = 45;
-                }
-            }
-            else if (move.y == -1)
-            {
-                yDir = -90;
-                if (move.x != 0)
-                {
-                    //print("bareng");
-                    yDir = -45;
-                }
-            }
-
-            if (move.x == -1)
-            {
-                xDir = 180;
-                yDir *= -1;
-            }
+            //    print("up");
 
 
-            arrow.rotation = Quaternion.Euler(0f, 0f, xDir+yDir);
+            //    if (move.x > 0)
+            //    {
+            //        print("up right");
+            //        dir -= 45;
+            //    }
+            //    else if (move.x < 0)
+            //    {
+            //        print("up left");
+
+            //        dir += 45;
+            //    }
+            //}
+            //else if (move.y < 0)
+            //{
+            //    print("down");
+            //    dir = 270;
+            //    if (move.x > 0)
+            //    {
+            //        print("down right");
+
+            //        dir += 45;
+            //    }
+            //    else if (move.x < 0)
+            //    {
+            //        print("down left");
+
+            //        dir -= 45;
+            //    }
+            //}
+            //else
+            //{
+            //    if (move.x > 0)
+            //    {
+            //        print("right");
+
+            //        dir += 0;
+            //    }
+            //    else if (move.x < 0)
+            //    {
+            //        print("left");
+
+            //        dir += 180;
+            //    }
+            //}
+
+            arrow.RotateAround(transform.Find("pivot").position, Vector3.forward, 2f);
             return;
         }
 
@@ -176,6 +225,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        CurrentSpeed = 0;
+    }
+
     private void FixedUpdate()
     {
         if (IsStunned) return; // Do nothing
@@ -183,19 +237,35 @@ public class PlayerMovement : MonoBehaviour
 
         bool shouldDecelerate = move.magnitude == 0;
 
-        if (shouldDecelerate)
+        if (shouldDecelerate && CurrentSpeed >=0)
         {
             CurrentSpeed -= deceleration * Time.fixedDeltaTime;
         }
         else
         {
             CurrentSpeed += acceleration * Time.fixedDeltaTime;
+            //print("Current speed:" + CurrentSpeed);
+
         }
 
-        CurrentSpeed = Mathf.Clamp(CurrentSpeed, 0, maxSpeed);
 
-        // If the input is 0, use the buffer to maintain the last movement until current speed is 0
-        Vector3 appliedMove = shouldDecelerate ? bufferMove : move;
-        transform.position += CurrentSpeed * Time.fixedDeltaTime * appliedMove;
+        if (isThrown)
+        {
+            transform.position += CurrentSpeed * Time.fixedDeltaTime * thrownAngle;
+        }
+        else
+        {
+            CurrentSpeed = Mathf.Clamp(CurrentSpeed, 0, maxSpeed);
+            // If the input is 0, use the buffer to maintain the last movement until current speed is 0
+            Vector3 appliedMove = shouldDecelerate ? bufferMove : move;
+            transform.position += CurrentSpeed * Time.fixedDeltaTime * appliedMove;
+        }
+
+        if(isThrown && CurrentSpeed <= 0)
+        {
+            isThrown = false;
+        }
+
+        
     }
 }
