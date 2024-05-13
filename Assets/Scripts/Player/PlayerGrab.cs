@@ -27,7 +27,6 @@ public class PlayerGrab : MonoBehaviour
                 {
                     player.grab(gameObject.transform.position);
                     arrow.gameObject.SetActive(true);
-                    //arrow.RotateAround(transform.position, Vector3.forward, 30f);
                     playerMovement.grabMode = true;
                 }
             }

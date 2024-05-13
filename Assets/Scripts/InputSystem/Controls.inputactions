@@ -120,6 +120,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f4ea5f95-2316-4b8f-a823-275cb727263b",
+                    "path": "<Joystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "53603537-5e84-489c-a010-a1f717089662",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -142,11 +153,33 @@
                 },
                 {
                     "name": "",
+                    "id": "48e28431-4f67-4029-a0df-c3052f2459f0",
+                    "path": "<HID::Logitech Logitech Dual Action>/button2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Bonk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "69e91e7f-adda-44f7-9ed1-65ca16e692e7",
                     "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard+Mouse",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6bc4b95-e93a-4034-98f0-3fa0e295d4ed",
+                    "path": "<HID::Logitech Logitech Dual Action>/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
                     "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -180,6 +213,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "Mash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a9f06d1a-5db3-4ade-bad4-b39c97208ecb",
+                    "path": "<Joystick>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
                     "action": "Mash",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -243,6 +287,17 @@
                 },
                 {
                     "name": "",
+                    "id": "ac7ac982-566a-4cb7-827f-07d83f97ec4e",
+                    "path": "<HID::Logitech Logitech Dual Action>/button10",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Ready",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ecc084ec-bfbb-4bd4-afc7-2b64231d517a",
                     "path": "<Keyboard>/q",
                     "interactions": "",
@@ -259,6 +314,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "Unready",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "088caaea-80f9-4d5d-b8d3-8f603c40cd89",
+                    "path": "<HID::Logitech Logitech Dual Action>/button9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
                     "action": "Unready",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -328,6 +394,17 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "7306d6cb-b9bd-4463-bcf3-92eae8fc11e5",
+                    "path": "<Joystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -356,6 +433,22 @@
                 {
                     "devicePath": "<Gamepad>",
                     "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Joystick",
+            "bindingGroup": "Joystick",
+            "devices": [
+                {
+                    "devicePath": "<Joystick>",
+                    "isOptional": true,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<HID::Logitech Logitech Dual Action>",
+                    "isOptional": true,
                     "isOR": false
                 }
             ]
