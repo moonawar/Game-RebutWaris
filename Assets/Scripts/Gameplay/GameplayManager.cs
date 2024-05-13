@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -18,6 +19,8 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameObject endOfGameScreen;
 
     public static GameplayManager Instance { get; private set; }
+
+    [HideInInspector] public List<GameObject> Players;
 
     private void Awake() {
         if (Instance != null && Instance != this) {

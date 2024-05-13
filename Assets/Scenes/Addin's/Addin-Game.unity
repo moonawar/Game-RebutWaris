@@ -3930,6 +3930,7 @@ MonoBehaviour:
     endGame:
       winningScreen: {fileID: 287264443}
   endOfGameScreen: {fileID: 593197362}
+  Players: []
 --- !u!1 &1377370349
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,9 +21,11 @@ public class GameplayInitiator : MonoBehaviour
         if (playerIndex == 0) {
             radar.InitUIs(dataPlayer1.uiRefs);
             spriteRenderer.sprite = dataPlayer1.sprite;
+            GameplayManager.Instance.Players.Add(playerObj);
         } else if (playerIndex == 1) {
             radar.InitUIs(dataPlayer2.uiRefs);
             spriteRenderer.sprite = dataPlayer2.sprite;
+            GameplayManager.Instance.Players.Add(playerObj);
         }
     }
 

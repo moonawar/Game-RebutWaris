@@ -1,46 +1,45 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum PlayerId
-{
-    Player1, Player2, Player3, Player4, None
-}
-
 public class PlayerMovement : MonoBehaviour
 {
-    /* Public fields */
-    [HideInInspector] public PlayerId playerId;
+    #region restriction states
     public bool IsStunned { get; private set; } = false;
     public bool IsGrabbed { get; set; } = false;
-    public bool grabMode { get; set; } = false;
-    private Vector2 grabbedPos = Vector2.zero;
+    public bool GrabMode { get; set; } = false;
+    [SerializeField] private float grabbedSpeed = 5f;
+    private bool isThrown = false;
+    private Vector3 thrownAngle;
+    #endregion
 
+    #region movement
     /* Inspector fields */
     [Header("Player Settings")]
     [SerializeField] private Transform arrow;
     [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] private float grabbedSpeed = 5f;
     public float CurrentSpeed { get; private set; } = 0;
     [SerializeField] private float timeToAccelerate = 0.2f;
     private float acceleration;
     [SerializeField] private float timeToDecelerate = 0.12f;
     private float deceleration;
-    private bool isRotating = false;
-    private bool isThrown = false;
-    private Vector3 thrownAngle;
-
 
     /* Private fields */
-    private const int LEFT = -1;
-    private const int RIGHT = 1;
-    private int lookDirection;
+    public static int LEFT = -1;
+    public static int RIGHT = 1;
+    public int lookDirection;
     private Vector3 move; // Store the move on the current frame
     private Vector3 previousMove; // Store the move on the previous frame
     private Vector3 bufferMove; // Store the last move before the input went to 0
 
     /* Inputs */
     private Vector2 moveInput;
+
+    /* Movement Transformer */
+    public delegate Vector3 MovementTransformer(Vector3 move);
+    public List<MovementTransformer> transformers;
+    #endregion
 
     private void Awake()
     {
@@ -50,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #region stun
-    public void stun(float stunDuration)
+    public void Stun(float stunDuration)
     {
         StartCoroutine(StunRoutine(stunDuration));
     }
@@ -61,8 +60,10 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(stunDuration);
         IsStunned = false;
     }
+    #endregion
 
-    public void grab(Vector2 destination)
+    #region grab
+    public void Grab(Vector2 destination)
     {
         print(gameObject.name + "is grabbed!");
         IsGrabbed = true;
@@ -78,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         }
         gameObject.transform.eulerAngles += new Vector3(0, 0, -90);
     }
-    public void ungrab(float theta, int flip)
+    public void Ungrab(float theta, int flip)
     {
         IsGrabbed = false;
         isThrown = true;
@@ -100,19 +101,7 @@ public class PlayerMovement : MonoBehaviour
         print("is thrown in x:" + thrownAngle.x + " y: " + thrownAngle.y);
         CurrentSpeed = 50;
     }
-
-    private void MoveToGrabber(Vector2 destination)
-    {
-        Vector2 direction = destination - (Vector2)gameObject.transform.position;
-        gameObject.transform.position += grabbedSpeed * Time.deltaTime * (Vector3)direction.normalized;
-    }
-
     #endregion
-
-    public void OnMovement(InputAction.CallbackContext context)
-    {
-        moveInput = context.ReadValue<Vector2>();
-    }
 
     #region knockback
     public void Knockback(Vector2 direction, float distance, float duration, float stunDuration)
@@ -135,22 +124,26 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
+    #region input
+    public void OnMovement(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+    }
+    #endregion
+
     void Update()
     {
-
         if (IsStunned)
         {
-            Debug.Log(gameObject.name + "have been stunned!");
+            // Can't do any movement
             return;
         }
-
         
         // Input
         previousMove = move;
         move = new(moveInput.x, moveInput.y, 0);
-        //print("X: " + move.x + "Y: " + move.y);
         
-        if (grabMode)
+        if (GrabMode)
         {
             //int dir = 0;
 
@@ -233,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (IsStunned) return; // Do nothing
-        if (grabMode) return;
+        if (GrabMode) return;
 
         bool shouldDecelerate = move.magnitude == 0;
 
@@ -244,10 +237,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             CurrentSpeed += acceleration * Time.fixedDeltaTime;
-            //print("Current speed:" + CurrentSpeed);
-
         }
-
 
         if (isThrown)
         {
@@ -256,12 +246,14 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             CurrentSpeed = Mathf.Clamp(CurrentSpeed, 0, maxSpeed);
+
             // If the input is 0, use the buffer to maintain the last movement until current speed is 0
-            Vector3 appliedMove = shouldDecelerate ? bufferMove : move;
-            transform.position += CurrentSpeed * Time.fixedDeltaTime * appliedMove;
+            Vector3 appliedMove = (shouldDecelerate ? bufferMove : move) * CurrentSpeed;
+
+            transform.position += Time.fixedDeltaTime * appliedMove;
         }
 
-        if(isThrown && CurrentSpeed <= 0)
+        if (isThrown && CurrentSpeed <= 0)
         {
             isThrown = false;
         }
