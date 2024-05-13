@@ -145,61 +145,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (GrabMode)
         {
-            //int dir = 0;
-
-            //if (move.y > 0)
-            //{
-            //    dir = 90;
-
-            //    print("up");
-
-
-            //    if (move.x > 0)
-            //    {
-            //        print("up right");
-            //        dir -= 45;
-            //    }
-            //    else if (move.x < 0)
-            //    {
-            //        print("up left");
-
-            //        dir += 45;
-            //    }
-            //}
-            //else if (move.y < 0)
-            //{
-            //    print("down");
-            //    dir = 270;
-            //    if (move.x > 0)
-            //    {
-            //        print("down right");
-
-            //        dir += 45;
-            //    }
-            //    else if (move.x < 0)
-            //    {
-            //        print("down left");
-
-            //        dir -= 45;
-            //    }
-            //}
-            //else
-            //{
-            //    if (move.x > 0)
-            //    {
-            //        print("right");
-
-            //        dir += 0;
-            //    }
-            //    else if (move.x < 0)
-            //    {
-            //        print("left");
-
-            //        dir += 180;
-            //    }
-            //}
-
-            arrow.RotateAround(transform.Find("pivot").position, Vector3.forward, 2f);
+            arrow.RotateAround(transform.position, Vector3.forward, 1f);
             return;
         }
 
@@ -220,6 +166,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        print("hit");
         CurrentSpeed = 0;
     }
 
