@@ -11,61 +11,50 @@ public class PlayerRadarUIRefs {
 
 public class EmakRadar : MonoBehaviour
 {   
-    [Header("Detection")]
-    [SerializeField] private float radius = 4f;
-    [SerializeField] private float offsetY = 0.0f;
-    [SerializeField] private float offsetX = 0.0f;
+    private PhaseManager _phaseM;
 
-    [Header("Phase Properties")]
-    [SerializeField] private Phase[] phases = new Phase[3];
-    [SerializeField] private float decreaseRate = 0.5f;
-    [SerializeField] private float timeToStartDecreasing = 3f;
-
+    public int PlayerIdx => GetComponent<PlayerInput>().playerIndex;
+    
     // Private properties
-    private float increaseRate;
-    private float baseValue = 0;
-    private float nextPhaseValue;
-    private float lastTimePrincessInArea = 0;
+    private float _increaseRate;
+    private float _baseValue = 0;
+    private float _nextPhaseValue;
+    private float _lastTimePrincessInArea = 0;
 
-    private int loveLevel = 0;
-
-    private int playerIdx;
+    private int _loveLevel = 0;
 
     // UI Components
-    [SerializeField]private GameObject fill;
-    [SerializeField] private Slider loveMeter;
-    [SerializeField] private GameObject heart;
+    [SerializeField] private GameObject _fill;
+    [SerializeField] private Slider _loveMeter;
+    [SerializeField] private GameObject _heart;
 
     public void InitUIs(PlayerRadarUIRefs uiRefs) {
-        fill = uiRefs.fill;
-        loveMeter = uiRefs.loveMeter;
-        heart = uiRefs.heart;
+        _fill = uiRefs.fill;
+        _loveMeter = uiRefs.loveMeter;
+        _heart = uiRefs.heart;
 
-        print(heart.name);
-
-        fill.GetComponent<Image>().color = Color.green;
-        fill.SetActive(false);
-        heart.GetComponent<SpriteRenderer>().color = Color.white;
+        _fill.GetComponent<Image>().color = Color.green;
+        _fill.SetActive(false);
+        _heart.GetComponent<Image>().color = Color.white;
     }
 
-    private void Awake()
-    {
-        nextPhaseValue = phases[loveLevel].limit;
-        increaseRate = phases[loveLevel].increase;
+    private void Start() {
+        _phaseM = PhaseManager.Instance;
 
-        playerIdx = GetComponent<PlayerInput>().playerIndex;
+        _nextPhaseValue = _phaseM.GamePhases[_loveLevel].limit;
+        _increaseRate = _phaseM.GamePhases[_loveLevel].increase;
     }
 
     public void OnMashInput(InputAction.CallbackContext context) {
-        if (!context.canceled) return;
-        if (loveLevel >= 3) return;
+        if (!context.canceled) return; // We will only register on button pressed, not on releaserd
+        if (_loveLevel >= 3) return;   // Max Level, avoid crashing at all cost
         if (IsPrincessInArea())
         {
-            fill.SetActive(true);
-            loveMeter.value += increaseRate;
+            _loveMeter.value += _increaseRate;
+            _fill.SetActive(true);
         }
 
-        if (loveMeter.value >= nextPhaseValue)
+        if (_loveMeter.value >= _nextPhaseValue)
         {
             ChangePhase();
         }
@@ -74,74 +63,76 @@ public class EmakRadar : MonoBehaviour
     private bool IsPrincessInArea()
     {
         Vector3 center = transform.position;
-        center.x += offsetX;
-        center.y += offsetY;
+        center.x += _phaseM.DetectOffsetX;
+        center.y += _phaseM.DetectOffsetY;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(center, radius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(center, _phaseM.DetectRadius);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Emak")) return true;
+            if (collider.CompareTag("Emak")) return true; // Emak is here
         }
         return false;
     }
 
     void Update()
     {
-        if (loveLevel >= 3) return;
+        if (_loveLevel >= 3) return;
 
         if (IsPrincessInArea()) {
-            lastTimePrincessInArea = Time.time;
+            _lastTimePrincessInArea = Time.time;
         }
 
-        if (Time.time - lastTimePrincessInArea >= timeToStartDecreasing && loveMeter.value >= baseValue)
+        // If princess out of area long enough, and the love value is not at its lowest
+        if (Time.time - _lastTimePrincessInArea >= _phaseM.TimeToStartDecreasing && _loveMeter.value >= _baseValue)
         {
-            loveMeter.value -= decreaseRate * Time.deltaTime;
+            _loveMeter.value -= _phaseM.DecreaseRate * Time.deltaTime;
         }
 
-        if (loveMeter.value == 0) { fill.SetActive(false); }
+        if (_loveMeter.value == 0) { _fill.SetActive(false); }
     }
 
     void ChangePhase()
     {
-        loveLevel++;
+        _loveLevel++;
 
-        if (loveLevel >= 3) {
-            GameplayManager.Instance.EndTheGame(playerIdx);
+        if (_loveLevel >= 3) {
             return;
         }
-        baseValue = nextPhaseValue;
-        nextPhaseValue = phases[loveLevel].limit;
-        increaseRate = phases[loveLevel].increase;
+        _baseValue = _nextPhaseValue;
+        _nextPhaseValue = _phaseM.GamePhases[_loveLevel].limit;
+        _increaseRate = _phaseM.GamePhases[_loveLevel].increase;
+
+        _phaseM.OnPlayerAdvancePhase(PlayerIdx, _loveLevel);
 
         UpdateUI();
     }
 
     private void UpdateUI() {
-        if (loveLevel == 1)
+        if (_loveLevel == 1)
         {
-            heart.SetActive(true);
-            heart.GetComponent<Image>().color = Color.green;
-            fill.GetComponent<Image>().color = Color.red;
+            _heart.SetActive(true);
+            _heart.GetComponent<Image>().color = Color.green;
+            _fill.GetComponent<Image>().color = Color.red;
         }
-        else if (loveLevel == 2)
+        else if (_loveLevel == 2)
         {
-            heart.SetActive(true);
-            heart.GetComponent<Image>().color = Color.red;
-            fill.GetComponent<Image>().color = new Color32(224, 55, 204, 255);
+            _heart.SetActive(true);
+            _heart.GetComponent<Image>().color = Color.red;
+            _fill.GetComponent<Image>().color = new Color32(224, 55, 204, 255);
         }
         else // Level 3
         {
-            heart.SetActive(true);
-            heart.GetComponent<Image>().color = new Color32(224, 55, 204, 255);
+            _heart.SetActive(true);
+            _heart.GetComponent<Image>().color = new Color32(224, 55, 204, 255);
         }
     }
 
     private void OnDrawGizmosSelected() {
         Vector3 center = transform.position;
-        center.x += offsetX;
-        center.y += offsetY;
+        center.x += _phaseM.DetectOffsetX;
+        center.y += _phaseM.DetectOffsetY;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(center, radius);
+        Gizmos.DrawWireSphere(center, _phaseM.DetectRadius);
     }
 }
