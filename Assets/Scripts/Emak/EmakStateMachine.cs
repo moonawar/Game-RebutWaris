@@ -7,6 +7,8 @@ public class EmakStateMachine : MonoBehaviour
     public EmakIdle IdleState { get; private set; }
     [SerializeField] private EmakRoamProperties roamProperties;
     public EmakRoam RoamState { get; private set; }
+    [SerializeField] private EmakCharmedProperties charmedProperties;
+    public EmakCharmed CharmedState { get; private set; }
     #endregion
 
     public EmakState CurrentState { get; private set; }
@@ -18,6 +20,7 @@ public class EmakStateMachine : MonoBehaviour
     {
         IdleState = new EmakIdle(idleProperties);
         RoamState = new EmakRoam(roamProperties);
+        CharmedState = new EmakCharmed(charmedProperties, null);
         startingState = IdleState;
     }
 

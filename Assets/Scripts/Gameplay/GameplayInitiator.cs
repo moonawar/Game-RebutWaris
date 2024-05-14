@@ -16,12 +16,15 @@ public class GameplayInitiator : MonoBehaviour
 
     public void OnPlayerJoined(GameObject playerObj, int playerIndex)  {
         EmakRadar radar = playerObj.GetComponent<EmakRadar>();
+        PlayerMovement movement = playerObj.GetComponent<PlayerMovement>();
         SpriteRenderer spriteRenderer = playerObj.GetComponent<SpriteRenderer>();
 
         if (playerIndex == 0) {
+            movement.playerId = PlayerId.Player1;
             radar.InitUIs(dataPlayer1.uiRefs);
             spriteRenderer.sprite = dataPlayer1.sprite;
         } else if (playerIndex == 1) {
+            movement.playerId = PlayerId.Player2;
             radar.InitUIs(dataPlayer2.uiRefs);
             spriteRenderer.sprite = dataPlayer2.sprite;
         }

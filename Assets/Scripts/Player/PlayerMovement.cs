@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 {
     /* Public fields */
     [HideInInspector] public PlayerId playerId;
+
+    public bool isImmune { get; set; } = false;
     public bool IsStunned { get; private set; } = false;
     public bool IsGrabbed { get; set; } = false;
     public bool grabMode { get; set; } = false;
@@ -52,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     #region stun
     public void stun(float stunDuration)
     {
+        if (isImmune) return;
         StartCoroutine(StunRoutine(stunDuration));
     }
 

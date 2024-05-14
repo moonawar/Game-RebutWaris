@@ -33,18 +33,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Throw",
+                    "name": "Mash",
                     "type": "Button",
-                    "id": "8c162c4f-dd37-436b-a3e9-78c1dfe835f9",
+                    "id": "70be5c38-cfd8-44c9-b4ad-1e7b77e99b05",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Mash",
+                    "name": "Use Power Up",
                     "type": "Button",
-                    "id": "70be5c38-cfd8-44c9-b4ad-1e7b77e99b05",
+                    "id": "7f810c9a-63bc-4656-95fc-4466d8841aad",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -186,17 +186,6 @@
                 },
                 {
                     "name": "",
-                    "id": "1221b754-2791-4c44-bef8-1e27c004d71c",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Throw",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "d214a2e6-36ba-48e4-a34c-dd82f635c5fd",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
@@ -225,6 +214,28 @@
                     "processors": "",
                     "groups": "Joystick",
                     "action": "Mash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a00ec4b-6655-4663-8d4b-2f0452b579e1",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Use Power Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc809682-e9c4-490f-8b8b-9d92dc969171",
+                    "path": "<HID::Logitech Logitech Dual Action>/button4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use Power Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

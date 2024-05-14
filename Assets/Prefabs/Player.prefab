@@ -196,9 +196,10 @@ GameObject:
   - component: {fileID: 1278778312090875316}
   - component: {fileID: 8204008302743238175}
   - component: {fileID: 470906341831932076}
+  - component: {fileID: 6990160051840587978}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -385,18 +386,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7054710613867731208}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_ActionId: 53d0de3d-dbb8-489d-a76a-ec17e5f23f02
     m_ActionName: Gameplay/Movement[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
@@ -431,10 +420,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5d2a1ea5-9eb5-42f2-bab5-b18e8ec1108e
     m_ActionName: Gameplay/Grab
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8c162c4f-dd37-436b-a3e9-78c1dfe835f9
-    m_ActionName: Gameplay/Throw
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7787768088860118804}
@@ -475,6 +460,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 24311741-ada1-4613-9361-4e8d0c073412
     m_ActionName: PreGame/Movement[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6990160051840587978}
+        m_TargetAssemblyTypeName: PlayerUseItem, Assembly-CSharp
+        m_MethodName: OnUseItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7f810c9a-63bc-4656-95fc-4466d8841aad
+    m_ActionName: Gameplay/Use Power Up[/Keyboard/p,/Logitech Logitech Dual Action/button4]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PreGame
@@ -538,3 +539,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3884065, y: 0.3227638}
   m_EdgeRadius: 0
+--- !u!114 &6990160051840587978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054710613867731208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5ffca97d26b0a40b122443aefbe5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 8652144860922909440}
+  selfCollider: {fileID: 470906341831932076}
+  powerUp: {fileID: 0}

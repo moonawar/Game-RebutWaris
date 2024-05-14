@@ -38,6 +38,11 @@ public class EmakRadar : MonoBehaviour
         _heart.GetComponent<Image>().color = Color.white;
     }
 
+    public void DecreaseLoveHalf()
+    {
+        _loveMeter.value = _baseValue + (_loveMeter.value - _baseValue) / 2;
+    }
+
     private void Start() {
         _phaseM = PhaseManager.Instance;
 
@@ -134,5 +139,15 @@ public class EmakRadar : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(center, _phaseM.DetectRadius);
+    }
+
+    public float GetIncreaseRate()
+    {
+        return _increaseRate;
+    }
+
+    public void SetIncreaseRate(float value)
+    {
+        _increaseRate = value;
     }
 }
