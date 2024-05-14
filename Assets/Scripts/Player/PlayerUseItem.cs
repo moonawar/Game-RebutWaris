@@ -12,6 +12,10 @@ public class PlayerUseItem : MonoBehaviour
 
     public void EquipItem(PowerUp pickedUp)
     {
+        if(powerUp != null)
+        {
+            Destroy(powerUp.gameObject);
+        }
         powerUp = pickedUp;
     }
 
