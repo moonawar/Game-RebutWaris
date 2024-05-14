@@ -101,13 +101,13 @@ public class EmakRadar : MonoBehaviour
         _loveLevel++;
 
         if (_loveLevel >= 3) {
+            _phaseM.OnPlayerAdvancePhase(PlayerIdx, _loveLevel);
             return;
         }
         _baseValue = _nextPhaseValue;
         _nextPhaseValue = _phaseM.GamePhases[_loveLevel].limit;
         _increaseRate = _phaseM.GamePhases[_loveLevel].increase;
 
-        _phaseM.OnPlayerAdvancePhase(PlayerIdx, _loveLevel);
 
         UpdateUI();
     }

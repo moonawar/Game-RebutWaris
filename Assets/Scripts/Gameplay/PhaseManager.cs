@@ -38,6 +38,7 @@ public class PhaseManager : MonoBehaviour {
     /// <param name="playerIdx">player index</param>
     /// <param name="phaseLevel">the phase index of player after advancing to next phase</param>
     public void OnPlayerAdvancePhase(int playerIdx, int phaseLevel) {
+        Debug.Log($"Player {playerIdx} advances to phase {phaseLevel}");
         if (CurrentPhase < phaseLevel) {
             CurrentPhase = phaseLevel;
             onPhaseChange?.Invoke();

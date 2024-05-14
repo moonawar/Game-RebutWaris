@@ -26,7 +26,7 @@ public class PlayerBonk : MonoBehaviour
 
             if (collider.TryGetComponent(out PlayerMovement player))
             {
-                player.stun(stunDuration);
+                player.Stun(stunDuration);
             }
         }
     }
