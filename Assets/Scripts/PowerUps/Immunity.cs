@@ -10,9 +10,9 @@ public class Immunity : PowerUp
     {
         this.target = target;
         FindOppositeTarget();
-        target.isImmune = true;
+        this.target.isImmune = true;
         yield return new WaitForSeconds(duration);
-        target.isImmune = false;
+        this.target.isImmune = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

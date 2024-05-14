@@ -8,13 +8,8 @@ public class Mantra : PowerUp
     
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
-        print("Emak is going to be charmed");
         this.target = target;
-        print("Current target: " + this.target.playerId);
-
         FindOppositeTarget();
-        print("New target: " + this.target.playerId);
-
         GameObject.FindGameObjectWithTag("Emak").GetComponent<EmakStateMachine>().CharmedState.target = this.target;
         GameObject.FindGameObjectWithTag("Emak").GetComponent<EmakStateMachine>().ChangeState(GameObject.FindGameObjectWithTag("Emak").GetComponent<EmakStateMachine>().CharmedState);
         print("Emak is charmed");

@@ -31,7 +31,8 @@ public class PlayerUseItem : MonoBehaviour
                 
             }
 
-            //powerUp = null;
+            Destroy(powerUp.gameObject);
+            powerUp = null;
 
         }
 

@@ -17,7 +17,7 @@ public class PlayerGrab : MonoBehaviour
         {
             print("ITS BEING PERFORMED");
 
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
             foreach (Collider2D collider in colliders)
             {
                 if (collider != selfCollider && collider.TryGetComponent(out PlayerMovement player))
@@ -34,7 +34,7 @@ public class PlayerGrab : MonoBehaviour
         {
             print("ITS FINISHED");
 
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
             foreach (Collider2D collider in colliders)
             {
                 if (collider == selfCollider) continue;

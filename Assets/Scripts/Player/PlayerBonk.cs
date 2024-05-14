@@ -9,8 +9,6 @@ public class PlayerBonk : MonoBehaviour
     [SerializeField] public PlayerMovement playerMovement;
     [SerializeField] private Collider2D selfCollider;
 
-    private bool flag = false;
-
     public void OnBonk(InputAction.CallbackContext context)
     {
         if (context.performed)

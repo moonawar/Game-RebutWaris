@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
 
 public abstract class PowerUp: MonoBehaviour 
@@ -20,7 +21,7 @@ public abstract class PowerUp: MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerMovement>() == null) return;
 
         collision.gameObject.GetComponent<PlayerUseItem>().EquipItem(this);
-        if (collision.gameObject.GetComponent<PlayerMovement>().playerId == PlayerId.Player1)
+        if (collision.gameObject.GetComponent<PlayerInput>().playerIndex == 0)
         {
             this.transform.SetParent(GameObject.Find("ItemPanelP1").transform);
         }
@@ -34,12 +35,11 @@ public abstract class PowerUp: MonoBehaviour
 
     protected void FindOppositeTarget()
     {
+
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
-            print(player.GetComponent<PlayerMovement>().playerId);
-            if (!(player.GetComponent<PlayerMovement>().playerId.Equals(target.GetComponent<PlayerMovement>().playerId)))
+            if (player.GetComponent<PlayerInput>().playerIndex != target.GetComponent<PlayerInput>().playerIndex)
             {
-                print("New target: " + player.GetComponent<PlayerMovement>().playerId);
                 this.target = player.GetComponent<PlayerMovement>();
                 return;
             }

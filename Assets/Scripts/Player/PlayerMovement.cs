@@ -5,15 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    /* Public fields */
-    [HideInInspector] public PlayerId playerId;
-
     #region restriction states
     public bool isImmune { get; set; } = false;
     public bool IsStunned { get; private set; } = false;
     public bool IsGrabbed { get; set; } = false;
     public bool GrabMode { get; set; } = false;
-    [SerializeField] private float grabbedSpeed = 5f;
     private bool isThrown = false;
     private Vector3 thrownAngle;
     #endregion

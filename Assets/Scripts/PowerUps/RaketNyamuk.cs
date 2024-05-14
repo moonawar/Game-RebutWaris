@@ -8,7 +8,7 @@ public class RaketNyamuk : PowerUp
 
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
-        target.stun(duration);
+        target.Stun(duration);
         yield return null;
     }
 
