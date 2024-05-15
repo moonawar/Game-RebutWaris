@@ -16,7 +16,6 @@ public class GameplayInitiator : MonoBehaviour
 
     public void OnPlayerJoined(GameObject playerObj, int playerIndex)  {
         EmakRadar radar = playerObj.GetComponent<EmakRadar>();
-        PlayerMovement movement = playerObj.GetComponent<PlayerMovement>();
         SpriteRenderer spriteRenderer = playerObj.GetComponent<SpriteRenderer>();
 
         if (playerIndex == 0) {
