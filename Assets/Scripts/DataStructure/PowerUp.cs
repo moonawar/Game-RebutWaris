@@ -30,6 +30,7 @@ public abstract class PowerUp: MonoBehaviour
         }
         this.transform.localPosition = new Vector3(0, 0, 0);
         this.transform.localScale = new Vector3(50f, 50f, 50f);
+        gameObject.GetComponent<Collider2D>().enabled = false;
 
     }
 
