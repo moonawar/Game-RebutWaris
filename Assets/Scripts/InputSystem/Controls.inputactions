@@ -143,7 +143,7 @@
                 {
                     "name": "",
                     "id": "b8287425-a85b-4457-825c-9f2874f79c92",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -186,6 +186,17 @@
                 },
                 {
                     "name": "",
+                    "id": "74312d0e-40ff-458e-9426-d9cb7d07cbe9",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d214a2e6-36ba-48e4-a34c-dd82f635c5fd",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
@@ -220,7 +231,7 @@
                 {
                     "name": "",
                     "id": "9a00ec4b-6655-4663-8d4b-2f0452b579e1",
-                    "path": "<Keyboard>/p",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard+Mouse",
@@ -232,6 +243,17 @@
                     "name": "",
                     "id": "bc809682-e9c4-490f-8b8b-9d92dc969171",
                     "path": "<HID::Logitech Logitech Dual Action>/button4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use Power Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b44603f-d254-4730-970e-0897da6bc31a",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

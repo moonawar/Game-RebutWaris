@@ -16,6 +16,7 @@ public class PlayerGrab : MonoBehaviour
         if (context.performed)
         {
             print("ITS BEING PERFORMED");
+            if (playerMovement.IsStunned || playerMovement.IsGrabbed) return;
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
             foreach (Collider2D collider in colliders)
@@ -40,7 +41,7 @@ public class PlayerGrab : MonoBehaviour
             {
                 if (collider == selfCollider) continue;
 
-                if (playerMovement.IsStunned) return;
+                if (playerMovement.IsStunned || playerMovement.IsGrabbed) return;
                 if (collider.TryGetComponent(out PlayerMovement player))
                 {
                     playerMovement.GrabMode = false;

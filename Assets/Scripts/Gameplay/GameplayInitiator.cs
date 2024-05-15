@@ -12,7 +12,9 @@ public class GameplayInitiator : MonoBehaviour
     [SerializeField] private PlayerData dataPlayer1;
     [SerializeField] private PlayerData dataPlayer2;
 
+
     [SerializeField] private GameObject gameplayUI;
+    [SerializeField] private Collider2D Arena;
 
     public void OnPlayerJoined(GameObject playerObj, int playerIndex)  {
         EmakRadar radar = playerObj.GetComponent<EmakRadar>();
@@ -21,10 +23,13 @@ public class GameplayInitiator : MonoBehaviour
         if (playerIndex == 0) {
             radar.InitUIs(dataPlayer1.uiRefs);
             spriteRenderer.sprite = dataPlayer1.sprite;
+            playerObj.GetComponent<PlayerMovement>().SetArena(Arena);
             GameplayManager.Instance.Players.Add(playerObj);
+
         } else if (playerIndex == 1) {
             radar.InitUIs(dataPlayer2.uiRefs);
             spriteRenderer.sprite = dataPlayer2.sprite;
+            playerObj.GetComponent<PlayerMovement>().SetArena(Arena);
             GameplayManager.Instance.Players.Add(playerObj);
         }
     }

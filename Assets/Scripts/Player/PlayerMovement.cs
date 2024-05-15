@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField] private Transform arrow;
     [SerializeField] private float maxSpeed = 5f;
+    private Collider2D arena;
     public float CurrentSpeed { get; private set; } = 0;
     [SerializeField] private float timeToAccelerate = 0.2f;
     private float acceleration;
@@ -46,6 +47,11 @@ public class PlayerMovement : MonoBehaviour
         lookDirection = transform.rotation.y == 0 ? RIGHT : LEFT;
         acceleration = maxSpeed / timeToAccelerate;
         deceleration = maxSpeed / timeToDecelerate;
+    }
+
+    public void SetArena(Collider2D collider)
+    {
+        arena = collider;
     }
 
     #region stun
@@ -83,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
     public void Ungrab(float theta, int flip)
     {
         IsGrabbed = false;
+        IsStunned = false;
         isThrown = true;
 
         if (Mathf.Abs(transform.eulerAngles.y) != 180)
@@ -134,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (IsStunned)
+        if (IsStunned && isThrown)
         {
             // Can't do any movement
             return;
@@ -205,11 +212,42 @@ public class PlayerMovement : MonoBehaviour
             transform.position += Time.fixedDeltaTime * appliedMove;
         }
 
-        if (isThrown && CurrentSpeed <= 0)
+        if (isThrown && CurrentSpeed <= 1)
         {
             isThrown = false;
+            IsGrabbed = false;
+            IsStunned = false;
+            print("No longer grabbed");
         }
 
-        
+
+        // Stay in bounds
+        if(transform.position.x <= arena.bounds.min.x)
+        {
+            transform.position = new Vector2(arena.bounds.min.x, transform.position.y);
+            CurrentSpeed = 0;
+        }else if (transform.position.x >= arena.bounds.max.x)
+        {
+            transform.position = new Vector2(arena.bounds.max.x, transform.position.y);
+            CurrentSpeed = 0;
+
+        }
+
+        if (transform.position.y <= arena.bounds.min.y)
+        {
+            transform.position = new Vector2(transform.position.x, arena.bounds.min.y);
+            CurrentSpeed = 0;
+
+        }
+        else if (transform.position.y >= arena.bounds.max.y)
+        {
+            transform.position = new Vector2(transform.position.x, arena.bounds.max.y);
+            CurrentSpeed = 0;
+
+
+        }
+
+
+
     }
 }
