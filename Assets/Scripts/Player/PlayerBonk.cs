@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,14 +9,25 @@ public class PlayerBonk : MonoBehaviour
     [SerializeField] private float stunDuration = 1.2f;
     [SerializeField] public PlayerMovement playerMovement;
     [SerializeField] private Collider2D selfCollider;
+    [SerializeField] private float Cooldown;
+    private bool OnCooldown = false;
+
+    private IEnumerator CooldownTimer()
+    {
+        OnCooldown = true;
+        yield return new WaitForSeconds(Cooldown);
+        OnCooldown = false;
+    }
 
     public void OnBonk(InputAction.CallbackContext context)
     {
+        if (OnCooldown) return;
+
         if (context.performed)
         {
             print("ITS BEING PERFORMED");
         }
-        if (playerMovement.IsStunned) return;
+        if (playerMovement.IsStunned || playerMovement.IsGrabbed) return;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
         foreach (Collider2D collider in colliders)
         {
@@ -27,5 +39,7 @@ public class PlayerBonk : MonoBehaviour
                 player.Stun(stunDuration);
             }
         }
+
+        StartCoroutine(CooldownTimer());
     }
 }

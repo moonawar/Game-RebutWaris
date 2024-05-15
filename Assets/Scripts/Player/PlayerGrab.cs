@@ -10,9 +10,20 @@ public class PlayerGrab : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Collider2D selfCollider;
     [SerializeField] private Transform arrow;
+    [SerializeField] private float Cooldown;
+    private bool OnCooldown = false;
+
+    private IEnumerator CooldownTimer()
+    {
+        OnCooldown = true;
+        yield return new WaitForSeconds(Cooldown);
+        OnCooldown = false;
+    }
 
     public void OnGrab(InputAction.CallbackContext context)
     {
+        if (OnCooldown) return;
+
         if (context.performed)
         {
             print("ITS BEING PERFORMED");
@@ -61,6 +72,7 @@ public class PlayerGrab : MonoBehaviour
                     arrow.gameObject.SetActive(false);
                 }
             }
+            StartCoroutine(CooldownTimer());
 
         }
         
