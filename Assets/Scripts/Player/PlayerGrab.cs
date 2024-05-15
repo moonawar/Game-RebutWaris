@@ -25,6 +25,7 @@ public class PlayerGrab : MonoBehaviour
                     player.Grab(gameObject.transform.position);
                     arrow.gameObject.SetActive(true);
                     playerMovement.GrabMode = true;
+                    playerMovement.GetComponent<Animator>().SetTrigger("Grab");
                 }
             }
 
@@ -54,6 +55,7 @@ public class PlayerGrab : MonoBehaviour
                         player.Ungrab(arrow.transform.rotation.eulerAngles.z, 1);
 
                     }
+                    playerMovement.GetComponent<Animator>().SetTrigger("Throw");
 
                     arrow.gameObject.SetActive(false);
                 }

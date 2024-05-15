@@ -72,11 +72,11 @@ public class PlayerMovement : MonoBehaviour
 
         if(Mathf.Abs(transform.eulerAngles.y) != 180)
         {
-            gameObject.transform.position = destination + new Vector2(-2, 3.5f);
+            gameObject.transform.position = destination + new Vector2(0.5f, 1.5f);
         }
         else
         {
-            gameObject.transform.position = destination + new Vector2(2, 3.5f);
+            gameObject.transform.position = destination + new Vector2(-0.5f, 1.5f);
         }
         gameObject.transform.eulerAngles += new Vector3(0, 0, -90);
     }
@@ -87,12 +87,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Mathf.Abs(transform.eulerAngles.y) != 180)
         {
-            gameObject.transform.position += new Vector3(2, -3.5f);
+            gameObject.transform.position += new Vector3(-0.5f, -1.5f);
 
         }
         else
         {
-            gameObject.transform.position += new Vector3(-2, -3.5f);
+            gameObject.transform.position += new Vector3(0.5f, -1.5f);
         }
         gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         IsStunned = false;
