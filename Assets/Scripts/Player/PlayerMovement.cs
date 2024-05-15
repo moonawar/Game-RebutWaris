@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public bool IsStunned { get; private set; } = false;
     public bool IsGrabbed { get; set; } = false;
     public bool GrabMode { get; set; } = false;
-    private bool isThrown = false;
+    private bool IsThrown = false;
     private Vector3 thrownAngle;
     #endregion
 
@@ -72,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
     #region grab
     public void Grab(Vector2 destination)
     {
-        print(gameObject.name + "is grabbed!");
         IsGrabbed = true;
         IsStunned = true;
 
@@ -86,11 +85,17 @@ public class PlayerMovement : MonoBehaviour
         }
         gameObject.transform.eulerAngles += new Vector3(0, 0, -90);
     }
+
+    private IEnumerator Thrown(float seconds)
+    {
+        IsThrown = true;
+        yield return new WaitForSeconds(seconds);
+        IsThrown = false;
+    }
     public void Ungrab(float theta, int flip)
     {
         IsGrabbed = false;
         IsStunned = false;
-        isThrown = true;
 
         if (Mathf.Abs(transform.eulerAngles.y) != 180)
         {
@@ -106,8 +111,9 @@ public class PlayerMovement : MonoBehaviour
         thrownAngle = new Vector3(Mathf.Cos(theta * Mathf.Deg2Rad), Mathf.Sin(theta * Mathf.Deg2Rad), 0);
         thrownAngle.x *= flip;
 
-        print("is thrown in x:" + thrownAngle.x + " y: " + thrownAngle.y);
         CurrentSpeed = 50;
+        StartCoroutine(Thrown(1));
+
     }
     #endregion
 
@@ -141,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (IsStunned && isThrown)
+        if (IsStunned && IsThrown)
         {
             // Can't do any movement
             return;
@@ -194,7 +200,7 @@ public class PlayerMovement : MonoBehaviour
             CurrentSpeed += acceleration * Time.fixedDeltaTime;
         }
 
-        if (isThrown)
+        if (IsThrown)
         {
             transform.position += CurrentSpeed * Time.fixedDeltaTime * thrownAngle;
         }
@@ -212,42 +218,46 @@ public class PlayerMovement : MonoBehaviour
             transform.position += Time.fixedDeltaTime * appliedMove;
         }
 
-        if (isThrown && CurrentSpeed <= 1)
-        {
-            isThrown = false;
-            IsGrabbed = false;
-            IsStunned = false;
-            print("No longer grabbed");
-        }
-
 
         // Stay in bounds
-        if(transform.position.x <= arena.bounds.min.x)
-        {
-            transform.position = new Vector2(arena.bounds.min.x, transform.position.y);
-            CurrentSpeed = 0;
-        }else if (transform.position.x >= arena.bounds.max.x)
-        {
-            transform.position = new Vector2(arena.bounds.max.x, transform.position.y);
-            CurrentSpeed = 0;
+        StayInBounds();
 
+
+
+    }
+
+    private void StayInBounds()
+    {
+        float newX = transform.position.x;
+        float newY = transform.position.y;
+        bool hitWall = false;
+        if (transform.position.x <= arena.bounds.min.x)
+        {
+            newX = arena.bounds.min.x;
+            hitWall = true;
+        }
+        else if (transform.position.x >= arena.bounds.max.x)
+        {
+            newX = arena.bounds.max.x;
+            hitWall = true;
         }
 
         if (transform.position.y <= arena.bounds.min.y)
         {
-            transform.position = new Vector2(transform.position.x, arena.bounds.min.y);
-            CurrentSpeed = 0;
-
+            newY = arena.bounds.min.y;
+            hitWall = true;
         }
         else if (transform.position.y >= arena.bounds.max.y)
         {
-            transform.position = new Vector2(transform.position.x, arena.bounds.max.y);
-            CurrentSpeed = 0;
-
-
+            newY = arena.bounds.max.y;
+            hitWall = true;
         }
 
+        if (IsThrown && hitWall)
+        {
+            IsThrown = false;
+        }
 
-
+        transform.position = new Vector2(newX, newY);
     }
 }
