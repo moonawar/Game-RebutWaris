@@ -178,12 +178,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        print("hit");
-        CurrentSpeed = 0;
-    }
-
     private void FixedUpdate()
     {
         if (IsStunned) return; // Do nothing

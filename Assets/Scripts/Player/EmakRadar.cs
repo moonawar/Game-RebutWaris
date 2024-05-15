@@ -33,7 +33,7 @@ public class EmakRadar : MonoBehaviour
         _loveMeter = uiRefs.loveMeter;
         _heart = uiRefs.heart;
 
-        _fill.GetComponent<Image>().color = Color.green;
+        //_fill.GetComponent<Image>().color = Color.green;
         _fill.SetActive(false);
         _heart.GetComponent<Image>().color = Color.white;
     }
@@ -55,6 +55,7 @@ public class EmakRadar : MonoBehaviour
         if (_loveLevel >= 3) return;   // Max Level, avoid crashing at all cost
         if (gameObject.GetComponent<PlayerMovement>().IsStunned) return;   // Max Level, avoid crashing at all cost
 
+        _heart.GetComponent<Animator>().SetTrigger("Mash");
         if (IsPrincessInArea())
         {
             _loveMeter.value += _increaseRate;
@@ -118,19 +119,19 @@ public class EmakRadar : MonoBehaviour
         if (_loveLevel == 1)
         {
             _heart.SetActive(true);
-            _heart.GetComponent<Image>().color = Color.green;
-            _fill.GetComponent<Image>().color = Color.red;
+            //_heart.GetComponent<Image>().color = Color.green;
+            //_fill.GetComponent<Image>().color = Color.red;
         }
         else if (_loveLevel == 2)
         {
             _heart.SetActive(true);
-            _heart.GetComponent<Image>().color = Color.red;
-            _fill.GetComponent<Image>().color = new Color32(224, 55, 204, 255);
+            //_heart.GetComponent<Image>().color = Color.red;
+            //_fill.GetComponent<Image>().color = new Color32(224, 55, 204, 255);
         }
         else // Level 3
         {
             _heart.SetActive(true);
-            _heart.GetComponent<Image>().color = new Color32(224, 55, 204, 255);
+            //_heart.GetComponent<Image>().color = new Color32(224, 55, 204, 255);
         }
     }
 
