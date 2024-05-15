@@ -4566,12 +4566,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataPlayer1:
     sprite: {fileID: 21300000, guid: a79935bc346ac7d408c4bdb8f663f24d, type: 3}
+    arrow: {fileID: 21300000, guid: 92ce922218193074389e02fa6b123f88, type: 3}
     uiRefs:
       fill: {fileID: 1788798535}
       loveMeter: {fileID: 1782667232}
       heart: {fileID: 1124738724}
   dataPlayer2:
     sprite: {fileID: 21300000, guid: 939e43881aa399349a47f61c35df1cde, type: 3}
+    arrow: {fileID: 21300000, guid: b4d5f282c2749b84daa162cd69649bf8, type: 3}
     uiRefs:
       fill: {fileID: 269481302}
       loveMeter: {fileID: 451645133}

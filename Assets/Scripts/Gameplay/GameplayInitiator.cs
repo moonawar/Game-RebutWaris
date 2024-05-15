@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class PlayerData {
     public Sprite sprite;
+    public Sprite arrow;
     public PlayerRadarUIRefs uiRefs;
 }
 
@@ -24,12 +26,14 @@ public class GameplayInitiator : MonoBehaviour
             radar.InitUIs(dataPlayer1.uiRefs);
             spriteRenderer.sprite = dataPlayer1.sprite;
             playerObj.GetComponent<PlayerMovement>().SetArena(Arena);
+            playerObj.GetComponent<PlayerMovement>().SetArrow(dataPlayer1.arrow);
             GameplayManager.Instance.Players.Add(playerObj);
 
         } else if (playerIndex == 1) {
             radar.InitUIs(dataPlayer2.uiRefs);
             spriteRenderer.sprite = dataPlayer2.sprite;
             playerObj.GetComponent<PlayerMovement>().SetArena(Arena);
+            playerObj.GetComponent<PlayerMovement>().SetArrow(dataPlayer2.arrow);
             GameplayManager.Instance.Players.Add(playerObj);
         }
     }

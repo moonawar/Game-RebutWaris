@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -52,6 +53,12 @@ public class PlayerMovement : MonoBehaviour
     public void SetArena(Collider2D collider)
     {
         arena = collider;
+    }
+
+    public void SetArrow(Sprite sprite)
+    {
+        arrow.GetComponentInChildren<Image>().sprite = sprite;
+
     }
 
     #region stun
