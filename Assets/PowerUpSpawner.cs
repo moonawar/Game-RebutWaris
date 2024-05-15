@@ -5,9 +5,9 @@ using UnityEngine;
 public class PowerUpSpawner : MonoBehaviour
 {
 
-    public bool StartSpawn = false;
+    [HideInInspector] public bool StartSpawn = false;
     [SerializeField] private Collider2D SpawnArea;
-    [SerializeField] private float SpawnInterval;
+    [SerializeField] private Range SpawnInterval;
     [SerializeField] private List<PowerUp> PowerUps = new List<PowerUp>();
 
     public static PowerUpSpawner Instance { get; private set; }
@@ -35,7 +35,7 @@ public class PowerUpSpawner : MonoBehaviour
     private IEnumerator WaitInterval()
     {
         StartSpawn = false;
-        yield return new WaitForSeconds(SpawnInterval);
+        yield return new WaitForSeconds(SpawnInterval.RandomValue());
         StartSpawn = true;
     }
 
