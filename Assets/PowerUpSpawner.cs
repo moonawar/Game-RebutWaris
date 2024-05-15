@@ -27,7 +27,8 @@ public class PowerUpSpawner : MonoBehaviour
     private IEnumerator SpawnPowerUp()
     {
         int chosen = Random.Range(0, PowerUps.Count - 1);
-        Instantiate(PowerUps[chosen], GetRandomPoint(), new Quaternion());
+        PowerUp spawned = Instantiate(PowerUps[chosen], GetRandomPoint(), new Quaternion());
+        spawned.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
         yield return null;
 
     }

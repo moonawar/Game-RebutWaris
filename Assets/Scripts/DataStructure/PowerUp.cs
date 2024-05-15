@@ -18,7 +18,7 @@ public abstract class PowerUp: MonoBehaviour
 
     protected void PickedUp(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerMovement>() == null) return;
+        if (collision.gameObject.GetComponent<PlayerMovement>() == null || collision.gameObject.GetComponent<PlayerMovement>().IsGrabbed == true || collision.gameObject.GetComponent<PlayerMovement>().IsStunned == true) return;
 
         collision.gameObject.GetComponent<PlayerUseItem>().EquipItem(this);
         if (collision.gameObject.GetComponent<PlayerInput>().playerIndex == 0)
@@ -30,6 +30,7 @@ public abstract class PowerUp: MonoBehaviour
             this.transform.SetParent(GameObject.Find("ItemPanelP2").transform);
         }
         this.transform.localPosition = new Vector3(0, 0, 0);
+        this.transform.localScale = new Vector3(50f, 50f, 50f);
 
     }
 
