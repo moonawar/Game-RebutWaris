@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     /* Movement Transformer */
     public delegate Vector3 MovementTransformer(Vector3 move);
-    public List<MovementTransformer> transformers;
+    public List<MovementTransformer> transformers = new List<MovementTransformer>();
     #endregion
 
     private void Awake()
@@ -197,7 +197,11 @@ public class PlayerMovement : MonoBehaviour
 
             // If the input is 0, use the buffer to maintain the last movement until current speed is 0
             Vector3 appliedMove = (shouldDecelerate ? bufferMove : move) * CurrentSpeed;
-
+            // Apply transformers
+            foreach (MovementTransformer transformer in transformers)
+            {
+                appliedMove = transformer(appliedMove);
+            }
             transform.position += Time.fixedDeltaTime * appliedMove;
         }
 
