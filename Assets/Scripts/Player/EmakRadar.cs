@@ -53,6 +53,8 @@ public class EmakRadar : MonoBehaviour
     public void OnMashInput(InputAction.CallbackContext context) {
         if (!context.canceled) return; // We will only register on button pressed, not on releaserd
         if (_loveLevel >= 3) return;   // Max Level, avoid crashing at all cost
+        if (gameObject.GetComponent<PlayerMovement>().IsStunned) return;   // Max Level, avoid crashing at all cost
+
         if (IsPrincessInArea())
         {
             _loveMeter.value += _increaseRate;

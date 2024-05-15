@@ -10,7 +10,6 @@ using static UnityEngine.GraphicsBuffer;
 public abstract class PowerUp: MonoBehaviour 
 {
     protected PlayerMovement target;
-    public virtual void Activate(GameObject target) { }
     public virtual IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
         yield return null;

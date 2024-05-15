@@ -40,7 +40,7 @@ public class PlayerGrab : MonoBehaviour
             {
                 if (collider == selfCollider) continue;
 
-
+                if (playerMovement.IsStunned) return;
                 if (collider.TryGetComponent(out PlayerMovement player))
                 {
                     playerMovement.GrabMode = false;

@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class Fitnah : PowerUp
 {
-    public override void Activate(GameObject target)
-    {
-        target.GetComponent<EmakRadar>().DecreaseLoveHalf();
-    }
-
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
         target.GetComponent<EmakRadar>().DecreaseLoveHalf();

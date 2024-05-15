@@ -24,7 +24,7 @@ public class PlayerUseItem : MonoBehaviour
         if (context.performed && powerUp != null)
         {
             print("ITS BEING PERFORMED");
-
+            if (playerMovement.IsStunned) return;
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 100);
             foreach (Collider2D collider in colliders)
             {
