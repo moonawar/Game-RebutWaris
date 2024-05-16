@@ -22,14 +22,15 @@ public abstract class PowerUp: MonoBehaviour
         collision.gameObject.GetComponent<PlayerUseItem>().EquipItem(this);
         if (collision.gameObject.GetComponent<PlayerInput>().playerIndex == 0)
         {
-            this.transform.SetParent(GameObject.Find("ItemPanelP1").transform);
+            this.transform.SetParent(PowerUpSpawner.Instance.PowerUpPanelP1.transform);
         }
         else
         {
-            this.transform.SetParent(GameObject.Find("ItemPanelP2").transform);
+            this.transform.SetParent(PowerUpSpawner.Instance.PowerUpPanelP2.transform);
         }
         this.transform.localPosition = new Vector3(0, 0, 0);
         this.transform.localScale = new Vector3(50f, 50f, 50f);
+        this.GetComponent<SpriteRenderer>().sortingOrder = 2;
         gameObject.GetComponent<Collider2D>().enabled = false;
 
     }

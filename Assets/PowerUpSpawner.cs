@@ -9,6 +9,8 @@ public class PowerUpSpawner : MonoBehaviour
     [SerializeField] private Collider2D SpawnArea;
     [SerializeField] private Range SpawnInterval;
     [SerializeField] private List<PowerUp> PowerUps = new List<PowerUp>();
+    [SerializeField] public GameObject PowerUpPanelP1;
+    [SerializeField] public GameObject PowerUpPanelP2;
 
     public static PowerUpSpawner Instance { get; private set; }
 

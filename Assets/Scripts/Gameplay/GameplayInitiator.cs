@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerData {
     public Sprite sprite;
     public Sprite arrow;
+    public GameObject itemHolder;
     public PlayerRadarUIRefs uiRefs;
 }
 
@@ -31,6 +32,7 @@ public class GameplayInitiator : MonoBehaviour
             playerObj.GetComponent<PlayerMovement>().SetArrow(dataPlayer1.arrow);
             playerObj.GetComponent<PlayerMovement>().SetCamera(cam);
             playerObj.GetComponent<PlayerRangeItem>().SetThrowablePrefab(throwablePrefab);
+            playerObj.GetComponent<PlayerRangeItem>().SetItemHolderUI(dataPlayer1.itemHolder);
             GameplayManager.Instance.Players.Add(playerObj);
 
         } else if (playerIndex == 1) {
@@ -40,6 +42,7 @@ public class GameplayInitiator : MonoBehaviour
             playerObj.GetComponent<PlayerMovement>().SetArrow(dataPlayer2.arrow);
             playerObj.GetComponent<PlayerMovement>().SetCamera(cam);
             playerObj.GetComponent<PlayerRangeItem>().SetThrowablePrefab(throwablePrefab);
+            playerObj.GetComponent<PlayerRangeItem>().SetItemHolderUI(dataPlayer2.itemHolder);
             GameplayManager.Instance.Players.Add(playerObj);
         }
     }

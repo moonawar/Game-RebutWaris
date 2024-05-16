@@ -6,10 +6,12 @@ using UnityEngine.InputSystem;
 public class PlayerRangeItem : MonoBehaviour
 {
     private Throwable throwablePrefab;
+    private Throwable selected;
     [SerializeField] private List<ScriptableThrowable> scriptableThrowables;
     [SerializeField] public List<int> throwableAmount;
     [SerializeField] private Transform arrow;
     [SerializeField] private int selectedItem = 0;
+    private GameObject itemHolderUI;
 
     private void Awake()
     {
@@ -18,6 +20,20 @@ public class PlayerRangeItem : MonoBehaviour
         {
             throwableAmount.Add(scriptableThrowables[i].initialAmount);
         }
+        selected = Instantiate(throwablePrefab);
+        selected.gameObject.GetComponent<SpriteRenderer>().sprite = scriptableThrowables[selectedItem].sprite;
+        selected.GetComponent<Collider2D>().enabled = false;
+        selected.transform.SetParent(itemHolderUI.transform);
+        selected.transform.localScale = Vector3.one * 10;
+        selected.transform.localPosition = Vector3.zero;
+        selected.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
+
+    }
+
+    public void SetItemHolderUI(GameObject holder)
+    {
+        itemHolderUI = holder;
     }
 
     public void SetThrowablePrefab(Throwable prefab)
@@ -76,6 +92,15 @@ public class PlayerRangeItem : MonoBehaviour
             {
                 selectedItem = 0;
             }
+
+            Destroy(selected.gameObject);
+            selected = Instantiate(throwablePrefab);
+            selected.GetComponent<Collider2D>().enabled = false;
+            selected.GetComponent<SpriteRenderer>().sprite = scriptableThrowables[selectedItem].sprite;
+            selected.transform.SetParent(itemHolderUI.transform);
+            selected.transform.localScale = Vector3.one * 10;
+            selected.transform.localPosition = Vector3.zero;
+            selected.GetComponent<SpriteRenderer>().sortingOrder = 2;
         }
     }
 }
