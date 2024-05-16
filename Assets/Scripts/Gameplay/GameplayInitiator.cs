@@ -17,6 +17,8 @@ public class GameplayInitiator : MonoBehaviour
 
     [SerializeField] private GameObject gameplayUI;
     [SerializeField] private Collider2D Arena;
+    [SerializeField] private Camera cam;
+    [SerializeField] private Throwable throwablePrefab;
 
     public void OnPlayerJoined(GameObject playerObj, int playerIndex)  {
         EmakRadar radar = playerObj.GetComponent<EmakRadar>();
@@ -27,6 +29,8 @@ public class GameplayInitiator : MonoBehaviour
             spriteRenderer.sprite = dataPlayer1.sprite;
             playerObj.GetComponent<PlayerMovement>().SetArena(Arena);
             playerObj.GetComponent<PlayerMovement>().SetArrow(dataPlayer1.arrow);
+            playerObj.GetComponent<PlayerMovement>().SetCamera(cam);
+            playerObj.GetComponent<PlayerRangeItem>().SetThrowablePrefab(throwablePrefab);
             GameplayManager.Instance.Players.Add(playerObj);
 
         } else if (playerIndex == 1) {
@@ -34,6 +38,8 @@ public class GameplayInitiator : MonoBehaviour
             spriteRenderer.sprite = dataPlayer2.sprite;
             playerObj.GetComponent<PlayerMovement>().SetArena(Arena);
             playerObj.GetComponent<PlayerMovement>().SetArrow(dataPlayer2.arrow);
+            playerObj.GetComponent<PlayerMovement>().SetCamera(cam);
+            playerObj.GetComponent<PlayerRangeItem>().SetThrowablePrefab(throwablePrefab);
             GameplayManager.Instance.Players.Add(playerObj);
         }
     }

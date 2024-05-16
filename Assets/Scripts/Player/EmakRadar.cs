@@ -43,6 +43,11 @@ public class EmakRadar : MonoBehaviour
         _loveMeter.value = _baseValue + (_loveMeter.value - _baseValue) / 2;
     }
 
+    public void DecreaseLove(float value)
+    {
+        _loveMeter.value -= value;
+    }
+
     private void Start() {
         _phaseM = PhaseManager.Instance;
 

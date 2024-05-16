@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public bool IsStunned { get; private set; } = false;
     public bool IsGrabbed { get; set; } = false;
     public bool GrabMode { get; set; } = false;
+    public bool AimMode { get; set; } = false;
     private bool IsThrown = false;
     private Vector3 thrownAngle;
     #endregion
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform arrow;
     [SerializeField] private float maxSpeed = 5f;
     private Collider2D arena;
+    private Camera cam;
     public float CurrentSpeed { get; private set; } = 0;
     [SerializeField] private float timeToAccelerate = 0.2f;
     private float acceleration;
@@ -53,6 +55,16 @@ public class PlayerMovement : MonoBehaviour
     public void SetArena(Collider2D collider)
     {
         arena = collider;
+    }
+
+    public Collider2D GetArena()
+    {
+        return arena;
+    }
+
+    public void SetCamera(Camera cam)
+    {
+        this.cam  = cam;
     }
 
     public void SetArrow(Sprite sprite)
@@ -124,6 +136,15 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
+    #region throwItem
+
+    public void ThrowItem(Vector3 direction)
+    {
+
+    }
+
+    #endregion
+
     #region knockback
     public void Knockback(Vector2 direction, float distance, float duration, float stunDuration)
     {
@@ -152,13 +173,14 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
+    public Vector2 getMousePosition()
+    {
+        return cam.ScreenToWorldPoint(Input.mousePosition);
+    }
+
     void Update()
     {
-        if (IsStunned && IsThrown)
-        {
-            // Can't do any movement
-            return;
-        }
+        if (IsStunned && IsThrown) return;
         
         // Input
         previousMove = move;
@@ -167,6 +189,15 @@ public class PlayerMovement : MonoBehaviour
         if (GrabMode)
         {
             arrow.RotateAround(transform.position, Vector3.forward, 1f);
+            return;
+        }
+
+        if (AimMode)
+        {
+            Vector2 mousePos = getMousePosition();
+            Vector2 lookDir = mousePos - new Vector2(arrow.position.x, arrow.position.y);
+            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+            arrow.transform.rotation = Quaternion.Euler(0,0,angle);
             return;
         }
 
@@ -222,9 +253,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Stay in bounds
         StayInBounds();
-
-
-
     }
 
     private void StayInBounds()

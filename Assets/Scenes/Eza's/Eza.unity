@@ -4580,6 +4580,7 @@ MonoBehaviour:
       heart: {fileID: 553769638}
   gameplayUI: {fileID: 1340620612}
   Arena: {fileID: 1894167273}
+  cam: {fileID: 929125846}
 --- !u!1 &1643308990
 GameObject:
   m_ObjectHideFlags: 0

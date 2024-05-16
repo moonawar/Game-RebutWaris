@@ -28,8 +28,8 @@ RectTransform:
   m_GameObject: {fileID: 865647104454353644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5.09, y: 5.09, z: 5.09}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4229558792731696662}
   m_Father: {fileID: 7054710613867731214}
@@ -197,7 +197,8 @@ GameObject:
   - component: {fileID: 8204008302743238175}
   - component: {fileID: 470906341831932076}
   - component: {fileID: 6990160051840587978}
-  m_Layer: 0
+  - component: {fileID: 8849005706456133194}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -213,8 +214,8 @@ Transform:
   m_GameObject: {fileID: 7054710613867731208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3666096469289222552}
   m_Father: {fileID: 0}
@@ -282,7 +283,7 @@ Animator:
   m_GameObject: {fileID: 7054710613867731208}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dc34a088ff205794da1802d37ec95faf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9254f35bd0109c646998b5edbe51c699, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -326,12 +327,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fd48cf22bcf2d479b6df3532b84906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerId: 0
   arrow: {fileID: 3666096469289222552}
   maxSpeed: 8
-  grabbedSpeed: 5
   timeToAccelerate: 0.3
   timeToDecelerate: 0.2
+  lookDirection: 0
 --- !u!114 &7787768088860118804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +476,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7f810c9a-63bc-4656-95fc-4466d8841aad
     m_ActionName: Gameplay/Use Power Up[/Keyboard/p,/Logitech Logitech Dual Action/button4]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8849005706456133194}
+        m_TargetAssemblyTypeName: PlayerRangeItem, Assembly-CSharp
+        m_MethodName: OnThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0308dcf4-4cbc-4632-8add-84ea5bfbc7f7
+    m_ActionName: Gameplay/Throw Item[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8849005706456133194}
+        m_TargetAssemblyTypeName: PlayerRangeItem, Assembly-CSharp
+        m_MethodName: OnChangeItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0dba3da6-49af-448b-92f9-28cfc6ceead5
+    m_ActionName: Gameplay/Change Item[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PreGame
@@ -497,6 +529,7 @@ MonoBehaviour:
   stunDuration: 2
   playerMovement: {fileID: 8652144860922909440}
   selfCollider: {fileID: 470906341831932076}
+  Cooldown: 3
 --- !u!114 &8204008302743238175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +546,7 @@ MonoBehaviour:
   playerMovement: {fileID: 8652144860922909440}
   selfCollider: {fileID: 470906341831932076}
   arrow: {fileID: 3666096469289222552}
+  Cooldown: 3
 --- !u!61 &470906341831932076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -554,3 +588,20 @@ MonoBehaviour:
   playerMovement: {fileID: 8652144860922909440}
   selfCollider: {fileID: 470906341831932076}
   powerUp: {fileID: 0}
+--- !u!114 &8849005706456133194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054710613867731208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c985c69a9de94449ca910f6501fcce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptableThrowables:
+  - {fileID: 11400000, guid: e7f141265bd47dc44b39fe20e1099fe2, type: 2}
+  - {fileID: 11400000, guid: 0089c35929cfaa84abab273af4dc3cf4, type: 2}
+  throwableAmount: 02000000
+  arrow: {fileID: 3666096469289222552}
