@@ -7,7 +7,7 @@ public class PlayerData {
     public Sprite sprite;
     public Sprite arrow;
     public GameObject itemHolder;
-    public PlayerRadarUIRefs uiRefs;
+    public PlayerMashUIRefs uiRefs;
 }
 
 public class GameplayInitiator : MonoBehaviour
@@ -22,7 +22,7 @@ public class GameplayInitiator : MonoBehaviour
     [SerializeField] private Throwable throwablePrefab;
 
     public void OnPlayerJoined(GameObject playerObj, int playerIndex)  {
-        EmakRadar radar = playerObj.GetComponent<EmakRadar>();
+        PlayerMash radar = playerObj.GetComponent<PlayerMash>();
         SpriteRenderer spriteRenderer = playerObj.GetComponent<SpriteRenderer>();
 
         if (playerIndex == 0) {

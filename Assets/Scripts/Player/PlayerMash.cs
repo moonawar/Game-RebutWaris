@@ -3,13 +3,13 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class PlayerRadarUIRefs {
+public class PlayerMashUIRefs {
     public GameObject fill;
     public Slider loveMeter;
     public GameObject heart;
 }
 
-public class EmakRadar : MonoBehaviour
+public class PlayerMash : MonoBehaviour
 {   
     private PhaseManager _phaseM;
 
@@ -22,13 +22,26 @@ public class EmakRadar : MonoBehaviour
     private float _lastTimePrincessInArea = 0;
 
     private int _loveLevel = 0;
+    
+    /**
+     * Context : clock is representation of time, and the children's time is what
+     * every mother needs. Thus, the player must have the clock (time) to be able
+     * to increase the love meter.
+    */
+    private bool haveClock = false;
+    public bool HaveClock {
+        get { return haveClock; }
+        set { 
+            OnHaveClockChanged(value);
+        }
+    }
 
     // UI Components
     [SerializeField] private GameObject _fill;
     [SerializeField] private Slider _loveMeter;
     [SerializeField] private GameObject _heart;
 
-    public void InitUIs(PlayerRadarUIRefs uiRefs) {
+    public void InitUIs(PlayerMashUIRefs uiRefs) {
         _fill = uiRefs.fill;
         _loveMeter = uiRefs.loveMeter;
         _heart = uiRefs.heart;
@@ -157,5 +170,10 @@ public class EmakRadar : MonoBehaviour
     public void SetIncreaseRate(float value)
     {
         _increaseRate = value;
+    }
+
+    public void OnHaveClockChanged(bool newValue)
+    {
+        if (HaveClock == newValue) return; // Nothing should be updated
     }
 }

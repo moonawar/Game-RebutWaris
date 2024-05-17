@@ -10,10 +10,10 @@ public class Gift : PowerUp
     {
         this.target = target;
         FindOppositeTarget();
-        float prevRate = this.target.GetComponent<EmakRadar>().GetIncreaseRate();
-        this.target.GetComponent<EmakRadar>().SetIncreaseRate(prevRate * 1.5f);
+        float prevRate = this.target.GetComponent<PlayerMash>().GetIncreaseRate();
+        this.target.GetComponent<PlayerMash>().SetIncreaseRate(prevRate * 1.5f);
         yield return new WaitForSeconds(duration);
-        this.target.GetComponent<EmakRadar>().SetIncreaseRate(prevRate);
+        this.target.GetComponent<PlayerMash>().SetIncreaseRate(prevRate);
 
     }
 

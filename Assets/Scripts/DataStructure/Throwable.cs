@@ -70,7 +70,7 @@ public class Throwable : MonoBehaviour
         {
             if (collision.gameObject.tag == "Player" && collision != owner.GetComponent<Collider2D>())
             {
-                collision.GetComponent<EmakRadar>().DecreaseLove(item.damage);
+                collision.GetComponent<PlayerMash>().DecreaseLove(item.damage);
                 currentSpeed = 0;
                 hitsLeft = 0;
                 isThrown = false;

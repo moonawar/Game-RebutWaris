@@ -7,7 +7,7 @@ public class Fitnah : PowerUp
 {
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
-        target.GetComponent<EmakRadar>().DecreaseLoveHalf();
+        target.GetComponent<PlayerMash>().DecreaseLoveHalf();
         yield return null;
 
     }
