@@ -17,7 +17,6 @@ public class Throwable : MonoBehaviour
 
     private void Awake()
     {
-        print(item.sprite.name);
         gameObject.GetComponent<SpriteRenderer>().sprite = item.sprite;
     }
     public void SetThrowable(ScriptableThrowable throwable)

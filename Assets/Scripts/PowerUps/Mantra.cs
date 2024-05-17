@@ -9,14 +9,13 @@ public class Mantra : PowerUp
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
         this.target = target;
+        GameObject emak = GameObject.FindGameObjectWithTag("Emak");
+        EmakStateMachine emakStateMachine = emak.GetComponent<EmakStateMachine>();
         FindOppositeTarget();
-        GameObject.FindGameObjectWithTag("Emak").GetComponent<EmakStateMachine>().CharmedState.target = this.target;
-        GameObject.FindGameObjectWithTag("Emak").GetComponent<EmakStateMachine>().ChangeState(GameObject.FindGameObjectWithTag("Emak").GetComponent<EmakStateMachine>().CharmedState);
-        print("Emak is charmed");
+        emakStateMachine.CharmedState.target = this.target;
+        emakStateMachine.ChangeState(emakStateMachine.CharmedState);
         yield return new WaitForSeconds(duration);
-        GameObject.FindGameObjectWithTag("Emak").GetComponent<EmakStateMachine>().ChangeState(GameObject.FindGameObjectWithTag("Emak").GetComponent<EmakStateMachine>().IdleState);
-        print("Emak is no longer charmed");
-
+        emakStateMachine.ChangeState(emakStateMachine.IdleState);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

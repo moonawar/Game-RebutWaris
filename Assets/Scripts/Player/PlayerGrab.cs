@@ -26,7 +26,6 @@ public class PlayerGrab : MonoBehaviour
 
         if (context.performed)
         {
-            print("ITS BEING PERFORMED");
             if (playerMovement.IsStunned || playerMovement.IsGrabbed) return;
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
@@ -45,8 +44,6 @@ public class PlayerGrab : MonoBehaviour
 
         if(context.canceled)
         {
-            print("ITS FINISHED");
-
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
             foreach (Collider2D collider in colliders)
             {

@@ -23,10 +23,6 @@ public class PlayerBonk : MonoBehaviour
     {
         if (OnCooldown) return;
 
-        if (context.performed)
-        {
-            print("ITS BEING PERFORMED");
-        }
         if (playerMovement.IsStunned || playerMovement.IsGrabbed) return;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
         foreach (Collider2D collider in colliders)

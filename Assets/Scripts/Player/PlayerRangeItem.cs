@@ -47,7 +47,6 @@ public class PlayerRangeItem : MonoBehaviour
         {
             if (context.performed)
             {
-                print("ITS BEING PERFORMED");
                 gameObject.GetComponent<PlayerMovement>().AimMode = true;
                 arrow.gameObject.SetActive(true);
 
@@ -56,8 +55,6 @@ public class PlayerRangeItem : MonoBehaviour
 
             if (context.canceled)
             {
-                print("ITS FINISHED");
-
                 gameObject.GetComponent<PlayerMovement>().AimMode = false;
 
 
@@ -76,10 +73,6 @@ public class PlayerRangeItem : MonoBehaviour
                 throwableAmount[selectedItem]--;
                 arrow.gameObject.SetActive(false);
             }
-        }
-        else
-        {
-            print("Out of ammo!");
         }
     }
 
