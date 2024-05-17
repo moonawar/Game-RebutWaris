@@ -37,9 +37,10 @@ public class PlayerMash : MonoBehaviour
     }
 
     // UI Components
-    [SerializeField] private GameObject _fill;
-    [SerializeField] private Slider _loveMeter;
-    [SerializeField] private GameObject _heart;
+    private GameObject _fill;
+    private Slider _loveMeter;
+    private GameObject _heart;
+    [SerializeField] private GameObject _clockVisual;
 
     public void InitUIs(PlayerMashUIRefs uiRefs) {
         _fill = uiRefs.fill;
@@ -74,7 +75,7 @@ public class PlayerMash : MonoBehaviour
         if (gameObject.GetComponent<PlayerMovement>().IsStunned) return;   // Max Level, avoid crashing at all cost
 
         _heart.GetComponent<Animator>().SetTrigger("Mash");
-        if (IsPrincessInArea())
+        if (haveClock && IsPrincessInArea())
         {
             _loveMeter.value += _increaseRate;
             _fill.SetActive(true);
@@ -137,19 +138,14 @@ public class PlayerMash : MonoBehaviour
         if (_loveLevel == 1)
         {
             _heart.SetActive(true);
-            //_heart.GetComponent<Image>().color = Color.green;
-            //_fill.GetComponent<Image>().color = Color.red;
         }
         else if (_loveLevel == 2)
         {
             _heart.SetActive(true);
-            //_heart.GetComponent<Image>().color = Color.red;
-            //_fill.GetComponent<Image>().color = new Color32(224, 55, 204, 255);
         }
         else // Level 3
         {
             _heart.SetActive(true);
-            //_heart.GetComponent<Image>().color = new Color32(224, 55, 204, 255);
         }
     }
 
@@ -175,5 +171,11 @@ public class PlayerMash : MonoBehaviour
     public void OnHaveClockChanged(bool newValue)
     {
         if (HaveClock == newValue) return; // Nothing should be updated
+        haveClock = newValue;
+        if (haveClock) {
+            _clockVisual.SetActive(true);
+        } else {
+            _clockVisual.SetActive(false);
+        }
     }
 }
