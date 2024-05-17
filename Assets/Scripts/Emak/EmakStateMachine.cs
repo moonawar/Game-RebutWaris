@@ -13,8 +13,7 @@ public class EmakStateMachine : MonoBehaviour
 
     public EmakState CurrentState { get; private set; }
     private EmakState startingState;
-
-
+    private ParticleSystem _charmedParticles;
 
     private void Awake()
     {
@@ -22,6 +21,7 @@ public class EmakStateMachine : MonoBehaviour
         RoamState = new EmakRoam(roamProperties);
         CharmedState = new EmakCharmed(charmedProperties, null);
         startingState = IdleState;
+        _charmedParticles = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Start()
@@ -40,5 +40,10 @@ public class EmakStateMachine : MonoBehaviour
         CurrentState.OnExit(this);
         CurrentState = newState;
         CurrentState.OnEnter(this);
+    }
+
+    public void EmitLoveParticles()
+    {
+        _charmedParticles.Play();
     }
 }

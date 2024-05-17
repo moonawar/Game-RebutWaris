@@ -75,10 +75,12 @@ public class PlayerMash : MonoBehaviour
         if (gameObject.GetComponent<PlayerMovement>().IsStunned) return;   // Max Level, avoid crashing at all cost
 
         _heart.GetComponent<Animator>().SetTrigger("Mash");
-        if (haveClock && IsPrincessInArea())
+        Collider2D emak = IsEmakInArea();
+        if (haveClock && emak)
         {
             _loveMeter.value += _increaseRate;
             _fill.SetActive(true);
+            emak.GetComponent<EmakStateMachine>().EmitLoveParticles();
         }
 
         if (_loveMeter.value >= _nextPhaseValue)
@@ -87,7 +89,7 @@ public class PlayerMash : MonoBehaviour
         }
     }
 
-    private bool IsPrincessInArea()
+    private Collider2D IsEmakInArea()
     {
         Vector3 center = transform.position;
         center.x += _phaseM.DetectOffsetX;
@@ -96,16 +98,16 @@ public class PlayerMash : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(center, _phaseM.DetectRadius);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Emak")) return true; // Emak is here
+            if (collider.CompareTag("Emak")) return collider;
         }
-        return false;
+        return null;
     }
 
     void Update()
     {
         if (_loveLevel >= 3) return;
 
-        if (IsPrincessInArea()) {
+        if (IsEmakInArea()) {
             _lastTimePrincessInArea = Time.time;
         }
 
