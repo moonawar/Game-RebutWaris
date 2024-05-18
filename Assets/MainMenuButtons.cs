@@ -12,6 +12,11 @@ public class MainMenuButtons : MonoBehaviour
     [SerializeField] private Button SettingsButton;
     [SerializeField] private Button QuitButton;
 
+    private void OnEnable()
+    {
+        SettingsButton.Select();
+    }
+
     public void Play()
     {
         SceneManager.LoadScene("Game");

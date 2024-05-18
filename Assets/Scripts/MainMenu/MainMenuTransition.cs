@@ -8,6 +8,7 @@ using UnityEngine.Video;
 public class MainMenuTransition : MonoBehaviour
 {
     private bool started = false;
+    private bool finished = false;
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject initialScreen;
     [SerializeField] private GameObject secondScreen;
@@ -18,9 +19,11 @@ public class MainMenuTransition : MonoBehaviour
 
     private void Update()
     {
+        if (finished) return;
+
         animatorState = cam.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
 
-        if (!started && Input.GetKeyDown(KeyCode.Space))
+        if (!started && Input.anyKeyDown)
         {
             started = true;
             cam.GetComponent<Animator>().SetTrigger("StartTransition");
@@ -44,6 +47,7 @@ public class MainMenuTransition : MonoBehaviour
             secondScreen.SetActive(true);
             MainScreen.SetActive(true);
             staticScren.SetActive(false);
+            finished = true;
             cam.GetComponent<Animator>().SetTrigger("EndTransition");
         }
 
