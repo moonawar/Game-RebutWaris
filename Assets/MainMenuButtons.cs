@@ -8,13 +8,29 @@ public class MainMenuButtons : MonoBehaviour
 {
 
     [SerializeField] private Button PlayButton;
-    [SerializeField] private Button TutorialButton;
-    [SerializeField] private Button SettingsButton;
-    [SerializeField] private Button QuitButton;
+    [SerializeField] private GameObject MenuScreen;
+    [SerializeField] private GameObject TutorialScreen;
+    [SerializeField] private GameObject SettingsScreen;
+    [SerializeField] private Button TutorialResumeButton;
+    [SerializeField] private Button SettingsResumeButton;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            BackToMenu();
+        }
+    }
 
     private void OnEnable()
     {
-        SettingsButton.Select();
+        PlayButton.Select();
+
+    }
+
+    private void Start()
+    {
+        PlayButton.Select();
     }
 
     public void Play()
@@ -24,16 +40,26 @@ public class MainMenuButtons : MonoBehaviour
 
     public void Tutorial()
     {
-
+        SettingsScreen.SetActive(false);
+        MenuScreen.SetActive(false);
+        TutorialScreen.SetActive(true);
     }
 
     public void Settings()
     {
-
+        SettingsScreen.SetActive(true);
+        MenuScreen.SetActive(false);
+        TutorialScreen.SetActive(false);
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+    public void BackToMenu()
+    {
+        SettingsScreen.SetActive(false);
+        MenuScreen.SetActive(true);
+        TutorialScreen.SetActive(false);
     }
 }
