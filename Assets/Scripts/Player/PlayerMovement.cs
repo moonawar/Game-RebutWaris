@@ -94,15 +94,16 @@ public class PlayerMovement : MonoBehaviour
         IsGrabbed = true;
         IsStunned = true;
 
+        gameObject.GetComponent<Animator>().SetTrigger("Struggle");
         if(Mathf.Abs(transform.eulerAngles.y) != 180)
         {
-            gameObject.transform.position = destination + new Vector2(0.5f, 1.5f);
+            gameObject.transform.position = destination + new Vector2(0f, 2.2f);
         }
         else
         {
-            gameObject.transform.position = destination + new Vector2(-0.5f, 1.5f);
+            gameObject.transform.position = destination + new Vector2(0f, 2.2f);
         }
-        gameObject.transform.eulerAngles += new Vector3(0, 0, -90);
+        //gameObject.transform.eulerAngles += new Vector3(0, 0, -90);
     }
 
     private IEnumerator Thrown(float seconds)
@@ -118,12 +119,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Mathf.Abs(transform.eulerAngles.y) != 180)
         {
-            gameObject.transform.position += new Vector3(-0.5f, -1.5f);
+            gameObject.transform.position += new Vector3(0f, -2.2f);
 
         }
         else
         {
-            gameObject.transform.position += new Vector3(0.5f, -1.5f);
+            gameObject.transform.position += new Vector3(0f, -2.2f);
         }
         gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         IsStunned = false;
@@ -235,6 +236,10 @@ public class PlayerMovement : MonoBehaviour
         if (IsThrown)
         {
             transform.position += CurrentSpeed * Time.fixedDeltaTime * thrownAngle;
+            if(CurrentSpeed <= 0.1)
+            {
+                gameObject.GetComponent<Animator>().SetTrigger("Idle");
+            }
         }
         else
         {
@@ -248,7 +253,15 @@ public class PlayerMovement : MonoBehaviour
                 appliedMove = transformer(appliedMove);
             }
             transform.position += Time.fixedDeltaTime * appliedMove;
+
+            if(appliedMove.magnitude > 0)
+            {
+                gameObject.GetComponent<Animator>().SetTrigger("Move");
+            }
         }
+
+
+
 
 
         // Stay in bounds
@@ -285,6 +298,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsThrown && hitWall)
         {
             IsThrown = false;
+            gameObject.GetComponent<Animator>().SetTrigger("Idle");
         }
 
         transform.position = new Vector2(newX, newY);
