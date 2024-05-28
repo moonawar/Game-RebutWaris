@@ -152,6 +152,8 @@ public class PlayerMash : MonoBehaviour
     }
 
     private void OnDrawGizmosSelected() {
+        if (_phaseM == null) return;
+
         Vector3 center = transform.position;
         center.x += _phaseM.DetectOffsetX;
         center.y += _phaseM.DetectOffsetY;

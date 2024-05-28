@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     /* Movement Transformer */
     public delegate Vector3 MovementTransformer(Vector3 move);
     public List<MovementTransformer> transformers = new List<MovementTransformer>();
+
+    private Animator animator;
     #endregion
 
     private void Awake()
@@ -50,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
         lookDirection = transform.rotation.y == 0 ? RIGHT : LEFT;
         acceleration = maxSpeed / timeToAccelerate;
         deceleration = maxSpeed / timeToDecelerate;
+
+        animator = GetComponent<Animator>();
     }
 
     public void SetArena(Collider2D collider)
@@ -89,12 +93,12 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region grab
-    public void Grab(Vector2 destination)
+    public void Grabbed(Vector2 destination)
     {
         IsGrabbed = true;
         IsStunned = true;
 
-        gameObject.GetComponent<Animator>().SetTrigger("Struggle");
+        animator.SetBool("isGrabbed", true);
         if(Mathf.Abs(transform.eulerAngles.y) != 180)
         {
             gameObject.transform.position = destination + new Vector2(0f, 2.2f);
@@ -103,13 +107,13 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.transform.position = destination + new Vector2(0f, 2.2f);
         }
-        //gameObject.transform.eulerAngles += new Vector3(0, 0, -90);
     }
 
     private IEnumerator Thrown(float seconds)
     {
         IsThrown = true;
         yield return new WaitForSeconds(seconds);
+        CurrentSpeed = 0;
         IsThrown = false;
     }
     public void Ungrab(float theta, int flip)
@@ -117,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
         IsGrabbed = false;
         IsStunned = false;
 
+        animator.SetBool("isGrabbed", false);
         if (Mathf.Abs(transform.eulerAngles.y) != 180)
         {
             gameObject.transform.position += new Vector3(0f, -2.2f);
@@ -182,6 +187,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (IsStunned && IsThrown) return;
+        // Set current speed of animator
+        animator.SetFloat("Speed", CurrentSpeed);
         
         // Input
         previousMove = move;
@@ -189,7 +196,22 @@ public class PlayerMovement : MonoBehaviour
         
         if (GrabMode)
         {
-            arrow.RotateAround(transform.position, Vector3.forward, 1f);
+            arrow.RotateAround(transform.position, Vector3.forward, 100f * Time.deltaTime);
+            // Flip the player if the direction changes based on the arrow
+            float offsetCorrection = lookDirection == RIGHT ? 0 : 180;
+            float zRotation = Mathf.Abs(arrow.rotation.eulerAngles.z - offsetCorrection);
+                
+            if (zRotation > 90 && zRotation < 270)
+            {
+                lookDirection = LEFT;
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else
+            {
+                lookDirection = RIGHT;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+
             return;
         }
 
@@ -208,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Flip the player if the direction changes
-        if (Mathf.Sign(move.x) != lookDirection && move.x != 0 && !IsGrabbed)
+        if (Mathf.Sign(move.x) != lookDirection && move.x != 0)
         {
             lookDirection = (int)Mathf.Sign(move.x);
 
@@ -236,10 +258,6 @@ public class PlayerMovement : MonoBehaviour
         if (IsThrown)
         {
             transform.position += CurrentSpeed * Time.fixedDeltaTime * thrownAngle;
-            if(CurrentSpeed <= 0.1)
-            {
-                gameObject.GetComponent<Animator>().SetTrigger("Idle");
-            }
         }
         else
         {
@@ -254,15 +272,11 @@ public class PlayerMovement : MonoBehaviour
             }
             transform.position += Time.fixedDeltaTime * appliedMove;
 
-            if(appliedMove.magnitude > 0)
-            {
-                gameObject.GetComponent<Animator>().SetTrigger("Move");
-            }
+            // if(appliedMove.magnitude > 0)
+            // {
+            //     animator.SetTrigger("Move");
+            // }
         }
-
-
-
-
 
         // Stay in bounds
         StayInBounds();
@@ -298,7 +312,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsThrown && hitWall)
         {
             IsThrown = false;
-            gameObject.GetComponent<Animator>().SetTrigger("Idle");
+            CurrentSpeed = 0;
         }
 
         transform.position = new Vector2(newX, newY);

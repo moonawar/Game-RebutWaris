@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ThrowableItem", menuName = "Throwable/ThrowableItem")]
 public class ScriptableThrowable : ScriptableObject
 {
-    public string name;
+    public new string name;
     public float damage;
     public int initialAmount;
     public float throwSpeed;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,12 @@ public class PlayerGrab : MonoBehaviour
     [SerializeField] private Transform arrow;
     [SerializeField] private float Cooldown;
     private bool OnCooldown = false;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private IEnumerator CooldownTimer()
     {
@@ -22,7 +29,7 @@ public class PlayerGrab : MonoBehaviour
 
     public void OnGrab(InputAction.CallbackContext context)
     {
-        if (OnCooldown) return;
+        if (OnCooldown) return; 
 
         if (context.performed)
         {
@@ -33,16 +40,16 @@ public class PlayerGrab : MonoBehaviour
             {
                 if (collider != selfCollider && collider.TryGetComponent(out PlayerMovement player))
                 {
-                    player.Grab(gameObject.transform.position);
+                    animator.SetTrigger("Grab");
+                    player.Grabbed(gameObject.transform.position);
                     arrow.gameObject.SetActive(true);
                     playerMovement.GrabMode = true;
-                    playerMovement.GetComponent<Animator>().SetTrigger("Grab");
+                    break;
                 }
             }
-
         }
 
-        if(context.canceled)
+        if(context.canceled && playerMovement.GrabMode)
         {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
             foreach (Collider2D collider in colliders)
@@ -52,6 +59,7 @@ public class PlayerGrab : MonoBehaviour
                 if (playerMovement.IsStunned || playerMovement.IsGrabbed) return;
                 if (collider.TryGetComponent(out PlayerMovement player))
                 {
+                    animator.SetTrigger("Throw");
                     playerMovement.GrabMode = false;
                     arrow.RotateAround(transform.position, Vector3.forward, 0f);
                     if(Mathf.Abs(transform.rotation.eulerAngles.y) == 180)
@@ -64,13 +72,11 @@ public class PlayerGrab : MonoBehaviour
                         player.Ungrab(arrow.transform.rotation.eulerAngles.z, 1);
 
                     }
-                    playerMovement.GetComponent<Animator>().SetTrigger("Throw");
 
                     arrow.gameObject.SetActive(false);
                 }
             }
             StartCoroutine(CooldownTimer());
-
         }
         
     }
