@@ -40,6 +40,7 @@ public class PlayerGrab : MonoBehaviour
             {
                 if (collider != selfCollider && collider.TryGetComponent(out PlayerMovement player))
                 {
+                    if (player.IsGrabbed) return;
                     animator.SetTrigger("Grab");
                     player.Grabbed(gameObject.transform.position);
                     arrow.gameObject.SetActive(true);
@@ -59,9 +60,9 @@ public class PlayerGrab : MonoBehaviour
                 if (playerMovement.IsStunned || playerMovement.IsGrabbed) return;
                 if (collider.TryGetComponent(out PlayerMovement player))
                 {
+                    if (!player.IsGrabbed) return;
                     animator.SetTrigger("Throw");
                     playerMovement.GrabMode = false;
-                    arrow.RotateAround(transform.position, Vector3.forward, 0f);
                     if(Mathf.Abs(transform.rotation.eulerAngles.y) == 180)
                     {
                         player.Ungrab(arrow.transform.rotation.eulerAngles.z, -1);

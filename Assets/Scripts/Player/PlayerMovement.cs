@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -99,14 +100,7 @@ public class PlayerMovement : MonoBehaviour
         IsStunned = true;
 
         animator.SetBool("isGrabbed", true);
-        if(Mathf.Abs(transform.eulerAngles.y) != 180)
-        {
-            gameObject.transform.position = destination + new Vector2(0f, 2.2f);
-        }
-        else
-        {
-            gameObject.transform.position = destination + new Vector2(0f, 2.2f);
-        }
+        transform.position = destination + new Vector2(0, 0.1f);
     }
 
     private IEnumerator Thrown(float seconds)
@@ -122,19 +116,13 @@ public class PlayerMovement : MonoBehaviour
         IsStunned = false;
 
         animator.SetBool("isGrabbed", false);
-        if (Mathf.Abs(transform.eulerAngles.y) != 180)
-        {
-            gameObject.transform.position += new Vector3(0f, -2.2f);
-
-        }
-        else
-        {
-            gameObject.transform.position += new Vector3(0f, -2.2f);
-        }
-        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        transform.position += new Vector3(0, 0.1f, 0);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         IsStunned = false;
         thrownAngle = new Vector3(Mathf.Cos(theta * Mathf.Deg2Rad), Mathf.Sin(theta * Mathf.Deg2Rad), 0);
         thrownAngle.x *= flip;
+
+        lookDirection = Math.Sign(thrownAngle.x);
 
         CurrentSpeed = 50;
         StartCoroutine(Thrown(1));
@@ -199,15 +187,17 @@ public class PlayerMovement : MonoBehaviour
             arrow.RotateAround(transform.position, Vector3.forward, 100f * Time.deltaTime);
             // Flip the player if the direction changes based on the arrow
             float offsetCorrection = lookDirection == RIGHT ? 0 : 180;
-            float zRotation = Mathf.Abs(arrow.rotation.eulerAngles.z - offsetCorrection);
+            float zRotation = Mathf.Abs(arrow.rotation.eulerAngles.z - offsetCorrection - 100f * Time.deltaTime);
                 
-            if (zRotation > 90 && zRotation < 270)
+            if (zRotation > 90 && zRotation <= 270)
             {
                 lookDirection = LEFT;
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
             else
             {
+                if (zRotation >= 360) arrow.rotation *= Quaternion.Euler(0, 0, -360);
+
                 lookDirection = RIGHT;
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
@@ -230,7 +220,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Flip the player if the direction changes
-        if (Mathf.Sign(move.x) != lookDirection && move.x != 0)
+        if (move.x != 0)
         {
             lookDirection = (int)Mathf.Sign(move.x);
 

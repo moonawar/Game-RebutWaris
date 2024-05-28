@@ -33,6 +33,10 @@ public class GameEventsManager : MonoBehaviour
             TriggerEvent();
             timer = timeBetweenEvent.RandomValue();
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1)) {
+            TriggerEvent();
+        }
     }
 
     private void TriggerEvent() {
