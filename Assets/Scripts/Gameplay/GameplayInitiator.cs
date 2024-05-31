@@ -54,6 +54,7 @@ public class GameplayInitiator : MonoBehaviour
         p1.SwitchCurrentActionMap("Gameplay");
         p2.SwitchCurrentActionMap("Gameplay");
         PowerUpSpawner.Instance.StartSpawn = true;
+        CameraManager.Instance.SetInGameCamActive();
         ClockManager.Instance.SpawnClock();
 
         gameplayUI.SetActive(true);
