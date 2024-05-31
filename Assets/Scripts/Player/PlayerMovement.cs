@@ -172,8 +172,9 @@ public class PlayerMovement : MonoBehaviour
         return cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    void Update()
+    private void Update()
     {
+        if (GameplayManager.Instance.Paused) return;
         if (IsStunned && IsThrown) return;
         // Set current speed of animator
         animator.SetFloat("Speed", CurrentSpeed);
@@ -186,21 +187,21 @@ public class PlayerMovement : MonoBehaviour
         {
             arrow.RotateAround(transform.position, Vector3.forward, 100f * Time.deltaTime);
             // Flip the player if the direction changes based on the arrow
-            float offsetCorrection = lookDirection == RIGHT ? 0 : 180;
-            float zRotation = Mathf.Abs(arrow.rotation.eulerAngles.z - offsetCorrection - 100f * Time.deltaTime);
+            // float offsetCorrection = lookDirection == RIGHT ? 0 : 180;
+            // float zRotation = Mathf.Abs(arrow.rotation.eulerAngles.z - offsetCorrection - 100f * Time.deltaTime);
                 
-            if (zRotation > 90 && zRotation <= 270)
-            {
-                lookDirection = LEFT;
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-            }
-            else
-            {
-                if (zRotation >= 360) arrow.rotation *= Quaternion.Euler(0, 0, -360);
+            // if (zRotation > 90 && zRotation <= 270)
+            // {
+            //     lookDirection = LEFT;
+            //     transform.rotation = Quaternion.Euler(0, 180, 0);
+            // }
+            // else
+            // {
+            //     if (zRotation >= 360) arrow.rotation *= Quaternion.Euler(0, 0, -360);
 
-                lookDirection = RIGHT;
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
+            //     lookDirection = RIGHT;
+            //     transform.rotation = Quaternion.Euler(0, 0, 0);
+            // }
 
             return;
         }

@@ -29,6 +29,7 @@ public class PlayerGrab : MonoBehaviour
 
     public void OnGrab(InputAction.CallbackContext context)
     {
+        if (GameplayManager.Instance.Paused) return;
         if (OnCooldown) return; 
 
         if (context.performed)

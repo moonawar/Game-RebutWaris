@@ -21,6 +21,7 @@ public class PlayerUseItem : MonoBehaviour
 
     public void OnUseItem(InputAction.CallbackContext context)
     {
+        if (GameplayManager.Instance.Paused) return;
         if (context.performed && powerUp != null)
         {
             if (playerMovement.IsStunned) return;

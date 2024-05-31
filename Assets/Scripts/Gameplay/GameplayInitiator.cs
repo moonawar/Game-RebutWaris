@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -20,10 +21,12 @@ public class GameplayInitiator : MonoBehaviour
     [SerializeField] private Collider2D Arena;
     [SerializeField] private Camera cam;
     [SerializeField] private Throwable throwablePrefab;
+    [SerializeField] private CinemachineTargetGroup targetGroup;
 
     public void OnPlayerJoined(GameObject playerObj, int playerIndex)  {
         PlayerMash radar = playerObj.GetComponent<PlayerMash>();
         SpriteRenderer spriteRenderer = playerObj.GetComponent<SpriteRenderer>();
+        targetGroup.AddMember(playerObj.transform, 1, 0);
 
         if (playerIndex == 0) {
             radar.InitUIs(dataPlayer1.uiRefs);
