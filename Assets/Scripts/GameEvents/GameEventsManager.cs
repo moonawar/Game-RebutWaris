@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.UI;
 
 [System.Serializable]
 public class GameEventsOnPhase {
@@ -33,13 +32,18 @@ public class GameEventsManager : MonoBehaviour
             TriggerEvent();
             timer = timeBetweenEvent.RandomValue();
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1)) {
+            TriggerEvent();
+        }
     }
 
     private void TriggerEvent() {
         if (_eventsOnPhases[currentGamePhase].gameEvents.Count > 0) {
             int randomEventIndex = Random.Range(0, _eventsOnPhases[currentGamePhase].gameEvents.Count);
-            _eventsOnPhases[currentGamePhase].gameEvents[randomEventIndex].OnEnter(this);
-            TextPopUpManager.Instance.SpawnEventText(_eventsOnPhases[currentGamePhase].ToString());
+            GameEvent eventToTrigger = _eventsOnPhases[currentGamePhase].gameEvents[randomEventIndex];
+            eventToTrigger.OnEnter(this);
+            TextPopUpManager.Instance.SpawnEventText(eventToTrigger.GetName());
         }
     }
 

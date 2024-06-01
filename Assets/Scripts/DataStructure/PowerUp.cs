@@ -1,11 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using static UnityEngine.GraphicsBuffer;
 
 public abstract class PowerUp: MonoBehaviour 
 {
@@ -17,32 +12,34 @@ public abstract class PowerUp: MonoBehaviour
 
     protected void PickedUp(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerMovement>() == null || collision.gameObject.GetComponent<PlayerMovement>().IsGrabbed == true || collision.gameObject.GetComponent<PlayerMovement>().IsStunned == true) return;
+        if (collision.CompareTag("PlayerBody") == false) return;
+        GameObject player = collision.gameObject.GetComponentInParent<PlayerMovement>().gameObject;
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 
-        collision.gameObject.GetComponent<PlayerUseItem>().EquipItem(this);
-        if (collision.gameObject.GetComponent<PlayerInput>().playerIndex == 0)
+        if (playerMovement == null || playerMovement.IsGrabbed || playerMovement.IsStunned) return;
+
+        player.GetComponent<PlayerUseItem>().EquipItem(this);
+        if (player.GetComponent<PlayerInput>().playerIndex == 0)
         {
-            this.transform.SetParent(PowerUpSpawner.Instance.PowerUpPanelP1.transform);
+            transform.SetParent(PowerUpSpawner.Instance.PowerUpPanelP1.transform);
         }
         else
         {
-            this.transform.SetParent(PowerUpSpawner.Instance.PowerUpPanelP2.transform);
+            transform.SetParent(PowerUpSpawner.Instance.PowerUpPanelP2.transform);
         }
-        this.transform.localPosition = new Vector3(0, 0, 0);
-        this.transform.localScale = new Vector3(50f, 50f, 50f);
-        this.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        transform.localPosition = new Vector3(0, 0, 0);
+        transform.localScale = new Vector3(50f, 50f, 50f);
+        GetComponent<SpriteRenderer>().sortingOrder = 2;
         gameObject.GetComponent<Collider2D>().enabled = false;
-
     }
 
     protected void FindOppositeTarget()
     {
-
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (player.GetComponent<PlayerInput>().playerIndex != target.GetComponent<PlayerInput>().playerIndex)
             {
-                this.target = player.GetComponent<PlayerMovement>();
+                target = player.GetComponent<PlayerMovement>();
                 return;
             }
         }

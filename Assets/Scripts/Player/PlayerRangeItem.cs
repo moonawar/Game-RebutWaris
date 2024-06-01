@@ -43,6 +43,7 @@ public class PlayerRangeItem : MonoBehaviour
 
     public void OnThrow(InputAction.CallbackContext context)
     {
+        if (GameplayManager.Instance.Paused) return;
         if (throwableAmount[selectedItem] > 0)
         {
             if (context.performed)
@@ -78,6 +79,7 @@ public class PlayerRangeItem : MonoBehaviour
 
     public void OnChangeItem(InputAction.CallbackContext context)
     {
+        if (GameplayManager.Instance.Paused) return;
         if (context.performed && scriptableThrowables.Count > 0)
         {
             selectedItem++;

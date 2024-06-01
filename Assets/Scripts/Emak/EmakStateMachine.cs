@@ -32,6 +32,7 @@ public class EmakStateMachine : MonoBehaviour
 
     private void Update()
     {
+        if (GameplayManager.Instance.Paused) return;
         CurrentState.OnUpdate(this);
     }
 

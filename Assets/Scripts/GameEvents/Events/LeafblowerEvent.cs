@@ -5,6 +5,12 @@ public class LeafblowerEvent : GameEvent {
     [SerializeField] private float duration = 5f;
     [SerializeField] private float strength = 1f;
     private int direction;
+
+    public override string GetName()
+    {
+        return "Leafblower Event!";
+    }
+
     public override void OnEnter(GameEventsManager mgr)
     {
         GameplayManager.Instance.Players.ForEach(player => {

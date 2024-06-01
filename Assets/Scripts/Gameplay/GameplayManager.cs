@@ -19,6 +19,14 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameObject endOfGameScreen;
 
     public static GameplayManager Instance { get; private set; }
+    private bool _paused;
+    public bool Paused {
+        get { return _paused; }
+        set { 
+            _paused = value;
+            Time.timeScale = value ? 0 : 1; 
+        }
+    }
 
     [HideInInspector] public List<GameObject> Players;
 
@@ -45,3 +53,19 @@ public class GameplayManager : MonoBehaviour
         }
     }
 }
+
+#if UNITY_EDITOR
+[UnityEditor.CustomEditor(typeof(GameplayManager))]
+public class GameplayManagerEditor : UnityEditor.Editor {
+    public override void OnInspectorGUI() {
+        DrawDefaultInspector();
+
+        GameplayManager gMan = (GameplayManager)target;
+
+        string buttonText = gMan.Paused ? "Resume" : "Pause";
+        if (GUILayout.Button(buttonText)) {
+            gMan.Paused = !gMan.Paused;
+        }
+    }
+}
+#endif

@@ -21,6 +21,7 @@ public class PlayerBonk : MonoBehaviour
 
     public void OnBonk(InputAction.CallbackContext context)
     {
+        if (GameplayManager.Instance.Paused) return;
         if (OnCooldown) return;
 
         gameObject.GetComponent<Animator>().SetTrigger("Bonk");
