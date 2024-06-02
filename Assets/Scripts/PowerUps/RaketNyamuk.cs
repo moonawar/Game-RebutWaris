@@ -10,6 +10,8 @@ public class RaketNyamuk : PowerUp
     {
         target.Stun(duration);
         yield return null;
+        PowerUpEnd.Invoke(this);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

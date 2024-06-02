@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde31b3eb1909fa49864b12cea3bbbad, type: 3}
   m_Name: Sendal
   m_EditorClassIdentifier: 
-  name: Sendal
+  itemName: 
   damage: 10
   initialAmount: 2
   throwSpeed: 50
   deacceleration: 0.5
-  hits: 2
+  hits: 3
   sprite: {fileID: 21300000, guid: 36779af087f6d9c4b87cffd90c21b479, type: 3}

@@ -706,12 +706,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c985c69a9de94449ca910f6501fcce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptableThrowables:
-  - {fileID: 11400000, guid: e7f141265bd47dc44b39fe20e1099fe2, type: 2}
-  - {fileID: 11400000, guid: 0089c35929cfaa84abab273af4dc3cf4, type: 2}
-  throwableAmount: 02000000
+  throwableAmount: 2
   arrow: {fileID: 3666096469289222552}
-  selectedItem: 0
+  playerBody: {fileID: 7945191380886146226}
 --- !u!1 &7945191380886146226
 GameObject:
   m_ObjectHideFlags: 0

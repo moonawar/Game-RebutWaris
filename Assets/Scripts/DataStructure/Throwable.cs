@@ -1,24 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Throwable : MonoBehaviour
 {
     [SerializeField] private ScriptableThrowable item;
     private PlayerMovement owner;
+    private GameObject ownerBody;
     private float currentSpeed;
     private int hitsLeft;
     private bool isThrown = false;
     private Vector3 direction;
     [SerializeField] private Collider2D arena;
-    private int indexInList;
+
 
 
 
     private void Awake()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = item.sprite;
+        gameObject.GetComponent<SpriteRenderer>().sprite = item.sprite; 
     }
+
     public void SetThrowable(ScriptableThrowable throwable)
     {
         item = throwable;
@@ -32,9 +35,9 @@ public class Throwable : MonoBehaviour
         owner = player;
     }
 
-    public void SetIndex(int id)
+    public void SetOwnerBody(GameObject gameObject)
     {
-        indexInList = id;
+        ownerBody = gameObject;
     }
 
     private void FixedUpdate()
@@ -65,32 +68,43 @@ public class Throwable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Player" && collision == owner.GetComponent<Collider2D>()) return;
+
         if (isThrown)
         {
-            if (collision.gameObject.tag == "Player" && collision != owner.GetComponent<Collider2D>())
+            if(collision != ownerBody.GetComponent<Collider2D>())
             {
-                collision.GetComponent<PlayerMash>().DecreaseLove(item.damage);
-                currentSpeed = 0;
-                hitsLeft = 0;
-                isThrown = false;
-            }
-            else
-            {
-                direction = Vector3.Reflect(direction.normalized, gameObject.transform.position.normalized);
+                if (collision.gameObject.tag == "PlayerBody")
+                {
+                    collision.transform.parent.gameObject.GetComponent<PlayerMash>().DecreaseLove(item.damage);
+                    reflect();
+                }
+
                 StayInBounds();
                 currentSpeed -= (item.deacceleration * 2);
                 hitsLeft--;
             }
+            
         }
         else
         {
-            if (collision.gameObject.tag == "Player" && collision == owner.GetComponent<Collider2D>())
+            if (collision.gameObject.tag == "PlayerBody")
             {
-                owner.GetComponent<PlayerRangeItem>().throwableAmount[indexInList]++;
+                print(collision.transform.parent);
+                collision.transform.parent.GetComponent<PlayerRangeItem>().IncrementThrowable();
                 Destroy(this.gameObject);
             }
         }
         
+    }
+
+    private void reflect()
+    {
+        if (isThrown)
+        {
+            direction.x *= -1;
+            direction.y *= -1;
+        }
     }
 
     private void StayInBounds()

@@ -14,7 +14,9 @@ public class Mantra : PowerUp
         emakStateMachine.CharmedState.target = this.target;
         emakStateMachine.ChangeState(emakStateMachine.CharmedState);
         yield return new WaitForSeconds(duration);
+        PowerUpEnd.Invoke(this);
         emakStateMachine.ChangeState(emakStateMachine.IdleState);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

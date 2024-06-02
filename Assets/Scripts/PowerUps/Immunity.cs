@@ -12,7 +12,9 @@ public class Immunity : PowerUp
         FindOppositeTarget();
         this.target.isImmune = true;
         yield return new WaitForSeconds(duration);
+        PowerUpEnd.Invoke(this);
         this.target.isImmune = false;
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

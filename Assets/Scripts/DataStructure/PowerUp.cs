@@ -1,13 +1,18 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public abstract class PowerUp: MonoBehaviour 
 {
     protected PlayerMovement target;
+    public UnityEvent<PowerUp> PowerUpEnd;
     public virtual IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
         yield return null;
+        PowerUpEnd.Invoke(this);
     }
 
     protected void PickedUp(Collider2D collision)
@@ -29,7 +34,9 @@ public abstract class PowerUp: MonoBehaviour
         }
         transform.localPosition = new Vector3(0, 0, 0);
         transform.localScale = new Vector3(50f, 50f, 50f);
-        GetComponent<SpriteRenderer>().sortingOrder = 2;
+        //GetComponent<SpriteRenderer>().sortingOrder = 2;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Image>().enabled = true;
         gameObject.GetComponent<Collider2D>().enabled = false;
     }
 

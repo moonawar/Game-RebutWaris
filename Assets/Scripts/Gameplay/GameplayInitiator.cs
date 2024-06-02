@@ -1,4 +1,5 @@
 using Cinemachine;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -8,6 +9,8 @@ public class PlayerData {
     public Sprite sprite;
     public Sprite arrow;
     public GameObject itemHolder;
+    public TMP_Text throwableText;
+    public GameObject activePowerUps;
     public PlayerMashUIRefs uiRefs;
 }
 
@@ -25,6 +28,7 @@ public class GameplayInitiator : MonoBehaviour
 
     public void OnPlayerJoined(GameObject playerObj, int playerIndex)  {
         PlayerMash radar = playerObj.GetComponent<PlayerMash>();
+        radar = playerObj.GetComponent<PlayerMash>();
         SpriteRenderer spriteRenderer = playerObj.GetComponent<SpriteRenderer>();
         targetGroup.AddMember(playerObj.transform, 1, 0);
 
@@ -35,7 +39,8 @@ public class GameplayInitiator : MonoBehaviour
             playerObj.GetComponent<PlayerMovement>().SetArrow(dataPlayer1.arrow);
             playerObj.GetComponent<PlayerMovement>().SetCamera(cam);
             playerObj.GetComponent<PlayerRangeItem>().SetThrowablePrefab(throwablePrefab);
-            playerObj.GetComponent<PlayerRangeItem>().SetItemHolderUI(dataPlayer1.itemHolder);
+            playerObj.GetComponent<PlayerRangeItem>().SetAmountText(dataPlayer1.throwableText);
+            playerObj.GetComponent<PlayerUseItem>().SetActivePanel(dataPlayer1.activePowerUps);
             GameplayManager.Instance.Players.Add(playerObj);
 
         } else if (playerIndex == 1) {
@@ -45,7 +50,9 @@ public class GameplayInitiator : MonoBehaviour
             playerObj.GetComponent<PlayerMovement>().SetArrow(dataPlayer2.arrow);
             playerObj.GetComponent<PlayerMovement>().SetCamera(cam);
             playerObj.GetComponent<PlayerRangeItem>().SetThrowablePrefab(throwablePrefab);
-            playerObj.GetComponent<PlayerRangeItem>().SetItemHolderUI(dataPlayer2.itemHolder);
+            playerObj.GetComponent<PlayerRangeItem>().SetAmountText(dataPlayer2.throwableText);
+            playerObj.GetComponent<PlayerUseItem>().SetActivePanel(dataPlayer2.activePowerUps);
+            //playerObj.GetComponent<PlayerRangeItem>().SetItemHolderUI(dataPlayer2.itemHolder);
             GameplayManager.Instance.Players.Add(playerObj);
         }
     }

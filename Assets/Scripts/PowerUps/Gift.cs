@@ -13,7 +13,9 @@ public class Gift : PowerUp
         float prevRate = this.target.GetComponent<PlayerMash>().GetIncreaseRate();
         this.target.GetComponent<PlayerMash>().SetIncreaseRate(prevRate * 1.5f);
         yield return new WaitForSeconds(duration);
+        PowerUpEnd.Invoke(this);
         this.target.GetComponent<PlayerMash>().SetIncreaseRate(prevRate);
+        Destroy(gameObject);
 
     }
 

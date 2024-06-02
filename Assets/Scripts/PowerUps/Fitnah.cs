@@ -9,6 +9,8 @@ public class Fitnah : PowerUp
     {
         target.GetComponent<PlayerMash>().DecreaseLoveHalf();
         yield return null;
+        PowerUpEnd.Invoke(this);
+        Destroy(gameObject);
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
