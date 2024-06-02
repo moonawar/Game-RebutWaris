@@ -2,6 +2,7 @@ using Cinemachine;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -26,6 +27,7 @@ public class GameplayInitiator : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private Throwable throwablePrefab;
     [SerializeField] private CinemachineTargetGroup targetGroup;
+    [SerializeField] private PostProcessVolume postProcessVolume;
 
     public void OnPlayerJoined(GameObject playerObj, int playerIndex)  {
         PlayerMash radar = playerObj.GetComponent<PlayerMash>();
@@ -69,5 +71,9 @@ public class GameplayInitiator : MonoBehaviour
         ClockManager.Instance.SpawnClock();
 
         gameplayUI.SetActive(true);
+
+        // disable depth of field
+        postProcessVolume.profile.TryGetSettings(out DepthOfField dof);
+        dof.active = false;
     }
 }
