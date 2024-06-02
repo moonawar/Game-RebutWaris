@@ -1,10 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class Mantra : PowerUp
+public class Mantra : DurationPowerUp
 {
-    public float duration;
-    
+
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
         this.target = target;
@@ -13,10 +12,12 @@ public class Mantra : PowerUp
         FindOppositeTarget();
         emakStateMachine.CharmedState.target = this.target;
         emakStateMachine.ChangeState(emakStateMachine.CharmedState);
+
+        timer = duration;
         yield return new WaitForSeconds(duration);
+
         PowerUpEnd.Invoke(this);
         emakStateMachine.ChangeState(emakStateMachine.IdleState);
-        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

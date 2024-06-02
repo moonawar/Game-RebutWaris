@@ -694,6 +694,7 @@ MonoBehaviour:
   playerMovement: {fileID: 8652144860922909440}
   selfCollider: {fileID: 470906341831932076}
   powerUp: {fileID: 0}
+  indicatorPrefab: {fileID: 8679313198442011020, guid: 15792166ac4c53c44acc17da0ad7cd23, type: 3}
 --- !u!114 &8849005706456133194
 MonoBehaviour:
   m_ObjectHideFlags: 0

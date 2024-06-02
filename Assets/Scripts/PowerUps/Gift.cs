@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gift : PowerUp
+public class Gift : DurationPowerUp
 {
-    public float duration;
-
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
+
         this.target = target;
         FindOppositeTarget();
         float prevRate = this.target.GetComponent<PlayerMash>().GetIncreaseRate();
         this.target.GetComponent<PlayerMash>().SetIncreaseRate(prevRate * 1.5f);
+        timer = duration;
         yield return new WaitForSeconds(duration);
+
         PowerUpEnd.Invoke(this);
         this.target.GetComponent<PlayerMash>().SetIncreaseRate(prevRate);
-        Destroy(gameObject);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

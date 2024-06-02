@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Immunity : PowerUp
+public class Immunity : DurationPowerUp
 {
-    public float duration;
-
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
+        print("masuk skill");
         this.target = target;
         FindOppositeTarget();
         this.target.isImmune = true;
+        timer = duration;
         yield return new WaitForSeconds(duration);
         PowerUpEnd.Invoke(this);
         this.target.isImmune = false;
-        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

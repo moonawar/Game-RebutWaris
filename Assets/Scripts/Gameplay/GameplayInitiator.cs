@@ -40,7 +40,7 @@ public class GameplayInitiator : MonoBehaviour
             playerObj.GetComponent<PlayerMovement>().SetCamera(cam);
             playerObj.GetComponent<PlayerRangeItem>().SetThrowablePrefab(throwablePrefab);
             playerObj.GetComponent<PlayerRangeItem>().SetAmountText(dataPlayer1.throwableText);
-            playerObj.GetComponent<PlayerUseItem>().SetActivePanel(dataPlayer1.activePowerUps);
+            playerObj.GetComponent<PlayerPowerUp>().SetActivePanel(dataPlayer1.activePowerUps);
             GameplayManager.Instance.Players.Add(playerObj);
 
         } else if (playerIndex == 1) {
@@ -51,7 +51,7 @@ public class GameplayInitiator : MonoBehaviour
             playerObj.GetComponent<PlayerMovement>().SetCamera(cam);
             playerObj.GetComponent<PlayerRangeItem>().SetThrowablePrefab(throwablePrefab);
             playerObj.GetComponent<PlayerRangeItem>().SetAmountText(dataPlayer2.throwableText);
-            playerObj.GetComponent<PlayerUseItem>().SetActivePanel(dataPlayer2.activePowerUps);
+            playerObj.GetComponent<PlayerPowerUp>().SetActivePanel(dataPlayer2.activePowerUps);
             //playerObj.GetComponent<PlayerRangeItem>().SetItemHolderUI(dataPlayer2.itemHolder);
             GameplayManager.Instance.Players.Add(playerObj);
         }

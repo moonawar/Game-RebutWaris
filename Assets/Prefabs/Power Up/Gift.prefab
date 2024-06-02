@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2401447154450122687}
   - component: {fileID: 5087352228049640073}
   - component: {fileID: 8002300075467942387}
+  - component: {fileID: 4593189244972651412}
   m_Layer: 0
   m_Name: Gift
   m_TagString: Untagged
@@ -131,6 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e83d50477da4947b919b7b74c3e12f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PowerUpEnd:
+    m_PersistentCalls:
+      m_Calls: []
   duration: 5
 --- !u!222 &5087352228049640073
 CanvasRenderer:
@@ -170,3 +174,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4593189244972651412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162050354851869557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1

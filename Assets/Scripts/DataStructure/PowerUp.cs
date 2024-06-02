@@ -5,10 +5,33 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+public abstract class DurationPowerUp : PowerUp
+{
+
+    [SerializeField] protected float duration;
+    protected float timer;
+    public float progress;
+
+    protected void FixedUpdate()
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            progress = 1 - Mathf.InverseLerp(0, duration, timer);
+        }
+    }
+    private void Update()
+    {
+        ProgressUpdate.Invoke(progress);
+    }
+}
+
 public abstract class PowerUp: MonoBehaviour 
 {
     protected PlayerMovement target;
     public UnityEvent<PowerUp> PowerUpEnd;
+    public UnityEvent<float> ProgressUpdate;
+
     public virtual IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
         yield return null;
@@ -23,7 +46,7 @@ public abstract class PowerUp: MonoBehaviour
 
         if (playerMovement == null || playerMovement.IsGrabbed || playerMovement.IsStunned) return;
 
-        player.GetComponent<PlayerUseItem>().EquipItem(this);
+        player.GetComponent<PlayerPowerUp>().EquipItem(this);
         if (player.GetComponent<PlayerInput>().playerIndex == 0)
         {
             transform.SetParent(PowerUpSpawner.Instance.PowerUpPanelP1.transform);
