@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerGrab : MonoBehaviour
 {
@@ -12,17 +13,35 @@ public class PlayerGrab : MonoBehaviour
     [SerializeField] private Collider2D selfCollider;
     [SerializeField] private Transform arrow;
     [SerializeField] private float Cooldown;
+    private float timer;
+    private GameObject cooldownIndicator;
     private bool OnCooldown = false;
     private Animator animator;
+
+    public void SetGrabIndicator(GameObject indicator)
+    {
+        cooldownIndicator = indicator;
+    }
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
+    private void FixedUpdate()
+    {
+        if (OnCooldown && timer > 0)
+        {
+            timer -= Time.deltaTime;
+            cooldownIndicator.GetComponent<Image>().fillAmount = Mathf.InverseLerp(0, Cooldown, timer);
+        }
+
+    }
+
     private IEnumerator CooldownTimer()
     {
         OnCooldown = true;
+        timer = Cooldown;
         yield return new WaitForSeconds(Cooldown);
         OnCooldown = false;
     }

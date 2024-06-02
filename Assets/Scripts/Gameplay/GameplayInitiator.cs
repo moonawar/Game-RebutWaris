@@ -8,9 +8,10 @@ using UnityEngine.UI;
 public class PlayerData {
     public Sprite sprite;
     public Sprite arrow;
-    public GameObject itemHolder;
     public TMP_Text throwableText;
     public GameObject activePowerUps;
+    public GameObject bonkIndicator;
+    public GameObject grabIndicator;
     public PlayerMashUIRefs uiRefs;
 }
 
@@ -41,6 +42,8 @@ public class GameplayInitiator : MonoBehaviour
             playerObj.GetComponent<PlayerRangeItem>().SetThrowablePrefab(throwablePrefab);
             playerObj.GetComponent<PlayerRangeItem>().SetAmountText(dataPlayer1.throwableText);
             playerObj.GetComponent<PlayerPowerUp>().SetActivePanel(dataPlayer1.activePowerUps);
+            playerObj.GetComponent<PlayerBonk>().SetBonkIndicator(dataPlayer1.bonkIndicator);
+            playerObj.GetComponent<PlayerGrab>().SetGrabIndicator(dataPlayer1.grabIndicator);
             GameplayManager.Instance.Players.Add(playerObj);
 
         } else if (playerIndex == 1) {
@@ -52,7 +55,8 @@ public class GameplayInitiator : MonoBehaviour
             playerObj.GetComponent<PlayerRangeItem>().SetThrowablePrefab(throwablePrefab);
             playerObj.GetComponent<PlayerRangeItem>().SetAmountText(dataPlayer2.throwableText);
             playerObj.GetComponent<PlayerPowerUp>().SetActivePanel(dataPlayer2.activePowerUps);
-            //playerObj.GetComponent<PlayerRangeItem>().SetItemHolderUI(dataPlayer2.itemHolder);
+            playerObj.GetComponent<PlayerBonk>().SetBonkIndicator(dataPlayer2.bonkIndicator);
+            playerObj.GetComponent<PlayerGrab>().SetGrabIndicator(dataPlayer2.grabIndicator);
             GameplayManager.Instance.Players.Add(playerObj);
         }
     }

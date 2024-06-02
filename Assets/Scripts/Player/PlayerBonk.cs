@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerBonk : MonoBehaviour
 {
@@ -10,11 +11,28 @@ public class PlayerBonk : MonoBehaviour
     [SerializeField] public PlayerMovement playerMovement;
     [SerializeField] private Collider2D selfCollider;
     [SerializeField] private float Cooldown;
+    private float timer;
+    private GameObject cooldownIndicator;
     private bool OnCooldown = false;
 
+    public void SetBonkIndicator(GameObject indicator)
+    {
+        cooldownIndicator = indicator;
+    }
+
+    private void FixedUpdate()
+    {
+        if(OnCooldown && timer > 0)
+        {
+            timer -= Time.deltaTime;
+            cooldownIndicator.GetComponent<Image>().fillAmount = Mathf.InverseLerp(0, Cooldown, timer);
+        }
+        
+    }
     private IEnumerator CooldownTimer()
     {
         OnCooldown = true;
+        timer = Cooldown;
         yield return new WaitForSeconds(Cooldown);
         OnCooldown = false;
     }

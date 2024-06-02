@@ -6,7 +6,6 @@ public class Immunity : DurationPowerUp
 {
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
-        print("masuk skill");
         this.target = target;
         FindOppositeTarget();
         this.target.isImmune = true;
