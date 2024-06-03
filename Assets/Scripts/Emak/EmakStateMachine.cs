@@ -34,13 +34,14 @@ public class EmakStateMachine : MonoBehaviour
 
     private void Update()
     {
-        if (GameplayManager.Instance.Paused) return;
+        if (GameplayManager.Instance.Paused) return;  
         CurrentState.OnUpdate(this);
     }
 
     public void ChangeState(EmakState newState)
     {
         CurrentState.OnExit(this);
+        StopAllCoroutines();
         CurrentState = newState;
         CurrentState.OnEnter(this);
     }

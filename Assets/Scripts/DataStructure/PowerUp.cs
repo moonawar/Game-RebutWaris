@@ -81,6 +81,7 @@ public abstract class PowerUp: MonoBehaviour
     protected void PickedUp(Collider2D collision)
     {
         if (collision.CompareTag("PlayerBody") == false) return;
+        StopAllCoroutines();
         GameObject player = collision.gameObject.GetComponentInParent<PlayerMovement>().gameObject;
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 

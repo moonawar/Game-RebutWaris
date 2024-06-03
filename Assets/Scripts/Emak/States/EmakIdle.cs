@@ -21,6 +21,11 @@ public class EmakIdle : EmakState
         princess.StartCoroutine(Idle(princess));
     }
 
+    public override void OnExit(EmakStateMachine princess)
+    {
+        princess.StopAllCoroutines();
+    }
+
     private IEnumerator Idle(EmakStateMachine princess)
     {
         yield return new WaitForSeconds(properties.IdleDuration.RandomValue());
