@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameClock : MonoBehaviour
 {
     private Material material;
+    private bool taken;
 
     private void Awake() {
         material = GetComponent<SpriteRenderer>().material;
@@ -25,9 +26,10 @@ public class GameClock : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("PlayerBody")) {
+        if (other.CompareTag("PlayerBody") && !taken) {
             PlayerMash player = other.GetComponentInParent<PlayerMash>();
             player.HaveClock = true;
+            taken = true;
             Destroy(gameObject);
         }
     }
