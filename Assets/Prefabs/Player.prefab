@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 470906341831932076}
   - component: {fileID: 6990160051840587978}
   - component: {fileID: 8849005706456133194}
+  - component: {fileID: -2318203246032300268}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -601,10 +602,14 @@ MonoBehaviour:
     m_ActionId: 0308dcf4-4cbc-4632-8add-84ea5bfbc7f7
     m_ActionName: Gameplay/Throw Item[/Mouse/leftButton]
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0dba3da6-49af-448b-92f9-28cfc6ceead5
+    m_ActionName: Gameplay/Change Item[/Mouse/rightButton]
+  - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8849005706456133194}
-        m_TargetAssemblyTypeName: PlayerRangeItem, Assembly-CSharp
-        m_MethodName: OnChangeItem
+      - m_Target: {fileID: -2318203246032300268}
+        m_TargetAssemblyTypeName: PlayerPause, Assembly-CSharp
+        m_MethodName: OnPause
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -614,8 +619,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 0dba3da6-49af-448b-92f9-28cfc6ceead5
-    m_ActionName: Gameplay/Change Item[/Mouse/rightButton]
+    m_ActionId: 058da027-f60c-4dcf-af32-01e35af19638
+    m_ActionName: Gameplay/Pause[/Keyboard/escape,/Logitech Logitech Dual Action/button10]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PreGame
@@ -712,6 +717,18 @@ MonoBehaviour:
   throwableAmount: 2
   arrow: {fileID: 3666096469289222552}
   playerBody: {fileID: 7945191380886146226}
+--- !u!114 &-2318203246032300268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054710613867731208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e164579c362fe49bb0e4d49ad9ada2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7945191380886146226
 GameObject:
   m_ObjectHideFlags: 0

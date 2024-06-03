@@ -16,6 +16,7 @@ public class GameplayManager : MonoBehaviour
     [Header("End of Game")]
     [SerializeField] private GameplayUIRefs player1UiRefs;
     [SerializeField] private GameplayUIRefs player2UiRefs;
+    [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject endOfGameScreen;
 
     public static GameplayManager Instance { get; private set; }
@@ -26,6 +27,18 @@ public class GameplayManager : MonoBehaviour
             _paused = value;
             Time.timeScale = value ? 0 : 1; 
         }
+    }
+
+    public void PauseGame()
+    {
+        Paused = true;
+        pauseScreen.SetActive(true);
+    }
+
+    public void UnpauseGame()
+    {
+        Paused = false;
+        pauseScreen.SetActive(false);
     }
 
     [HideInInspector] public List<GameObject> Players;

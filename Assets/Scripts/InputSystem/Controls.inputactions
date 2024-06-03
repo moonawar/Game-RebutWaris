@@ -60,9 +60,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Change Item",
+                    "name": "Pause",
                     "type": "Button",
-                    "id": "0dba3da6-49af-448b-92f9-28cfc6ceead5",
+                    "id": "058da027-f60c-4dcf-af32-01e35af19638",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -292,12 +292,34 @@
                 },
                 {
                     "name": "",
-                    "id": "102ae2e6-300e-4eda-ac90-ac3a45342961",
-                    "path": "<Mouse>/rightButton",
+                    "id": "1acff39d-717e-4b5a-a52e-de5a3240da7d",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7572fbf-94f1-45b9-a53c-449790334781",
+                    "path": "<HID::Logitech Logitech Dual Action>/button10",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b64578bf-69fd-4b3c-bcfc-57dd871145be",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Change Item",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
