@@ -77,7 +77,7 @@ public class PlayerGrab : MonoBehaviour
             }
         }
 
-        if(context.canceled && playerMovement.GrabMode)
+        if (context.canceled && playerMovement.GrabMode)
         {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
             foreach (Collider2D collider in colliders)
@@ -91,7 +91,7 @@ public class PlayerGrab : MonoBehaviour
 
                     animator.SetTrigger("Throw");
                     playerMovement.GrabMode = false;
-                    if(Mathf.Abs(transform.rotation.eulerAngles.y) == 180)
+                    if (Mathf.Abs(transform.rotation.eulerAngles.y) == 180)
                     {
                         player.Ungrab(arrow.transform.rotation.eulerAngles.z, -1);
 
@@ -107,6 +107,6 @@ public class PlayerGrab : MonoBehaviour
             }
             StartCoroutine(CooldownTimer());
         }
-        
+
     }
 }

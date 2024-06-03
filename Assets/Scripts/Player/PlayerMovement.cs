@@ -105,12 +105,14 @@ public class PlayerMovement : MonoBehaviour
         IsStunned = true;
 
         animator.SetBool("isGrabbed", true);
+        stunnedEffect.transform.localPosition += new Vector3(0, 11, 0);
         transform.position = destination + new Vector2(0, 0.1f);
     }
 
     private IEnumerator Thrown(float seconds)
     {
         IsThrown = true;
+        stunnedEffect.transform.localPosition -= new Vector3(0, 11, 0);
         yield return new WaitForSeconds(seconds);
         CurrentSpeed = 0;
         IsThrown = false;
@@ -185,6 +187,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GameplayManager.Instance.Paused) return;
         if (IsStunned && IsThrown) return;
+        if(IsGrabbed) { IsStunned = true; }
         // Set current speed of animator
         animator.SetFloat("Speed", CurrentSpeed);
         
