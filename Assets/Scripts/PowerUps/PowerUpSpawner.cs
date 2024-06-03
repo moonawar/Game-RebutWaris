@@ -28,7 +28,12 @@ public class PowerUpSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnPowerUp()
+    private void Start() {
+        StartSpawn = false;
+        StartCoroutine(WaitInterval());
+    }
+
+    public void SpawnPowerUp()
     {
         if (powerUpInScene >= maxPowerUpInScene) return;
         int chosen = Random.Range(0, PowerUps.Count - 1);
@@ -45,9 +50,9 @@ public class PowerUpSpawner : MonoBehaviour
 
     private Vector3 GetRandomPoint()
     {
-        Vector2 randomPoint = new Vector3(
+        Vector3 randomPoint = new Vector3(
             Random.Range(SpawnArea.bounds.min.x, SpawnArea.bounds.max.x),
-            Random.Range(SpawnArea.bounds.min.y, SpawnArea.bounds.max.y), 0
+            Random.Range(SpawnArea.bounds.min.y, SpawnArea.bounds.max.y), -1
         );
 
         return randomPoint;
@@ -57,8 +62,25 @@ public class PowerUpSpawner : MonoBehaviour
     {
         if (StartSpawn)
         {
-            SpawnPowerUp();
             StartCoroutine(WaitInterval());
+            SpawnPowerUp();
         }
     }
 }
+
+#if UNITY_EDITOR
+[UnityEditor.CustomEditor(typeof(PowerUpSpawner))]
+public class PowerUpSpawnerEditor : UnityEditor.Editor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+        PowerUpSpawner spawner = (PowerUpSpawner)target;
+
+        if (GUILayout.Button("Spawn PowerUp"))
+        {
+            spawner.SpawnPowerUp();
+        }
+    }
+}
+#endif

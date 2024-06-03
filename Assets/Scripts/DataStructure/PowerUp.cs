@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public abstract class DurationPowerUp : PowerUp
 {
-
     [SerializeField] protected float duration;
     protected float timer;
     public float progress;
@@ -31,6 +30,47 @@ public abstract class PowerUp: MonoBehaviour
     protected PlayerMovement target;
     public UnityEvent<PowerUp> PowerUpEnd;
     public UnityEvent<float> ProgressUpdate;
+    private Material material;
+    private Range lifetime = new Range(10, 24);
+
+    private void Awake() {
+        material = GetComponent<SpriteRenderer>().material;
+    }
+
+    private void Start() {
+        StartCoroutine(DissolveEnter());
+        StartCoroutine(Lifetime());
+    }
+
+    private IEnumerator DissolveEnter()
+    {
+        float dissolve = 1f;
+        while (dissolve > 0)
+        {
+            dissolve -= Time.deltaTime * (1 / 1.5f);
+            material.SetFloat("_Value", dissolve);
+            yield return null;
+        }
+    }
+
+    private IEnumerator DissolveExit()
+    {
+        float dissolve = 0;
+        while (dissolve < 1f)
+        {
+            dissolve += Time.deltaTime * (1 / 1.5f);
+            material.SetFloat("_Value", dissolve);
+            yield return null;
+        }
+
+        Destroy(gameObject);
+    }
+
+    private IEnumerator Lifetime()
+    {
+        yield return new WaitForSeconds(lifetime.RandomValue());
+        StartCoroutine(DissolveExit());
+    }
 
     public virtual IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
