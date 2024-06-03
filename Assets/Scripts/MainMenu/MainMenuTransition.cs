@@ -49,6 +49,7 @@ public class MainMenuTransition : MonoBehaviour
             staticScren.SetActive(false);
             finished = true;
             cam.GetComponent<Animator>().SetTrigger("EndTransition");
+
         }
 
     }
