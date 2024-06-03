@@ -31,12 +31,14 @@ public class GameplayManager : MonoBehaviour
 
     public void PauseGame()
     {
+        AudioManager.Instance.PlaySFX("Static");
         Paused = true;
         pauseScreen.SetActive(true);
     }
 
     public void UnpauseGame()
     {
+        AudioManager.Instance.StopSFX("Static");
         Paused = false;
         pauseScreen.SetActive(false);
     }

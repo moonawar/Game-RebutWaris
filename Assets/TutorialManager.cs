@@ -37,7 +37,7 @@ public class TutorialManager : MonoBehaviour
             }
         }
 
-        if(currentTutorial >= 7)
+        if(currentTutorial >= Tutorials.Count)
         {
             RightButton.gameObject.SetActive(false);
         }

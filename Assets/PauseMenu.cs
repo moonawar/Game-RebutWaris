@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+
+    public void OnButtonPress()
+    {
+        AudioManager.Instance.PlaySFX("ButtonPress");
+    }
+
+    public void OnButtonHover()
+    {
+        AudioManager.Instance.PlaySFX("ButtonHover");
+    }
+
     public void Resume()
     {
         GameplayManager.Instance.UnpauseGame();

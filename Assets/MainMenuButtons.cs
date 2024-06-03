@@ -45,6 +45,8 @@ public class MainMenuButtons : MonoBehaviour
 
     public void Play()
     {
+        AudioManager.Instance.ChangeVolume("Static", 1);
+        AudioManager.Instance.StopSFX("Static");
         SceneManager.LoadScene("Game");
     }
 
