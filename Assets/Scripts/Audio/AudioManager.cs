@@ -41,7 +41,11 @@ public class AudioManager : MonoBehaviour
 
         bgmSourceOne = gameObject.AddComponent<AudioSource>();
         bgmSourceTwo = gameObject.AddComponent<AudioSource>();
+        bgmSourceOne.enabled = false;
+        bgmSourceTwo.enabled = false;
 
+
+        int bgmCount = 0;
         foreach (Audio audio in Audios) {
             if (audio.Type == AudioType.SFX) {
                 // SFX are okay to be overlapped, so each SFX can have its own source
@@ -50,9 +54,23 @@ public class AudioManager : MonoBehaviour
                 audio.Source.volume = audio.Volume;
                 audio.Source.pitch = audio.Pitch;
                 audio.Source.loop = audio.Loop;
+                audio.Source.playOnAwake = false;
             }
 
             // For the BGM we will use the two sources we have
+            if (audio.Type == AudioType.BGM)
+            {
+                if(bgmCount == 0)
+                {
+                    bgmSourceOne.clip = audio.Clip;
+                    bgmSourceOne.enabled = true;
+                }
+                else
+                {
+                    bgmSourceTwo.clip = audio.Clip;
+                }
+                
+            }
         }
     }
 
@@ -66,8 +84,29 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("AudioManager: SFX " + name + " not found!");
             return;
         }
-
         audio.Source.Play();
+    }
+
+    public void StopSFX(string name)
+    {
+        Audio audio = FindAudio(name);
+        if (audio == null)
+        {
+            Debug.LogWarning("AudioManager: SFX " + name + " not found!");
+            return;
+        }
+        audio.Source.Stop();
+    }
+
+    public void ChangeVolume(string name, float value)
+    {
+        Audio audio = FindAudio(name);
+        if (audio == null)
+        {
+            Debug.LogWarning("AudioManager: SFX " + name + " not found!");
+            return;
+        }
+        audio.Source.volume = value;
     }
 
     public void PlayBGMOverwrite(string name) {
