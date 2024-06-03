@@ -90,7 +90,6 @@ public class Throwable : MonoBehaviour
         {
             if (collision.gameObject.tag == "PlayerBody")
             {
-                print(collision.transform.parent);
                 collision.transform.parent.GetComponent<PlayerRangeItem>().IncrementThrowable();
                 Destroy(this.gameObject);
             }

@@ -58,7 +58,6 @@ public class TutorialManager : MonoBehaviour
 
     public void NextTutorial()
     {
-        print(_active);
         if (!_active) return;
 
         currentTutorial++;
