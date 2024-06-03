@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PowerUpSpawner : MonoBehaviour
 {
-
     [HideInInspector] public bool StartSpawn = false;
     [SerializeField] private Collider2D SpawnArea;
     [SerializeField] private Range SpawnInterval;
@@ -12,7 +11,10 @@ public class PowerUpSpawner : MonoBehaviour
     [SerializeField] public GameObject PowerUpPanelP1;
     [SerializeField] public GameObject PowerUpPanelP2;
 
+    [SerializeField] private int maxPowerUpInScene = 3;
+
     public static PowerUpSpawner Instance { get; private set; }
+    public static int powerUpInScene = 0;
 
     private void Awake()
     {
@@ -26,13 +28,12 @@ public class PowerUpSpawner : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnPowerUp()
+    private void SpawnPowerUp()
     {
+        if (powerUpInScene >= maxPowerUpInScene) return;
         int chosen = Random.Range(0, PowerUps.Count - 1);
         PowerUp spawned = Instantiate(PowerUps[chosen], GetRandomPoint(), new Quaternion());
         spawned.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-        yield return null;
-
     }
 
     private IEnumerator WaitInterval()
@@ -56,8 +57,8 @@ public class PowerUpSpawner : MonoBehaviour
     {
         if (StartSpawn)
         {
+            SpawnPowerUp();
             StartCoroutine(WaitInterval());
-            StartCoroutine(SpawnPowerUp());
         }
     }
 }

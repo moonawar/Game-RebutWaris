@@ -21,7 +21,6 @@ public class FadeEnter : MonoBehaviour
         _image.rectTransform.anchoredPosition = targetPosition + _startOffset;
         _canvasGroup.alpha = 0;
 
-
         _image.rectTransform.DOAnchorPos(targetPosition, _duration).SetEase(Ease.OutSine);
         _canvasGroup.DOFade(1, _duration).SetEase(Ease.OutSine);
     }

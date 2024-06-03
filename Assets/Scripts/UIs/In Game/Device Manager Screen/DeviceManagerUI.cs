@@ -84,12 +84,12 @@ public class DeviceManagerUI : MonoBehaviour
         {
             if (playerIndex == 0)
             {
-                refsPlayer1.KeyToReadyText.text = "Tekan E untuk Ready";
+                refsPlayer1.KeyToReadyText.text = "Tekan E untuk Siap";
                 refsPlayer1.KeyToUnreadyText.text = "Tekan Q untuk Batal";
             }
             else if (playerIndex == 1)
             {
-                refsPlayer2.KeyToReadyText.text = "Tekan E untuk Ready";
+                refsPlayer2.KeyToReadyText.text = "Tekan E untuk Siap";
                 refsPlayer2.KeyToUnreadyText.text = "Tekan Q untuk Batal";
             }
         }
@@ -97,12 +97,12 @@ public class DeviceManagerUI : MonoBehaviour
         {
             if (playerIndex == 0)
             {
-                refsPlayer1.KeyToReadyText.text = "Tekan (X) untuk Ready";
+                refsPlayer1.KeyToReadyText.text = "Tekan (X) untuk Siap";
                 refsPlayer1.KeyToUnreadyText.text = "Tekan (B) untuk Batal";
             }
             else if (playerIndex == 1)
             {
-                refsPlayer2.KeyToReadyText.text = "Tekan (X) untuk Ready";
+                refsPlayer2.KeyToReadyText.text = "Tekan (X) untuk Siap";
                 refsPlayer2.KeyToUnreadyText.text = "Tekan (B) untuk Batal";
             }
         }
