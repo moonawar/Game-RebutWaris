@@ -1,0 +1,1553 @@
+fileFormatVersion: 2
+guid: cb16ed9adf7a0454b9c159f808865a0d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pusing_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2835
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501daf62a97496d4587330b823cbb1ca
+      internalID: -661222944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_1
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 2835
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df9e5f6b1be8744f80b6615cfb23477
+      internalID: 1256651115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_2
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 2835
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7e76099fe180ea4a9854c2f31a24c7a
+      internalID: 54581546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_3
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 2835
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49d979d1b6c48aa4e9534372da641b95
+      internalID: 1786672436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_4
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2835
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a55a735b91d94428a289c247fb0ac8
+      internalID: -444851367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_5
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 2835
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78e2b68edb0f32e4eb99f8b2ec1dc94f
+      internalID: 849520414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_6
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 2835
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f282e8856526de24692440e2126d6a88
+      internalID: -1004516774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2520
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65a76419f35ec141b989117fcc9b926
+      internalID: -598722651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_8
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 2520
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c8bdc097b4e0d347a5694df03a33d93
+      internalID: 1519634544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_9
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 2520
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5678fc189c5267946908f30cbda2def6
+      internalID: -1149104739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_10
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 2520
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7be2cc94a9f3c044a410360c09be9c2
+      internalID: 1849711283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_11
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2520
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6433f4acf390dca42bca1ed70412527d
+      internalID: -1643595709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_12
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 2520
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd4b6ab0a1b864459224a4a2839149f
+      internalID: -276090740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_13
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 2520
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ec88d7585504bd4eaccfdc85b6e02e4
+      internalID: 2146949306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2205
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f44475f22da3b843987e42eb7631653
+      internalID: -490482635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_15
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 2205
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b7d5adc5049ec4a9d5f36f5cc02d0d
+      internalID: 1961574209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_16
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 2205
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e470ee8f8cabf4aa60163cd1f26b76
+      internalID: 1174644855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_17
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 2205
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a2f0fbd618c464094d828a4a511d50
+      internalID: 228234378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_18
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 2205
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38bcf91684a187047933e10aef6d7fbe
+      internalID: 1189608666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_19
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 2205
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d703f53ef82814142971efc51d3177e2
+      internalID: 717904013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_20
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 2205
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc4994e414939743adb3300d2407fbe
+      internalID: 773189017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1890
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d90836817f7e2b4c81d5f03e1c7d731
+      internalID: 1077607638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_22
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1890
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7f690e4724e194e8ee389059d159b4
+      internalID: 1189134665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_23
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 1890
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c8b44e7a0dee74e9cece9fb5697731
+      internalID: -216555655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_24
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1890
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a545382a1342bb846bd1f0fd6010ef77
+      internalID: -103699397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_25
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1890
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca5c026295f12d64d90c9e87c4346dfc
+      internalID: -1168712256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_26
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 1890
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f12b8a93ec7118449045b8b8bf3b643
+      internalID: 215913874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_27
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 1890
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38224316c6ed89d4082c357dcd1d70bc
+      internalID: -1552674849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1575
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb6727f582552a4caffb69c55054079
+      internalID: -337655417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_29
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1575
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f9dde8366670f40b23c67be297f0e5
+      internalID: -191493124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_30
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 1575
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0d480c3b47ab540a735e333bcf8c93
+      internalID: 697754881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_31
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1575
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba6a2241326da34eb9097aafb9555dc
+      internalID: -1375522386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_32
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1575
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc859f6c92f84624cb9bd806554d3a5d
+      internalID: -1106879553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_33
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 1575
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a701a4c75b949c4f91ebf39ec9e48a4
+      internalID: 558185165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_34
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 1575
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e9da23d3aaac24eb72ce4b216a6403
+      internalID: -1521102590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1260
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f55eea723558e84bb378839ecff5f28
+      internalID: -622508664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_36
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1260
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a78e07decd555946951e83fe73c1f33
+      internalID: 297432842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_37
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 1260
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a11aaa1d834ba6648afd36e0229c22bd
+      internalID: -156670368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_38
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1260
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755a4ce0a04a10e42952767a51ed7e34
+      internalID: -362304282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_39
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 1260
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0636180b42d4ce047a4c2f9390b5f4de
+      internalID: -2136740162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_40
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 1260
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55d5f89943ede5e46b0423d1a918cd13
+      internalID: 1166107313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_41
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 1260
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f4193cbb3ad1d944a7a542ebf47ff71
+      internalID: 1992346608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 945
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ce96498d03a67143b6ed4a4c4caabb6
+      internalID: 1276557445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_43
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 945
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5862f240e82ece7468108ac404ac2ee6
+      internalID: 2023347713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_44
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 945
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc0f1124e98383459d1d57e20eb0f58
+      internalID: 2112780897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_45
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 945
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844012e0ded4d2844a573869b8d09548
+      internalID: -217682326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_46
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 945
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b0d3e07fb3cc294da1e351ee1b10f00
+      internalID: 43955199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_47
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 945
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217cab208ec53b8459a9464186b2e0ea
+      internalID: -581502037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_48
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 945
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a43d6cbc4e1d6c34fa51c1efee731356
+      internalID: 2072397859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 630
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24eb4d56dc3bf5f448ce6ede372eb215
+      internalID: 1603153424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_50
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 630
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b713e7d21c56c45be741abac6962a1
+      internalID: 21878996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_51
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 630
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3132eeeea31ba84980fc6c16493c396
+      internalID: 1488475586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_52
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 630
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d65ea108ce4b9b14e944a384c37d0413
+      internalID: -1305672177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_53
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 630
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d75265f9bf89714095e9c762d4a03f4
+      internalID: 1668532774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_54
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 630
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bded75aa7253a3b429f3e12858dcbfe2
+      internalID: 1785932487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_55
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 630
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea7306f567c7c94caee68558ede1b8b
+      internalID: 254407899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 315
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d413543edf0da5142a27fee8543e3d3a
+      internalID: -1079612757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_57
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 315
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7be8366ef030284c9be3f6eda5cc50f
+      internalID: 886297965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_58
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 315
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5039f75e77886184396133891d34f0be
+      internalID: -949321320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_59
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 315
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 155a6bc35f5d7ea4aafeca92b46cc2ae
+      internalID: 607450929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_60
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 315
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ccdab56dd662f44a9f91e9048d0f77
+      internalID: 16038600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_61
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 315
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e166d5a94fd324f4b8780d5aaf1a3ed7
+      internalID: 837064503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_62
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 315
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f61ec8f1793cfd4f81ae713e467ea64
+      internalID: 1778861069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d3236a48e7b924c936ef2219e8074f
+      internalID: -1356737374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusing_64
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 560
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35d3e315cbdaaf740bc6e3df583e4e2d
+      internalID: 13356726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      pusing_0: -661222944
+      pusing_1: 1256651115
+      pusing_10: 1849711283
+      pusing_11: -1643595709
+      pusing_12: -276090740
+      pusing_13: 2146949306
+      pusing_14: -490482635
+      pusing_15: 1961574209
+      pusing_16: 1174644855
+      pusing_17: 228234378
+      pusing_18: 1189608666
+      pusing_19: 717904013
+      pusing_2: 54581546
+      pusing_20: 773189017
+      pusing_21: 1077607638
+      pusing_22: 1189134665
+      pusing_23: -216555655
+      pusing_24: -103699397
+      pusing_25: -1168712256
+      pusing_26: 215913874
+      pusing_27: -1552674849
+      pusing_28: -337655417
+      pusing_29: -191493124
+      pusing_3: 1786672436
+      pusing_30: 697754881
+      pusing_31: -1375522386
+      pusing_32: -1106879553
+      pusing_33: 558185165
+      pusing_34: -1521102590
+      pusing_35: -622508664
+      pusing_36: 297432842
+      pusing_37: -156670368
+      pusing_38: -362304282
+      pusing_39: -2136740162
+      pusing_4: -444851367
+      pusing_40: 1166107313
+      pusing_41: 1992346608
+      pusing_42: 1276557445
+      pusing_43: 2023347713
+      pusing_44: 2112780897
+      pusing_45: -217682326
+      pusing_46: 43955199
+      pusing_47: -581502037
+      pusing_48: 2072397859
+      pusing_49: 1603153424
+      pusing_5: 849520414
+      pusing_50: 21878996
+      pusing_51: 1488475586
+      pusing_52: -1305672177
+      pusing_53: 1668532774
+      pusing_54: 1785932487
+      pusing_55: 254407899
+      pusing_56: -1079612757
+      pusing_57: 886297965
+      pusing_58: -949321320
+      pusing_59: 607450929
+      pusing_6: -1004516774
+      pusing_60: 16038600
+      pusing_61: 837064503
+      pusing_62: 1778861069
+      pusing_63: -1356737374
+      pusing_64: 13356726
+      pusing_7: -598722651
+      pusing_8: 1519634544
+      pusing_9: -1149104739
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

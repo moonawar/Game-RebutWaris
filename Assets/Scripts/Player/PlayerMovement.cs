@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     public List<MovementTransformer> transformers = new List<MovementTransformer>();
 
     private Animator animator;
+    [SerializeField] private GameObject stunnedEffect;
     #endregion
 
     private void Awake()
@@ -88,8 +89,10 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator StunRoutine(float stunDuration)
     {
         IsStunned = true;
+        stunnedEffect.SetActive(true);
         yield return new WaitForSeconds(stunDuration);
         IsStunned = false;
+        stunnedEffect.SetActive(false);
     }
     #endregion
 
@@ -221,7 +224,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Flip the player if the direction changes
-        if (move.x != 0)
+        if (move.x != 0 && !IsStunned && !IsThrown && !GrabMode)
         {
             lookDirection = (int)Mathf.Sign(move.x);
 

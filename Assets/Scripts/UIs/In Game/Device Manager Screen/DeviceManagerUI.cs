@@ -41,7 +41,7 @@ public class DeviceManagerUI : MonoBehaviour
         {
             refsPlayer1.DeviceNotConnected.SetActive(false);
             refsPlayer1.DeviceConnected.SetActive(true);
-            refsPlayer1.DeviceUsedText.text = "Device Used : " + playerInput.currentControlScheme;
+            refsPlayer1.DeviceUsedText.text = "Alat : " + playerInput.currentControlScheme;
 
             gameplayInitiator.OnPlayerJoined(playerInput.gameObject, playerInput.playerIndex);
             listenForInputPlayer1 = true;
@@ -55,7 +55,7 @@ public class DeviceManagerUI : MonoBehaviour
         {
             refsPlayer2.DeviceNotConnected.SetActive(false);
             refsPlayer2.DeviceConnected.SetActive(true);
-            refsPlayer2.DeviceUsedText.text = "Device Used : " + playerInput.currentControlScheme;
+            refsPlayer2.DeviceUsedText.text = "Alat : " + playerInput.currentControlScheme;
 
             gameplayInitiator.OnPlayerJoined(playerInput.gameObject, playerInput.playerIndex);
             listenForInputPlayer2 = true;
@@ -84,26 +84,26 @@ public class DeviceManagerUI : MonoBehaviour
         {
             if (playerIndex == 0)
             {
-                refsPlayer1.KeyToReadyText.text = "Press E to Ready";
-                refsPlayer1.KeyToUnreadyText.text = "Press Q to Unready";
+                refsPlayer1.KeyToReadyText.text = "Tekan E untuk Siap";
+                refsPlayer1.KeyToUnreadyText.text = "Tekan Q untuk Batal";
             }
             else if (playerIndex == 1)
             {
-                refsPlayer2.KeyToReadyText.text = "Press E to Ready";
-                refsPlayer2.KeyToUnreadyText.text = "Press Q to Unready";
+                refsPlayer2.KeyToReadyText.text = "Tekan E untuk Siap";
+                refsPlayer2.KeyToUnreadyText.text = "Tekan Q untuk Batal";
             }
         }
         else if (scheme == "Gamepad")
         {
             if (playerIndex == 0)
             {
-                refsPlayer1.KeyToReadyText.text = "Press (X) to Ready";
-                refsPlayer1.KeyToUnreadyText.text = "Press (B) to Unready";
+                refsPlayer1.KeyToReadyText.text = "Tekan (X) untuk Siap";
+                refsPlayer1.KeyToUnreadyText.text = "Tekan (B) untuk Batal";
             }
             else if (playerIndex == 1)
             {
-                refsPlayer2.KeyToReadyText.text = "Press (X) to Ready";
-                refsPlayer2.KeyToUnreadyText.text = "Press (B) to Unready";
+                refsPlayer2.KeyToReadyText.text = "Tekan (X) untuk Siap";
+                refsPlayer2.KeyToUnreadyText.text = "Tekan (B) untuk Batal";
             }
         }
     }
