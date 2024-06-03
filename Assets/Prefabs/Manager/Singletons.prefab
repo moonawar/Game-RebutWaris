@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e209c040323aa5b45be27e02aa318535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DetectRadius: 4
-  DetectOffsetY: 0
+  DetectRadius: 5.04
+  DetectOffsetY: -2
   DetectOffsetX: 0
   GamePhases:
   - limit: 30
@@ -222,6 +222,7 @@ MonoBehaviour:
   player2UiRefs:
     endGame:
       winningScreen: {fileID: 0}
+  pauseScreen: {fileID: 0}
   endOfGameScreen: {fileID: 0}
   Players: []
 --- !u!1 &4060022202853750374

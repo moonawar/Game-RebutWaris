@@ -202,4 +202,15 @@ public class PlayerMash : MonoBehaviour
             _clockVisual.SetActive(false);
         }
     }
+
+    private void OnDrawGizmos() {
+        if (_phaseM == null) return;
+
+        Vector3 center = transform.position;
+        center.x += _phaseM.DetectOffsetX;
+        center.y += _phaseM.DetectOffsetY;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(center, _phaseM.DetectRadius);
+    }
 }
