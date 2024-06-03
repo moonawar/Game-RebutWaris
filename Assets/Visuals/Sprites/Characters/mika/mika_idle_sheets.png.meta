@@ -1,0 +1,454 @@
+fileFormatVersion: 2
+guid: 5bd05160be968694baeb375edfa710f0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mika_idle_sheets_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5766
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be1ecde6f40ecd44091ad5f30ba6a35d
+      internalID: -91848768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_1
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 5766
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b0b9eb793ce0004984f606ad37cb793
+      internalID: -2042352727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_2
+      rect:
+        serializedVersion: 2
+        x: 3844
+        y: 5766
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c2a278b3d3bc349aed76dd3a5c3dad
+      internalID: 198905199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_3
+      rect:
+        serializedVersion: 2
+        x: 5766
+        y: 5766
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad9b98d514f6ee5439e45617d18fa52b
+      internalID: -1701933623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3844
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2e6f233ca4e1d4ea1953b388de3f1d
+      internalID: -1486989365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_5
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 3844
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41a5f5c550cf72f4d90e27d3c7a83e7d
+      internalID: 1661964460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_6
+      rect:
+        serializedVersion: 2
+        x: 3844
+        y: 3844
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61fff2a9ef613a547aecfcec455e2822
+      internalID: 1143731663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_7
+      rect:
+        serializedVersion: 2
+        x: 5766
+        y: 3844
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d8d4dfa0df6fe8419b5ba29598cbf6c
+      internalID: 55459922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1922
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2407aec2963e94bba2b40ac229bdd2
+      internalID: 26278127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_9
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 1922
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd319f53359f0ff48bbfb645c1978b76
+      internalID: -1304686652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_10
+      rect:
+        serializedVersion: 2
+        x: 3844
+        y: 1922
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7c7886a22ed4cd438b5d8b03895720c
+      internalID: 1413439880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_11
+      rect:
+        serializedVersion: 2
+        x: 5766
+        y: 1922
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 739a059151079d34791c97600e127ba4
+      internalID: -303556995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93ce85d3d88fa042831db072ee4565b
+      internalID: -649195819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_13
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 0
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69dcbe5f9eba9f447bcf159097108f80
+      internalID: -1597343115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_idle_sheets_14
+      rect:
+        serializedVersion: 2
+        x: 3844
+        y: 0
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7486aa1381fb38f4699186fe236822f0
+      internalID: 975056335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      mika_idle_sheets_0: -91848768
+      mika_idle_sheets_1: -2042352727
+      mika_idle_sheets_10: 1413439880
+      mika_idle_sheets_11: -303556995
+      mika_idle_sheets_12: -649195819
+      mika_idle_sheets_13: -1597343115
+      mika_idle_sheets_14: 975056335
+      mika_idle_sheets_15: 1028963185
+      mika_idle_sheets_2: 198905199
+      mika_idle_sheets_3: -1701933623
+      mika_idle_sheets_4: -1486989365
+      mika_idle_sheets_5: 1661964460
+      mika_idle_sheets_6: 1143731663
+      mika_idle_sheets_7: 55459922
+      mika_idle_sheets_8: 26278127
+      mika_idle_sheets_9: -1304686652
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

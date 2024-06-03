@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 
 public class LeafblowerEvent : GameEvent {
-    [SerializeField] private float duration = 5f;
     [SerializeField] private float strength = 1f;
     private int direction;
 
@@ -13,17 +12,20 @@ public class LeafblowerEvent : GameEvent {
 
     public override void OnEnter(GameEventsManager mgr)
     {
+        direction = RandomDirection();
+        mgr.Mika.StartLeafblowerEvent(-direction, onLeafblowerOn, onLeafblowerOff);
+    }
+
+    private void onLeafblowerOn() {
         GameplayManager.Instance.Players.ForEach(player => {
-            direction = RandomDirection();
             player.GetComponent<PlayerMovement>().transformers.Add(LeafblowerTransformer);
-            mgr.StartCoroutine(UnregisterLeafblower(player.GetComponent<PlayerMovement>()));
         });
     }
 
-    public IEnumerator UnregisterLeafblower(PlayerMovement player)
-    {
-        yield return new WaitForSeconds(duration);
-        player.transformers.Remove(LeafblowerTransformer);
+    private void onLeafblowerOff() {
+        GameplayManager.Instance.Players.ForEach(player => {
+            player.GetComponent<PlayerMovement>().transformers.Remove(LeafblowerTransformer);
+        });
     }
 
     private int RandomDirection()
