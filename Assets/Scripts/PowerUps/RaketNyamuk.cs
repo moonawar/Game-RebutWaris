@@ -9,6 +9,12 @@ public class RaketNyamuk : PowerUp
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
         target.Stun(duration);
+        if (target.GetComponent<PlayerMash>().HaveClock)
+        {
+            target.GetComponent<PlayerMash>().HaveClock = false;
+            ClockManager.Instance.SpawnClock(target.transform.position);
+        }
+
         yield return null;
         PowerUpEnd.Invoke(this);
         Destroy(gameObject);

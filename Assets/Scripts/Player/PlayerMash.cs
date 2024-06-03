@@ -195,10 +195,12 @@ public class PlayerMash : MonoBehaviour
     public void OnHaveClockChanged(bool newValue)
     {
         if (HaveClock == newValue) return; // Nothing should be updated
+        print("clock changed");
         haveClock = newValue;
         if (haveClock) {
             _clockVisual.SetActive(true);
         } else {
+            print("deactivate crown");
             _clockVisual.SetActive(false);
         }
     }

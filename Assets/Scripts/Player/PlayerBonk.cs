@@ -53,6 +53,11 @@ public class PlayerBonk : MonoBehaviour
             if (collider.TryGetComponent(out PlayerMovement player))
             {
                 player.Stun(stunDuration);
+                if (player.GetComponent<PlayerMash>().HaveClock)
+                {
+                    player.GetComponent<PlayerMash>().HaveClock = false;
+                    ClockManager.Instance.SpawnClock(player.transform.position);
+                }
             }
         }
 

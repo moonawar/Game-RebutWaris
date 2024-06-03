@@ -3288,6 +3288,10 @@ PrefabInstance:
       propertyPath: _arena
       value: 
       objectReference: {fileID: 227685262}
+    - target: {fileID: 4060022202498550995, guid: 388a6940f1a429d46a313ed90ce07650, type: 3}
+      propertyPath: _fallRadius
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4060022202579487685, guid: 388a6940f1a429d46a313ed90ce07650, type: 3}
       propertyPath: pauseScreen
       value: 

@@ -65,6 +65,13 @@ public class PlayerGrab : MonoBehaviour
                     player.Grabbed(gameObject.transform.position);
                     arrow.gameObject.SetActive(true);
                     playerMovement.GrabMode = true;
+
+                    if (player.GetComponent<PlayerMash>().HaveClock)
+                    {
+                        player.GetComponent<PlayerMash>().HaveClock = false;
+                        ClockManager.Instance.SpawnClock(player.transform.position);
+                    }
+
                     break;
                 }
             }
@@ -81,6 +88,7 @@ public class PlayerGrab : MonoBehaviour
                 if (collider.TryGetComponent(out PlayerMovement player))
                 {
                     if (!player.IsGrabbed) return;
+
                     animator.SetTrigger("Throw");
                     playerMovement.GrabMode = false;
                     if(Mathf.Abs(transform.rotation.eulerAngles.y) == 180)
