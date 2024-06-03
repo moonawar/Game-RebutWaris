@@ -90,8 +90,10 @@ public class PlayerMovement : MonoBehaviour
     {
         IsStunned = true;
         stunnedEffect.SetActive(true);
+        animator.SetBool("isStunned", true);
         yield return new WaitForSeconds(stunDuration);
         IsStunned = false;
+        animator.SetBool("isStunned", false);
         stunnedEffect.SetActive(false);
     }
     #endregion
@@ -158,7 +160,11 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         IsStunned = true;
+        stunnedEffect.SetActive(true);
+        animator.SetBool("isStunned", true);
         yield return new WaitForSeconds(stunDuration);
+        stunnedEffect.SetActive(false);
+        animator.SetBool("isStunned", false);
         IsStunned = false;
     }
     #endregion
