@@ -1,0 +1,1201 @@
+fileFormatVersion: 2
+guid: c4392265c70d2ed4781b06720ad58efd
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11532
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d406a279d60abd4da9c92c77e017519
+      internalID: 633532245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 11532
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83000fc78181f064eb24a7cb64d14bc5
+      internalID: -3153632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 3844
+        y: 11532
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a9a7f7cc051fc4ea81837627b68a2c
+      internalID: -876773920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 5766
+        y: 11532
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcdb64324b81e2947ba6b9056b57016c
+      internalID: -176511238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 7688
+        y: 11532
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e3c28fe9b8357643b3d7868de0d6422
+      internalID: -724733982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 9610
+        y: 11532
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa367dcc54bd38640867eb7d7488d897
+      internalID: 929261240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 11532
+        y: 11532
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9103530dc9a0afa4e9a63d98374b63f4
+      internalID: -2040600532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9610
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55968927beb747f4ea74f46167062faf
+      internalID: 1681304026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 9610
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9376228884ff1854892ba195e2826f8f
+      internalID: 1372748979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 3844
+        y: 9610
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d0578de9de7b604bad29aaeeac33bec
+      internalID: -1786945950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 5766
+        y: 9610
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64832576ca37a35469872715cb95cbe6
+      internalID: -1069201792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 7688
+        y: 9610
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c99300cf8b74b4eb89e70ad5062601
+      internalID: 1836868480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 9610
+        y: 9610
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bbd73f93f264d04a8971c79d06ef4e0
+      internalID: -1940569376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 11532
+        y: 9610
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eefa06d271933884d99680ba553d6e63
+      internalID: 1144048773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7688
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9009015a665430645858a1e9e0f7fab0
+      internalID: -501036604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 7688
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb3e7cf64f25094aad4ac962ba263a6
+      internalID: -1435233276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 3844
+        y: 7688
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c388c533d32f3469463f8834f214ea
+      internalID: 1003970951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 5766
+        y: 7688
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7295076a55c22334fbd484322131e928
+      internalID: -206737081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 7688
+        y: 7688
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d174a4449ecc66048ba906c9be079581
+      internalID: 1701399203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 9610
+        y: 7688
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ccb3c268adce934e85c2bc51354b12d
+      internalID: -1983030702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 11532
+        y: 7688
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c1b6f0f830e1f42bc2e0838119d1d4
+      internalID: 1645944421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5766
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d16af5f64995eea498e02abccb30baf1
+      internalID: -1635954884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 5766
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df1c59871ada3f44bfecdc5b72bad1c
+      internalID: 584569405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 3844
+        y: 5766
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae987ca097e70d46932eb714773b343
+      internalID: 1589616081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 5766
+        y: 5766
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f800d0f66fd624f4d8f7eb99817a732a
+      internalID: -1221452908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 7688
+        y: 5766
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78704f6f915bb5a40817130144b77632
+      internalID: 1700372310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 9610
+        y: 5766
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de4ad7b725f8a248853c794ef5a80d2
+      internalID: 267153875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 11532
+        y: 5766
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d25b0b55efaa7814481a86d22d970c81
+      internalID: -1825892143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3844
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6096a7f95b6e0a54aa4678b535abff16
+      internalID: -911739326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 3844
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5028ca463cac3984fa9daf62e6c00b05
+      internalID: 1461242847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 3844
+        y: 3844
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fcc105a7ae2187439db5cb4bccda264
+      internalID: -78222196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 5766
+        y: 3844
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 204cd242ad9a235478f6ea7a13d66e2c
+      internalID: -1373732054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 7688
+        y: 3844
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e676879655a1651408771e2cbf42dd3f
+      internalID: 868409536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 9610
+        y: 3844
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: badc0f5b4f94e374484468269aa6ff87
+      internalID: 2016161142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 11532
+        y: 3844
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c6aa42bee63c1f4db92385d57f549d5
+      internalID: 1818552012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1922
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 727e830b0e98e844aa1a623b76a01bd3
+      internalID: -1244197738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 1922
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48d07b804fa55bf4688c034277e42285
+      internalID: -1648253063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 3844
+        y: 1922
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c62b1e95c10e9b499c0ba3de8e3ce64
+      internalID: -1165745162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 5766
+        y: 1922
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9889b8ade2640314589c7b15acd5d9a5
+      internalID: 136339736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 7688
+        y: 1922
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b49703d3b2a905146bf1d34f4d1b59a1
+      internalID: -1158937106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 9610
+        y: 1922
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a79a5a99dc68cf42918d7e4568e9516
+      internalID: 1517767443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 11532
+        y: 1922
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88c04ad6aa878f04b84b058ffba04b8e
+      internalID: 1356381858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40535cef075a6f946bd162896b3426b5
+      internalID: 243523948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 0
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 085532887013a8b43be59fb1aec37518
+      internalID: -1677531102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 3844
+        y: 0
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4223ff92cdfe3d41afe69feee5914c2
+      internalID: -880562030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 5766
+        y: 0
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e3e276723127a4382b82648d8120f1
+      internalID: -1991675551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 7688
+        y: 0
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 481f3aebd703d9342bcc8d708eec946d
+      internalID: -709667789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 9610
+        y: 0
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80fc6b8ee767afa41a3a2e9a2a4fce14
+      internalID: -1328625519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mika_blow_1_spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 11532
+        y: 0
+        width: 1922
+        height: 1922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74fce672ae3045341ab0304b8783fa6c
+      internalID: -1932658924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      mika_blow_1_spritesheet_0: 633532245
+      mika_blow_1_spritesheet_1: -3153632
+      mika_blow_1_spritesheet_10: -1069201792
+      mika_blow_1_spritesheet_11: 1836868480
+      mika_blow_1_spritesheet_12: -1940569376
+      mika_blow_1_spritesheet_13: 1144048773
+      mika_blow_1_spritesheet_14: -501036604
+      mika_blow_1_spritesheet_15: -1435233276
+      mika_blow_1_spritesheet_16: 1003970951
+      mika_blow_1_spritesheet_17: -206737081
+      mika_blow_1_spritesheet_18: 1701399203
+      mika_blow_1_spritesheet_19: -1983030702
+      mika_blow_1_spritesheet_2: -876773920
+      mika_blow_1_spritesheet_20: 1645944421
+      mika_blow_1_spritesheet_21: -1635954884
+      mika_blow_1_spritesheet_22: 584569405
+      mika_blow_1_spritesheet_23: 1589616081
+      mika_blow_1_spritesheet_24: -1221452908
+      mika_blow_1_spritesheet_25: 1700372310
+      mika_blow_1_spritesheet_26: 267153875
+      mika_blow_1_spritesheet_27: -1825892143
+      mika_blow_1_spritesheet_28: -911739326
+      mika_blow_1_spritesheet_29: 1461242847
+      mika_blow_1_spritesheet_3: -176511238
+      mika_blow_1_spritesheet_30: -78222196
+      mika_blow_1_spritesheet_31: -1373732054
+      mika_blow_1_spritesheet_32: 868409536
+      mika_blow_1_spritesheet_33: 2016161142
+      mika_blow_1_spritesheet_34: 1818552012
+      mika_blow_1_spritesheet_35: -1244197738
+      mika_blow_1_spritesheet_36: -1648253063
+      mika_blow_1_spritesheet_37: -1165745162
+      mika_blow_1_spritesheet_38: 136339736
+      mika_blow_1_spritesheet_39: -1158937106
+      mika_blow_1_spritesheet_4: -724733982
+      mika_blow_1_spritesheet_40: 1517767443
+      mika_blow_1_spritesheet_41: 1356381858
+      mika_blow_1_spritesheet_42: 243523948
+      mika_blow_1_spritesheet_43: -1677531102
+      mika_blow_1_spritesheet_44: -880562030
+      mika_blow_1_spritesheet_45: -1991675551
+      mika_blow_1_spritesheet_46: -709667789
+      mika_blow_1_spritesheet_47: -1328625519
+      mika_blow_1_spritesheet_48: -1932658924
+      mika_blow_1_spritesheet_5: 929261240
+      mika_blow_1_spritesheet_6: -2040600532
+      mika_blow_1_spritesheet_7: 1681304026
+      mika_blow_1_spritesheet_8: 1372748979
+      mika_blow_1_spritesheet_9: -1786945950
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -21,6 +21,9 @@ public class GameEventsManager : MonoBehaviour
     private float timer;
     private int currentGamePhase;
 
+    [SerializeField] private MikaEvent mika;
+    public MikaEvent Mika => mika;
+
     private void Awake() {
         currentGamePhase = 0;
         timer = timeBetweenEvent.RandomValue();
@@ -43,7 +46,6 @@ public class GameEventsManager : MonoBehaviour
             int randomEventIndex = Random.Range(0, _eventsOnPhases[currentGamePhase].gameEvents.Count);
             GameEvent eventToTrigger = _eventsOnPhases[currentGamePhase].gameEvents[randomEventIndex];
             eventToTrigger.OnEnter(this);
-            TextPopUpManager.Instance.SpawnEventText(eventToTrigger.GetName());
         }
     }
 

@@ -40,7 +40,7 @@ public class CameraManager : MonoBehaviour
         eventCam.Priority = 0;
     }
 
-    public void SetEventCamActive()
+    public void SetMikaEventCamActive()
     {
         preGameCam.Priority = 0;
         inGameCam.Priority = 0;
