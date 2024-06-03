@@ -37,9 +37,4 @@ public class LeafblowerEvent : GameEvent {
     {
         return move + new Vector3(direction * strength, 0, 0);
     }
-
-    // Should be called by animation event
-    public void OnMikaTurnOnLeafblower() {
-        // Later
-    }
 }

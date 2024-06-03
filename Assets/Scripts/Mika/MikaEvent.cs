@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -15,9 +13,19 @@ public class MikaLeafblowerProps
     public float leafblowerDuration = 5f;
 }
 
+[System.Serializable]
+public class MikaBreadcrumbProps
+{
+    public Collider2D area;
+    public GameObject[] ducks;
+    public float duckSpeed;
+    public float walkSpeed;
+}
+
 public class MikaEvent : MonoBehaviour
 {
-    [SerializeField] private MikaLeafblowerProps leafblowerProps;
+    [SerializeField] private MikaLeafblowerProps lbProps;
+    [SerializeField] private MikaBreadcrumbProps bcProps;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Action leafblowerOnCallback;
@@ -34,13 +42,13 @@ public class MikaEvent : MonoBehaviour
 
     public void StartLeafblowerEvent(int from, Action onLeafblowerOn, Action onLeafblowerOff) {
         endWalkPos = new Vector3(
-            from == PlayerMovement.LEFT ? leafblowerProps.posXLeft : leafblowerProps.posXRight,
-            leafblowerProps.posY, 0
+            from == PlayerMovement.LEFT ? lbProps.posXLeft : lbProps.posXRight,
+            lbProps.posY, 0
         );
-        startWalkPos = endWalkPos + new Vector3(from * leafblowerProps.walkOffset, 0, 0);
+        startWalkPos = endWalkPos + new Vector3(from * lbProps.walkOffset, 0, 0);
 
         transform.position = startWalkPos;
-        walkDuration = leafblowerProps.walkOffset / leafblowerProps.walkSpeed;
+        walkDuration = lbProps.walkOffset / lbProps.walkSpeed;
 
         animator.SetTrigger("Walk");
         CameraManager.Instance.SetMikaEventCamActive();
@@ -59,7 +67,7 @@ public class MikaEvent : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
         leafblowerOnCallback();
         CameraManager.Instance.SetInGameCamActive();
-        sequence.AppendInterval(leafblowerProps.leafblowerDuration);
+        sequence.AppendInterval(lbProps.leafblowerDuration);
         sequence.AppendCallback(() => {
             CameraManager.Instance.SetMikaEventCamActive();
             animator.SetTrigger("Idle");
@@ -74,6 +82,57 @@ public class MikaEvent : MonoBehaviour
         sequence.AppendCallback(() => {
             CameraManager.Instance.SetInGameCamActive();
         });
+    }
 
+    public void StartBreadcrumbEvent() {
+        Vector2 dest = GetRandomInsideArea();
+        foreach (GameObject duck in bcProps.ducks) {
+            duck.transform.position = GetRandomOutsideArea();
+        }
+
+        transform.position = dest;
+        float walkDuration = Vector2.Distance(transform.position, dest) / bcProps.walkSpeed;
+        animator.SetTrigger("Walk");
+
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(transform.DOMove(dest, walkDuration).SetEase(Ease.Linear));
+
+    }
+
+   private Vector2 GetRandomInsideArea()
+    {
+        Vector2 randomDest = new Vector2(
+            UnityEngine.Random.Range(bcProps.area.bounds.min.x, bcProps.area.bounds.max.x),
+            UnityEngine.Random.Range(bcProps.area.bounds.min.y, bcProps.area.bounds.max.y)
+        );
+
+        return randomDest;
+    }
+
+    private Vector2 GetRandomOutsideArea()
+    {
+        float rx = UnityEngine.Random.Range(0, 3);
+        float ry = UnityEngine.Random.Range(0, 3);
+
+        while (rx == 3 && ry == 3) {
+            ry = UnityEngine.Random.Range(0, 3);
+        }
+
+        float x = bcProps.area.bounds.min.x - 5;
+        if (rx == 1) {
+            x = bcProps.area.bounds.max.x + 5;
+        } else if (rx == 2) {
+            x = UnityEngine.Random.Range(bcProps.area.bounds.min.x, bcProps.area.bounds.max.x);
+        }
+
+        float y = bcProps.area.bounds.min.y - 5;
+        if (ry == 1) {
+            y = bcProps.area.bounds.max.y + 5;
+        } else if (ry == 2) {
+            y = UnityEngine.Random.Range(bcProps.area.bounds.min.y, bcProps.area.bounds.max.y);
+        }
+
+        Vector2 randomDest = new Vector2(x, y);
+        return randomDest;
     }
 }

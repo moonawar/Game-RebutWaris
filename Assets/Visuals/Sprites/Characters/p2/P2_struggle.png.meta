@@ -109,9 +109,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2002
+        y: 0
         width: 2002
-        height: 2002
+        height: 4192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,9 +130,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2002
-        y: 2002
+        y: 0
         width: 2002
-        height: 2002
+        height: 4192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: P2_struggle_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4004
         y: 0
         width: 2002
-        height: 2002
+        height: 4192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
