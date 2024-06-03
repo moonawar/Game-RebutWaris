@@ -132,10 +132,10 @@ public class PlayerMash : MonoBehaviour
         }
 
         // If princess out of area long enough, and the love value is not at its lowest
-        if (Time.time - _lastTimeEmakInArea >= _phaseM.TimeToStartDecreasing && _loveMeter.value >= _baseValue)
-        {
-            _loveMeter.value -= _phaseM.DecreaseRate * Time.deltaTime;
-        }
+        // if (Time.time - _lastTimeEmakInArea >= _phaseM.TimeToStartDecreasing && _loveMeter.value >= _baseValue)
+        // {
+        //     _loveMeter.value -= _phaseM.DecreaseRate * Time.deltaTime;
+        // }
 
         if (_loveMeter.value == 0) { _fill.SetActive(false); }
     }
