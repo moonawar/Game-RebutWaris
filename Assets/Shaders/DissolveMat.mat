@@ -33,6 +33,7 @@ Material:
     - _Value: 0
     m_Colors:
     - _OutlineColor: {r: 2.9960785, g: 2.509804, b: 0.15686275, a: 0}
+    - _ShineColor: {r: 2.6950107, g: 2.3753335, b: 1.4873408, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2699936254653000077
 MonoBehaviour:

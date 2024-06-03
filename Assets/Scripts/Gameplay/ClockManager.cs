@@ -16,14 +16,14 @@ public class ClockManager : MonoBehaviour
 
     public void SpawnClock()
     {
-        Vector2 spawnPoint = GetRandomSpawnPoint();
+        Vector3 spawnPoint = GetRandomSpawnPoint();
         Instantiate(_clockPrefab, spawnPoint, Quaternion.identity);
     }
 
-    private Vector2 GetRandomSpawnPoint()
+    private Vector3 GetRandomSpawnPoint()
     {
         float x = Random.Range(_arena.bounds.min.x, _arena.bounds.max.x);
         float y = Random.Range(_arena.bounds.min.y, _arena.bounds.max.y);
-        return new Vector2(x, y);
+        return new Vector3(x, y, -1);
     }
 }
