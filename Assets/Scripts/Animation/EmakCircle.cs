@@ -14,7 +14,7 @@ public class EmakCircle : MonoBehaviour
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        maxAlpha = spriteRenderer.color.a;
+        maxAlpha = 72/255f;
     }
 
     private void Start() {

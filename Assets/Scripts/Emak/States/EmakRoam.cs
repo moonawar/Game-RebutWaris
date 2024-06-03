@@ -27,22 +27,24 @@ public class EmakRoam : EmakState
         return randomDest;
     }
 
-    public override void OnEnter(EmakStateMachine princess)
+    public override void OnEnter(EmakStateMachine emak)
     {
+        emak.animator.SetBool("isRoaming", true);
         destination = GetRandomDestination();
-        float yRot = destination.x > princess.transform.position.x ? 0 : 180;
-        princess.transform.rotation = Quaternion.Euler(0, yRot, 0);
+        float yRot = destination.x > emak.transform.position.x ? 0 : 180;
+        emak.transform.rotation = Quaternion.Euler(0, yRot, 0);
     }
 
 
-    public override void OnUpdate(EmakStateMachine princess)
+    public override void OnUpdate(EmakStateMachine emak)
     {
-        if (Vector2.Distance(princess.transform.position, destination) < 0.1f)
+        if (Vector2.Distance(emak.transform.position, destination) < 0.1f)
         {
-            princess.ChangeState(princess.IdleState);
+            emak.animator.SetBool("isRoaming", false);
+            emak.ChangeState(emak.IdleState);
         }
 
-        Vector2 direction = destination - (Vector2)princess.transform.position;
-        princess.transform.position += props.RoamWalkSpeed * Time.deltaTime * (Vector3)direction.normalized;
+        Vector2 direction = destination - (Vector2)emak.transform.position;
+        emak.transform.position += props.RoamWalkSpeed * Time.deltaTime * (Vector3)direction.normalized;
     }
 }

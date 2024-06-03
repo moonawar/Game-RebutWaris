@@ -14,6 +14,7 @@ public class EmakStateMachine : MonoBehaviour
     public EmakState CurrentState { get; private set; }
     private EmakState startingState;
     private ParticleSystem _charmedParticles;
+    public Animator animator { get; private set;}
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class EmakStateMachine : MonoBehaviour
         CharmedState = new EmakCharmed(charmedProperties, null);
         startingState = IdleState;
         _charmedParticles = GetComponentInChildren<ParticleSystem>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
