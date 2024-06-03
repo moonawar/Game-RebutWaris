@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataPlayer1:
-    sprite: {fileID: 21300000, guid: a79935bc346ac7d408c4bdb8f663f24d, type: 3}
+    animator: {fileID: 9100000, guid: 9254f35bd0109c646998b5edbe51c699, type: 2}
     arrow: {fileID: 21300000, guid: 92ce922218193074389e02fa6b123f88, type: 3}
     throwableText: {fileID: 0}
     activePowerUps: {fileID: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
       loveMeter: {fileID: 0}
       heart: {fileID: 0}
   dataPlayer2:
-    sprite: {fileID: 21300000, guid: 939e43881aa399349a47f61c35df1cde, type: 3}
+    animator: {fileID: 9100000, guid: e3d5cbd0b7e78d1448909ece834ac18f, type: 2}
     arrow: {fileID: 21300000, guid: b4d5f282c2749b84daa162cd69649bf8, type: 3}
     throwableText: {fileID: 0}
     activePowerUps: {fileID: 0}
