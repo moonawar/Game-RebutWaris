@@ -319,9 +319,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7054710613867731208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2263, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3666096469289222552}
   - {fileID: 4862954821451232113}
@@ -395,7 +395,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: e3d5cbd0b7e78d1448909ece834ac18f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 3666096469289222552}
-  maxSpeed: 8
+  maxSpeed: 7.2
   timeToAccelerate: 0.3
   timeToDecelerate: 0.2
   lookDirection: 0
@@ -777,10 +777,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7054710613867731214}
     m_Modifications:
-    - target: {fileID: 4855185016846050204, guid: ad6954365d833e044800ea3e28dbe823, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4965681759287609123, guid: ad6954365d833e044800ea3e28dbe823, type: 3}
       propertyPath: m_Name
       value: clock_crown

@@ -19,8 +19,10 @@ public class PlayerMash : MonoBehaviour
     private float _increaseRate;
     private float _baseValue = 0;
     private float _nextPhaseValue;
-    private float _lastTimePrincessInArea = 0;
-
+    private float _lastTimeEmakInArea = 0;
+    private Collider2D emakPersistenceRef;
+    private bool emakInArea = false;
+    private Animator animator;
     private int _loveLevel = 0;
     
     /**
@@ -67,6 +69,8 @@ public class PlayerMash : MonoBehaviour
 
         _nextPhaseValue = _phaseM.GamePhases[_loveLevel].limit;
         _increaseRate = _phaseM.GamePhases[_loveLevel].increase;
+
+        animator = GetComponent<Animator>();
     }
 
     public void OnMashInput(InputAction.CallbackContext context) {
@@ -76,12 +80,11 @@ public class PlayerMash : MonoBehaviour
         if (gameObject.GetComponent<PlayerMovement>().IsStunned) return;   // Max Level, avoid crashing at all cost
 
         _heart.GetComponent<Animator>().SetTrigger("Mash");
-        Collider2D emak = IsEmakInArea();
-        if (haveClock && emak)
+        if (haveClock && emakInArea)
         {
             _loveMeter.value += _increaseRate;
             _fill.SetActive(true);
-            emak.GetComponent<EmakStateMachine>().EmitLoveParticles();
+            emakPersistenceRef.GetComponent<EmakStateMachine>().EmitLoveParticles();
         }
 
         if (_loveMeter.value >= _nextPhaseValue)
@@ -99,7 +102,10 @@ public class PlayerMash : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(center, _phaseM.DetectRadius);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Emak")) return collider;
+            if (collider.CompareTag("Emak")) {
+                emakPersistenceRef = collider;
+                return collider;
+            }
         }
         return null;
     }
@@ -108,12 +114,25 @@ public class PlayerMash : MonoBehaviour
     {
         if (_loveLevel >= 3) return;
 
-        if (IsEmakInArea()) {
-            _lastTimePrincessInArea = Time.time;
+        Collider2D emak = IsEmakInArea();
+        if (emak) {
+            _lastTimeEmakInArea = Time.time;
+
+            if (!emakInArea && haveClock) {
+                emakInArea = true;
+                animator.SetBool("EmakInArea", true);
+                emakPersistenceRef.GetComponentInChildren<EmakCircle>().OnPlayerEnter();
+            }
+        }
+
+        if (!emak && emakInArea) {
+            emakInArea = false;
+            animator.SetBool("EmakInArea", false);
+            emakPersistenceRef.GetComponentInChildren<EmakCircle>().OnPlayerExit();
         }
 
         // If princess out of area long enough, and the love value is not at its lowest
-        if (Time.time - _lastTimePrincessInArea >= _phaseM.TimeToStartDecreasing && _loveMeter.value >= _baseValue)
+        if (Time.time - _lastTimeEmakInArea >= _phaseM.TimeToStartDecreasing && _loveMeter.value >= _baseValue)
         {
             _loveMeter.value -= _phaseM.DecreaseRate * Time.deltaTime;
         }
