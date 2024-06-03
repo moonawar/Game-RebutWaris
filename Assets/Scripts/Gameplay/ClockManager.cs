@@ -20,13 +20,11 @@ public class ClockManager : MonoBehaviour
 
     public void SpawnClock()
     {
-        print("clock spawn");
         Vector3 spawnPoint = GetRandomSpawnPoint();
         Instantiate(_clockPrefab, spawnPoint, Quaternion.identity);
     }
     public void SpawnClock(Vector3 position)
     {
-        print("clock fall");
         Vector3 spawnPoint = GetRandomFallPoint(position);
         Instantiate(_clockPrefab, spawnPoint, Quaternion.identity);
     }

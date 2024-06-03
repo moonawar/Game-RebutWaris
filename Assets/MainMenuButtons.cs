@@ -13,10 +13,6 @@ public class MainMenuButtons : MonoBehaviour
     [SerializeField] private GameObject SettingsScreen;
     [SerializeField] private Button TutorialResumeButton;
     [SerializeField] private Button SettingsResumeButton;
-    [SerializeField] private AudioClip ButtonPressAudioClip;
-    [SerializeField] private AudioClip ButtonHoverAudioClip;
-    private AudioSource ButtonPressAudio;
-    private AudioSource ButtonHoverAudio;
 
     private void Update()
     {
@@ -39,14 +35,12 @@ public class MainMenuButtons : MonoBehaviour
 
     public void OnButtonPress()
     {
-        //ButtonPressAudio.clip = ButtonPressAudioClip;
-        //ButtonPressAudio.Play();
+        AudioManager.Instance.PlaySFX("ButtonPress");
     }
 
     public void OnButtonHover()
     {
-        //ButtonHoverAudio.clip = ButtonHoverAudioClip;
-        //ButtonHoverAudio.Play();
+        AudioManager.Instance.PlaySFX("ButtonHover");
     }
 
     public void Play()

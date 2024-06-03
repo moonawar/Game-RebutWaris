@@ -17,6 +17,11 @@ public class MainMenuTransition : MonoBehaviour
     [SerializeField] private VideoPlayer player;
     private AnimatorStateInfo animatorState;
 
+    private void Start()
+    {
+        AudioManager.Instance.PlaySFX("Static");
+    }
+
     private void Update()
     {
         if (finished) return;
@@ -27,6 +32,7 @@ public class MainMenuTransition : MonoBehaviour
         {
             started = true;
             cam.GetComponent<Animator>().SetTrigger("StartTransition");
+            AudioManager.Instance.PlaySFX("ZoomIn");
         }
         if (animatorState.IsName("CameraZoom") && animatorState.normalizedTime > 0.1f && animatorState.normalizedTime < 1.0f)
         {
@@ -43,6 +49,8 @@ public class MainMenuTransition : MonoBehaviour
 
         if (started && animatorState.IsName("CameraZoom") && animatorState.normalizedTime >= 1.0f && !player.isPlaying)
         {
+            AudioManager.Instance.ChangeVolume("Static", 0.5f);
+            AudioManager.Instance.PlaySFX("TVTurnOn");
             started = false;
             secondScreen.SetActive(true);
             MainScreen.SetActive(true);
