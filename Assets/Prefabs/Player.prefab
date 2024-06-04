@@ -218,7 +218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6532141040417077209
 Transform:
   m_ObjectHideFlags: 0
@@ -759,6 +759,7 @@ MonoBehaviour:
   selfCollider: {fileID: 470906341831932076}
   arrow: {fileID: 3666096469289222552}
   Cooldown: 3
+  GrabDuration: 3
   initialThrowSpeed: 35
 --- !u!61 &470906341831932076
 BoxCollider2D:

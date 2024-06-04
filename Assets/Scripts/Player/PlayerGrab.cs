@@ -58,9 +58,21 @@ public class PlayerGrab : MonoBehaviour
     {
         grabTimer = GrabDuration;
         yield return new WaitForSeconds(GrabDuration);
-        playerMovement.GrabMode = false;
-        animator.SetTrigger("Throw");
-        arrow.gameObject.SetActive(false);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider == selfCollider) continue;
+
+            if (collider.TryGetComponent(out PlayerMovement player))
+            {
+
+                animator.SetTrigger("Throw");
+                playerMovement.GrabMode = false;
+                player.CancelGrab();
+
+                arrow.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void OnGrab(InputAction.CallbackContext context)

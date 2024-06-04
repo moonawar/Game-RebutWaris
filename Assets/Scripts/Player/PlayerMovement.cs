@@ -142,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
     public void CancelGrab()
     {
         IsGrabbed = false;
+        IsStunned = false;
 
         animator.SetBool("isGrabbed", false);
         transform.position += new Vector3(0, 0.1f, 0);
