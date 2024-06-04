@@ -49,12 +49,12 @@ public class PlayerGrab : MonoBehaviour
     public void OnGrab(InputAction.CallbackContext context)
     {
         if (GameplayManager.Instance.Paused) return;
-        if (OnCooldown) return; 
+        if (OnCooldown) return;
+
 
         if (context.performed)
         {
             if (playerMovement.IsStunned || playerMovement.IsGrabbed) return;
-            StartCoroutine(CooldownTimer());
 
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
@@ -79,8 +79,11 @@ public class PlayerGrab : MonoBehaviour
             }
         }
 
-        if (context.canceled && playerMovement.GrabMode)
+        if (context.canceled)
         {
+            StartCoroutine(CooldownTimer());
+
+            if (!playerMovement.GrabMode) return;
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
             foreach (Collider2D collider in colliders)
             {
