@@ -29,7 +29,6 @@ public class SettingsManager : MonoBehaviour
     {
         foreach(Audio audio in AudioManager.Instance.Audios)
         {
-            print("BGM change");
             if(audio.Type == AudioType.BGM)
             {
                 AudioManager.Instance.ChangeVolume(audio.Name, BGMSlider.value);
@@ -39,7 +38,6 @@ public class SettingsManager : MonoBehaviour
 
     public void OnSFXValueChange()
     {
-        print("Sfx change");
         foreach (Audio audio in AudioManager.Instance.Audios)
         {
             if (audio.Type == AudioType.SFX)

@@ -62,13 +62,11 @@ public class AudioManager : MonoBehaviour
             {
                 if(bgmCount == 0)
                 {
-                    print("bgm one: " + audio.Name);
                     bgmSourceOne.clip = audio.Clip;
                     bgmSourceOne.enabled = true;
                 }
                 else
                 {
-                    print("bgm two: " + audio.Name);
                     bgmSourceTwo.clip = audio.Clip;
                 }
                 bgmCount++;
@@ -108,8 +106,6 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("AudioManager: SFX " + name + " not found!");
             return;
         }
-
-        print("Audio Name: " + name);
 
         if (audio.Type == AudioType.BGM)
         {
