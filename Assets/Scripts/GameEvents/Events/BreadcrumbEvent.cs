@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "BreadcrumbEvent", menuName = "GameEvents/BreadcrumbEvent")]
 public class BreadcrumbEvent : GameEvent
 {    
     public override string GetName()

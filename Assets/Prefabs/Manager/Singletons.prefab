@@ -120,12 +120,16 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 565c3118fd401af45a1f220d2f1e2929, type: 2}
   - gameEvents:
     - {fileID: 11400000, guid: 565c3118fd401af45a1f220d2f1e2929, type: 2}
+    - {fileID: 11400000, guid: 7b4c4419e38cfed48845a5b6ab313287, type: 2}
   - gameEvents:
     - {fileID: 11400000, guid: 565c3118fd401af45a1f220d2f1e2929, type: 2}
+    - {fileID: 11400000, guid: 7b4c4419e38cfed48845a5b6ab313287, type: 2}
   leafblowerEvent: {fileID: 11400000, guid: 565c3118fd401af45a1f220d2f1e2929, type: 2}
+  breadcrumbEvent: {fileID: 11400000, guid: 7b4c4419e38cfed48845a5b6ab313287, type: 2}
   timeBetweenEvent:
     min: 30
-    max: 120
+    max: 110
+  mika: {fileID: 0}
 --- !u!1 &4060022202498550997
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _arena: {fileID: 0}
   _clockPrefab: {fileID: 8524227866321938722, guid: 3553d8a3b8a25634d8db1b52b1c320c5, type: 3}
+  _fallRadius: 0
 --- !u!1 &4060022202579487686
 GameObject:
   m_ObjectHideFlags: 0

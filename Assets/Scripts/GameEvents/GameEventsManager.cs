@@ -14,6 +14,7 @@ public class GameEventsManager : MonoBehaviour
 
     // For testing purposes
     [SerializeField] private GameEvent leafblowerEvent;
+    [SerializeField] private GameEvent breadcrumbEvent;
 
     [Header("Event Trigger")]
     [SerializeField] private Range timeBetweenEvent;
@@ -57,7 +58,11 @@ public class GameEventsManager : MonoBehaviour
     public void LeafblowerEvent()
     {
         leafblowerEvent.OnEnter(this);
-        TextPopUpManager.Instance.SpawnEventText("Leafblower Event!");
+    }
+
+    public void BreadcrumbEvent()
+    {
+        breadcrumbEvent.OnEnter(this);
     }
 }
 
@@ -73,6 +78,11 @@ public class GameEventsManagerEditor : Editor
         if (GUILayout.Button("Trigger Leafblower Event"))
         {
             gameEventsManager.LeafblowerEvent();
+        }
+
+        if (GUILayout.Button("Trigger Breadcrumb Event"))
+        {
+            gameEventsManager.BreadcrumbEvent();
         }
     }
 }
