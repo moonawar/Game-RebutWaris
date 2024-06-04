@@ -720,6 +720,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9192d310-e263-4a0f-917b-ffd748b69462
     m_ActionName: Gameplay/Aim[/Logitech Logitech Dual Action/stick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2318203246032300268}
+        m_TargetAssemblyTypeName: PlayerPause, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3af04790-daeb-415c-857c-359657666545
+    m_ActionName: PreGame/Pause[/Keyboard/escape,/Logitech Logitech Dual Action/button10]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PreGame

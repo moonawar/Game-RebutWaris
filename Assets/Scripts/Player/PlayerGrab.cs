@@ -16,7 +16,6 @@ public class PlayerGrab : MonoBehaviour
     [SerializeField] private float GrabDuration = 3f;
     public float initialThrowSpeed = 50;
     private float timer;
-    private float grabTimer;
     private GameObject cooldownIndicator;
     private bool OnCooldown = false;
     private Animator animator;
@@ -56,15 +55,16 @@ public class PlayerGrab : MonoBehaviour
 
     private IEnumerator GrabTimer()
     {
-        grabTimer = GrabDuration;
         yield return new WaitForSeconds(GrabDuration);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
         foreach (Collider2D collider in colliders)
         {
             if (collider == selfCollider) continue;
 
+            if (playerMovement.IsStunned || playerMovement.IsGrabbed) yield break;
             if (collider.TryGetComponent(out PlayerMovement player))
             {
+                if (!player.IsGrabbed) yield break;
 
                 animator.SetTrigger("Throw");
                 playerMovement.GrabMode = false;
@@ -93,6 +93,7 @@ public class PlayerGrab : MonoBehaviour
                 {
                     if (player.IsGrabbed) return;
                     StartCoroutine(GrabTimer());
+                    AudioManager.Instance.PlaySFX("Grab");
                     animator.SetTrigger("Grab");
                     player.Grabbed(gameObject.transform.position);
                     arrow.gameObject.SetActive(true);

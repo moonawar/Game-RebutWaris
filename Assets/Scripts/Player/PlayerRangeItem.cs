@@ -60,9 +60,19 @@ public class PlayerRangeItem : MonoBehaviour
                 thrown.SetOwner(gameObject.GetComponent<PlayerMovement>());
                 thrown.SetOwnerBody(playerBody);
                 thrown.SetArena(gameObject.GetComponent<PlayerMovement>().GetArena());
-                Vector2 mousePos = gameObject.GetComponent<PlayerMovement>().getMousePosition();
-                Vector2 lookDir = mousePos - new Vector2(arrow.position.x, arrow.position.y);
-                float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+
+                float angle;
+                if (GetComponent<PlayerInput>().currentControlScheme == "Joystick" || GetComponent<PlayerInput>().currentControlScheme == "Gamepad")
+                {
+                    angle = GetComponent<PlayerMovement>().getRangeAngle();
+                }
+                else
+                {
+                    Vector2 mousePos = gameObject.GetComponent<PlayerMovement>().getMousePosition();
+                    Vector2 lookDir = mousePos - new Vector2(arrow.position.x, arrow.position.y);
+                    angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+                }
+                
                 Vector3 throwAngle = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad), 0);
                 thrown.Throw(throwAngle);
 
