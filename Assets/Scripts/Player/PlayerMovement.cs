@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
 
         lookDirection = Math.Sign(thrownAngle.x);
 
-        CurrentSpeed = 50;
+        CurrentSpeed = GetComponent<PlayerGrab>().initialThrowSpeed;
         StartCoroutine(Thrown(1));
 
     }
@@ -345,6 +345,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsThrown && hitWall)
         {
             IsThrown = false;
+            Stun(GetComponent<PlayerBonk>().getStunDuration());
             CurrentSpeed = 0;
         }
 

@@ -716,6 +716,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 058da027-f60c-4dcf-af32-01e35af19638
     m_ActionName: Gameplay/Pause[/Keyboard/escape,/Logitech Logitech Dual Action/button10]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9192d310-e263-4a0f-917b-ffd748b69462
+    m_ActionName: Gameplay/Aim[/Logitech Logitech Dual Action/stick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PreGame
@@ -755,6 +759,7 @@ MonoBehaviour:
   selfCollider: {fileID: 470906341831932076}
   arrow: {fileID: 3666096469289222552}
   Cooldown: 3
+  initialThrowSpeed: 35
 --- !u!61 &470906341831932076
 BoxCollider2D:
   m_ObjectHideFlags: 0

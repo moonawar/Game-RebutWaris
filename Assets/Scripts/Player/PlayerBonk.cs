@@ -15,6 +15,11 @@ public class PlayerBonk : MonoBehaviour
     private GameObject cooldownIndicator;
     private bool OnCooldown = false;
 
+    public float getStunDuration()
+    {
+        return stunDuration;
+    }
+
     public void SetBonkIndicator(GameObject indicator)
     {
         cooldownIndicator = indicator;
