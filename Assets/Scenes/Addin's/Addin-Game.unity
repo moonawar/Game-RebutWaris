@@ -3292,10 +3292,6 @@ PrefabInstance:
       propertyPath: mika
       value: 
       objectReference: {fileID: 2760883138734944561}
-    - target: {fileID: 4060022202487973793, guid: 388a6940f1a429d46a313ed90ce07650, type: 3}
-      propertyPath: timeBetweenEvent.max
-      value: 110
-      objectReference: {fileID: 0}
     - target: {fileID: 4060022202498550995, guid: 388a6940f1a429d46a313ed90ce07650, type: 3}
       propertyPath: _arena
       value: 

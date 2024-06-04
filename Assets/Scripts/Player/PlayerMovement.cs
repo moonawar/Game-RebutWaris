@@ -90,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
     {
         IsStunned = true;
         stunnedEffect.SetActive(true);
+        stunnedEffect.GetComponent<Animator>().SetTrigger("Stunned");
         animator.SetBool("isStunned", true);
         yield return new WaitForSeconds(stunDuration);
         IsStunned = false;

@@ -99,8 +99,12 @@ public class MikaEvent : MonoBehaviour
         endWalkPos = dest;
         spriteRenderer.flipX = dest.x < 0;
 
+        int half = Mathf.CeilToInt(geese.Length / 2);
+        int i = 0;
         foreach (GameObject goose in geese) {
-            goose.transform.position = GetRandomOutsideArea();
+            if (i < half) goose.transform.position = GetRandomOutsideArea(PlayerMovement.RIGHT);
+            else goose.transform.position = GetRandomOutsideArea(PlayerMovement.LEFT);
+            i++;
         }
 
         transform.position = startWalkPos;
@@ -133,10 +137,11 @@ public class MikaEvent : MonoBehaviour
 
     private void InitiateGeeseAttack() {
         foreach (GameObject goose in geese) {
-            Vector3 dest = (endWalkPos - goose.transform.position).normalized * 30;
+            Vector3 dest = goose.transform.position + (endWalkPos - goose.transform.position).normalized * 100;
+            dest = dest + new Vector3(UnityEngine.Random.Range(-5, 5), UnityEngine.Random.Range(-5, 5), 0);
             float duration = Vector3.Distance(goose.transform.position, dest) / bcProps.duckSpeed;
             goose.GetComponent<SpriteRenderer>().flipX = !(dest.x < 0);
-            goose.transform.DOMove(dest, duration).SetEase(Ease.Linear);
+            goose.transform.DOMove(dest, duration).SetEase(Ease.Linear).SetDelay(UnityEngine.Random.Range(0, 1));
         }
     }
 
@@ -150,9 +155,12 @@ public class MikaEvent : MonoBehaviour
         return randomDest;
     }
 
-    private Vector2 GetRandomOutsideArea()
+    private Vector2 GetRandomOutsideArea(int dir = 0)
     {
         float rx = UnityEngine.Random.Range(0, 2);
+        if (dir != 0) {
+            rx = dir;
+        }
         float x = bcProps.area.bounds.min.x - 10;
         if (rx == 1) {
             x = bcProps.area.bounds.max.x + 10;
