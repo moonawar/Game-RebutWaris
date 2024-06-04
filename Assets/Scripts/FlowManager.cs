@@ -24,7 +24,7 @@ public class FlowManager : MonoBehaviour
 
     public void LoadGameScene()
     {
-        LoadScene("Game");
+        LoadScene("Addin-Game");
     }
 
     public void LoadMainMenuScene()
