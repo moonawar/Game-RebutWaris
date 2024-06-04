@@ -9277,7 +9277,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
       propertyPath: Audios.Array.size
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
       propertyPath: Audios.Array.data[0].Clip
@@ -9548,6 +9548,22 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
+      propertyPath: Audios.Array.data[20].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0b3a7c6d94531e840a00c45c54652cbe, type: 3}
+    - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
+      propertyPath: Audios.Array.data[20].Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
+      propertyPath: Audios.Array.data[20].Name
+      value: EndScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
+      propertyPath: Audios.Array.data[20].Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
       propertyPath: Audios.Array.data[2].Pitch
       value: 1
       objectReference: {fileID: 0}
@@ -9628,6 +9644,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
+      propertyPath: Audios.Array.data[20].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
       propertyPath: Audios.Array.data[2].Volume
       value: 0.5
       objectReference: {fileID: 0}
@@ -9697,6 +9717,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
       propertyPath: Audios.Array.data[19].Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
+      propertyPath: Audios.Array.data[20].Volume
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6268738648031079179, guid: dd2204472c964234d8bbce7a644defcf, type: 3}

@@ -67,11 +67,14 @@ public class GameplayManager : MonoBehaviour
     }
 
     public void RestartGame() {
+        AudioManager.Instance.PlayBGMOverwrite("Main");
         FlowManager.Instance.RestartGame();
     }
 
     public void EndTheGame(int winnerIdx) {
         endOfGameScreen.SetActive(true);
+        AudioManager.Instance.StopSFX("Heartbeat");
+        AudioManager.Instance.PlayBGMCrossfade("EndScreen");
         EndGameScreenManager endGameScreenManager = endOfGameScreen.GetComponent<EndGameScreenManager>();
         endGameScreenManager.ShowTheWinner(winnerIdx);
     }

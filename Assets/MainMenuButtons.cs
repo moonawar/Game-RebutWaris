@@ -69,7 +69,7 @@ public class MainMenuButtons : MenuManager
         AudioManager.Instance.StopSFX("Static");
         AudioManager.Instance.PlayBGMCrossfade("Main");
         //AudioManager.Instance.StopBGM();
-        SceneManager.LoadScene("Eza-Game");
+        SceneManager.LoadScene("Addin-Game");
     }
 
     private void ActivateTutorial()
