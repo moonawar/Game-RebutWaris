@@ -17,7 +17,7 @@ public class MikaLeafblowerProps
 public class MikaBreadcrumbProps
 {
     public Collider2D area;
-    public GameObject[] ducks;
+    public Transform geese;
     public float duckSpeed;
     public float walkSpeed;
 }
@@ -34,10 +34,15 @@ public class MikaEvent : MonoBehaviour
     private Vector3 startWalkPos;
     private Vector3 endWalkPos;
     private float walkDuration;
+    private GameObject[] geese;
 
     private void Awake() {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        geese = new GameObject[bcProps.geese.childCount];
+        for (int i = 0; i < bcProps.geese.childCount; i++) {
+            geese[i] = bcProps.geese.GetChild(i).gameObject;
+        }
     }
 
     public void StartLeafblowerEvent(int from, Action onLeafblowerOn, Action onLeafblowerOff) {
@@ -86,17 +91,58 @@ public class MikaEvent : MonoBehaviour
 
     public void StartBreadcrumbEvent() {
         Vector2 dest = GetRandomInsideArea();
-        foreach (GameObject duck in bcProps.ducks) {
-            duck.transform.position = GetRandomOutsideArea();
+        endWalkPos = new Vector3(
+            dest.x < 0 ? lbProps.posXLeft : lbProps.posXRight,
+            lbProps.posY, 0
+        );
+        startWalkPos = endWalkPos + new Vector3(Mathf.Sign(dest.x) * lbProps.walkOffset, 0, 0);
+        endWalkPos = dest;
+        spriteRenderer.flipX = dest.x < 0;
+
+        int half = Mathf.CeilToInt(geese.Length / 2);
+        int i = 0;
+        foreach (GameObject goose in geese) {
+            if (i < half) goose.transform.position = GetRandomOutsideArea(PlayerMovement.RIGHT);
+            else goose.transform.position = GetRandomOutsideArea(PlayerMovement.LEFT);
+            i++;
         }
 
-        transform.position = dest;
-        float walkDuration = Vector2.Distance(transform.position, dest) / bcProps.walkSpeed;
+        transform.position = startWalkPos;
+        walkDuration = Vector2.Distance(transform.position, dest) / bcProps.walkSpeed;
         animator.SetTrigger("Walk");
 
         Sequence sequence = DOTween.Sequence();
+        CameraManager.Instance.SetMikaEventCamActive();
         sequence.Append(transform.DOMove(dest, walkDuration).SetEase(Ease.Linear));
+        sequence.AppendCallback(() => {
+            animator.SetTrigger("Breadcrumb");
+        });
+    }
 
+    public void MikaBreadcrumbEndFrame() {
+      animator.SetTrigger("Idle");
+      CameraManager.Instance.SetInGameCamActive();
+      InitiateGeeseAttack();
+      Sequence sequence = DOTween.Sequence();
+      sequence.AppendInterval(0.5f);
+      sequence.AppendCallback(() => {
+          spriteRenderer.flipX = !spriteRenderer.flipX;
+          animator.SetTrigger("Walk");
+      });
+      sequence.Append(transform.DOMove(startWalkPos, walkDuration).SetEase(Ease.Linear));
+    //   sequence.AppendCallback(() => {
+    //       CameraManager.Instance.SetInGameCamActive();
+    //   });
+    }
+
+    private void InitiateGeeseAttack() {
+        foreach (GameObject goose in geese) {
+            Vector3 dest = goose.transform.position + (endWalkPos - goose.transform.position).normalized * 100;
+            dest = dest + new Vector3(UnityEngine.Random.Range(-5, 5), UnityEngine.Random.Range(-5, 5), 0);
+            float duration = Vector3.Distance(goose.transform.position, dest) / bcProps.duckSpeed;
+            goose.GetComponent<SpriteRenderer>().flipX = !(dest.x < 0);
+            goose.transform.DOMove(dest, duration).SetEase(Ease.Linear).SetDelay(UnityEngine.Random.Range(0, 1));
+        }
     }
 
    private Vector2 GetRandomInsideArea()
@@ -109,28 +155,17 @@ public class MikaEvent : MonoBehaviour
         return randomDest;
     }
 
-    private Vector2 GetRandomOutsideArea()
+    private Vector2 GetRandomOutsideArea(int dir = 0)
     {
-        float rx = UnityEngine.Random.Range(0, 3);
-        float ry = UnityEngine.Random.Range(0, 3);
-
-        while (rx == 3 && ry == 3) {
-            ry = UnityEngine.Random.Range(0, 3);
+        float rx = UnityEngine.Random.Range(0, 2);
+        if (dir != 0) {
+            rx = dir;
         }
-
-        float x = bcProps.area.bounds.min.x - 5;
+        float x = bcProps.area.bounds.min.x - 10;
         if (rx == 1) {
-            x = bcProps.area.bounds.max.x + 5;
-        } else if (rx == 2) {
-            x = UnityEngine.Random.Range(bcProps.area.bounds.min.x, bcProps.area.bounds.max.x);
-        }
-
-        float y = bcProps.area.bounds.min.y - 5;
-        if (ry == 1) {
-            y = bcProps.area.bounds.max.y + 5;
-        } else if (ry == 2) {
-            y = UnityEngine.Random.Range(bcProps.area.bounds.min.y, bcProps.area.bounds.max.y);
-        }
+            x = bcProps.area.bounds.max.x + 10;
+        } 
+        float y = UnityEngine.Random.Range(bcProps.area.bounds.min.y, bcProps.area.bounds.max.y);
 
         Vector2 randomDest = new Vector2(x, y);
         return randomDest;

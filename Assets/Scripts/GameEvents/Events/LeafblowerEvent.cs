@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "LeafblowerEvent", menuName = "GameEvents/LeafblowerEvent")]
 public class LeafblowerEvent : GameEvent {
     [SerializeField] private float strength = 1f;
     private int direction;
