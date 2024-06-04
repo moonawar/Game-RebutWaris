@@ -54,6 +54,8 @@ public class PlayerGrab : MonoBehaviour
         if (context.performed)
         {
             if (playerMovement.IsStunned || playerMovement.IsGrabbed) return;
+            StartCoroutine(CooldownTimer());
+
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
             foreach (Collider2D collider in colliders)
@@ -106,7 +108,6 @@ public class PlayerGrab : MonoBehaviour
                     arrow.gameObject.SetActive(false);
                 }
             }
-            StartCoroutine(CooldownTimer());
         }
 
     }

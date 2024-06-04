@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public bool AimMode { get; set; } = false;
     private bool IsThrown = false;
     private Vector3 thrownAngle;
+    private float prevAngle = 0;
     #endregion
 
     #region movement
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     /* Inputs */
     private Vector2 moveInput;
+    private Vector2 aimInput;
 
     /* Movement Transformer */
     public delegate Vector3 MovementTransformer(Vector3 move);
@@ -178,6 +180,11 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
     }
+
+    public void OnAim(InputAction.CallbackContext context)
+    {
+        aimInput = context.ReadValue<Vector2>();
+    }
     #endregion
 
     public Vector2 getMousePosition()
@@ -195,6 +202,8 @@ public class PlayerMovement : MonoBehaviour
         
         // Input
         previousMove = move;
+        print("X: " + moveInput.x);
+        print("Y: " + moveInput.y);
         move = new(moveInput.x, moveInput.y, 0);
         
         if (GrabMode)
@@ -238,9 +247,26 @@ public class PlayerMovement : MonoBehaviour
 
         if (AimMode)
         {
-            Vector2 mousePos = getMousePosition();
-            Vector2 lookDir = mousePos - new Vector2(arrow.position.x, arrow.position.y);
-            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+            float angle;
+            if (GetComponent<PlayerInput>().currentControlScheme == "Joystick" || GetComponent<PlayerInput>().currentControlScheme == "Gamepad")
+            {
+                if(aimInput.x == 0 && aimInput.y == 0)
+                {
+                    angle = prevAngle;
+                }
+                else
+                {
+                    angle = Mathf.Atan2(aimInput.y, aimInput.x) * Mathf.Rad2Deg;
+                }
+                prevAngle = angle;
+            }
+            else
+            {
+                Vector2 mousePos = getMousePosition();
+                Vector2 lookDir = mousePos - new Vector2(arrow.position.x, arrow.position.y);
+
+                angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+            }
             arrow.transform.rotation = Quaternion.Euler(0, 0, angle);
             //return;
         }
