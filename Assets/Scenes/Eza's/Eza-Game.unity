@@ -5533,6 +5533,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1297993246}
     - target: {fileID: 4060022202579487685, guid: 388a6940f1a429d46a313ed90ce07650, type: 3}
+      propertyPath: settingsScreen
+      value: 
+      objectReference: {fileID: 1709022354}
+    - target: {fileID: 4060022202579487685, guid: 388a6940f1a429d46a313ed90ce07650, type: 3}
       propertyPath: endOfGameScreen
       value: 
       objectReference: {fileID: 593197362}
@@ -5744,7 +5748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789035359105869661, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4789035359745374354, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5793,7 +5797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8371883649399859649, guid: 2bdb540fb02a8dd44a3ce8ed4c0129c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8371883649399859679, guid: 2bdb540fb02a8dd44a3ce8ed4c0129c4, type: 3}
       propertyPath: m_Pivot.x
