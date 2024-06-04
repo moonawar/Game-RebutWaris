@@ -1,10 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenuButtons : MonoBehaviour
+[Serializable]
+public class Screen
+{
+    public string ScreenName;
+    public GameObject ScreenObject;
+}
+public class MenuManager : MonoBehaviour
+{
+    public void OnButtonPress()
+    {
+        AudioManager.Instance.PlaySFX("ButtonPress");
+    }
+
+    public void OnButtonHover()
+    {
+        AudioManager.Instance.PlaySFX("ButtonHover");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+}
+public class MainMenuButtons : MenuManager
 {
 
     [SerializeField] private Button PlayButton;
@@ -37,16 +61,6 @@ public class MainMenuButtons : MonoBehaviour
     private void Start()
     {
         PlayButton.Select();
-    }
-
-    public void OnButtonPress()
-    {
-        AudioManager.Instance.PlaySFX("ButtonPress");
-    }
-
-    public void OnButtonHover()
-    {
-        AudioManager.Instance.PlaySFX("ButtonHover");
     }
 
     public void Play()
@@ -89,10 +103,6 @@ public class MainMenuButtons : MonoBehaviour
         TutorialScreen.SetActive(false);
     }
 
-    public void Quit()
-    {
-        Application.Quit();
-    }
     public void BackToMenu()
     {
         DeactivateTutorial();

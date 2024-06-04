@@ -3,18 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : MenuManager
 {
-
-    public void OnButtonPress()
-    {
-        AudioManager.Instance.PlaySFX("ButtonPress");
-    }
-
-    public void OnButtonHover()
-    {
-        AudioManager.Instance.PlaySFX("ButtonHover");
-    }
+    [SerializeField] private GameObject SettingsScreen;
 
     public void Resume()
     {
@@ -29,11 +20,12 @@ public class PauseMenu : MonoBehaviour
 
     public void Settings()
     {
-
+        SettingsScreen.SetActive(true);
     }
 
     public void Restart()
     {
         GameplayManager.Instance.UnpauseGame();
+        FlowManager.Instance.RestartGame();
     }
 }

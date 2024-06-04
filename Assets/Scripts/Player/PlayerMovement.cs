@@ -220,14 +220,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (AimMode)
-        {
-            Vector2 mousePos = getMousePosition();
-            Vector2 lookDir = mousePos - new Vector2(arrow.position.x, arrow.position.y);
-            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-            arrow.transform.rotation = Quaternion.Euler(0,0,angle);
-            return;
-        }
+        
 
         if (previousMove.magnitude > 0 && move.magnitude == 0)
         {
@@ -241,6 +234,15 @@ public class PlayerMovement : MonoBehaviour
 
             int yRot = lookDirection == 1 ? 0 : 180;
             transform.rotation = Quaternion.Euler(0, yRot, 0);
+        }
+
+        if (AimMode)
+        {
+            Vector2 mousePos = getMousePosition();
+            Vector2 lookDir = mousePos - new Vector2(arrow.position.x, arrow.position.y);
+            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+            arrow.transform.rotation = Quaternion.Euler(0, 0, angle);
+            //return;
         }
     }
 

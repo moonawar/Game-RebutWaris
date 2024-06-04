@@ -55,7 +55,7 @@ public class PlayerRangeItem : MonoBehaviour
             {
                 gameObject.GetComponent<PlayerMovement>().AimMode = false;
 
-                
+                AudioManager.Instance.PlaySFX("SendalThrown");
                 Throwable thrown = Instantiate(throwablePrefab, transform.position, transform.rotation);
                 thrown.SetOwner(gameObject.GetComponent<PlayerMovement>());
                 thrown.SetOwnerBody(playerBody);

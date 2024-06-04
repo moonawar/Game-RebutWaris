@@ -76,6 +76,7 @@ public class Throwable : MonoBehaviour
             {
                 if (collision.gameObject.tag == "PlayerBody")
                 {
+                    AudioManager.Instance.PlaySFX("SendalHit");
                     collision.transform.parent.gameObject.GetComponent<PlayerMash>().DecreaseLove(item.damage);
                     reflect();
                 }

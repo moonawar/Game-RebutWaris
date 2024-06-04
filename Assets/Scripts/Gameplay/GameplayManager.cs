@@ -17,6 +17,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameplayUIRefs player1UiRefs;
     [SerializeField] private GameplayUIRefs player2UiRefs;
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject settingsScreen;
     [SerializeField] private GameObject endOfGameScreen;
 
     public static GameplayManager Instance { get; private set; }
@@ -27,6 +28,18 @@ public class GameplayManager : MonoBehaviour
             _paused = value;
             Time.timeScale = value ? 0 : 1; 
         }
+    }
+
+    [HideInInspector] public List<GameObject> Players;
+
+    private void Awake() {
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+        } else {
+            Instance = this;
+        }
+
+        // endOfGameScreen.SetActive(false);
     }
 
     public void PauseGame()
@@ -43,16 +56,14 @@ public class GameplayManager : MonoBehaviour
         pauseScreen.SetActive(false);
     }
 
-    [HideInInspector] public List<GameObject> Players;
+    public void OpenSettings()
+    {
+        settingsScreen.SetActive(true);
+    }
 
-    private void Awake() {
-        if (Instance != null && Instance != this) {
-            Destroy(gameObject);
-        } else {
-            Instance = this;
-        }
-
-        // endOfGameScreen.SetActive(false);
+    public void CloseSettings()
+    {
+        settingsScreen.SetActive(false);
     }
 
     public void RestartGame() {

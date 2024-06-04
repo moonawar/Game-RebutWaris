@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsManager : MonoBehaviour
+public class SettingsManager : MenuManager
 {
     [SerializeField] private Slider BGMSlider;
     [SerializeField] private Slider SFXSlider;
+
 
     private void Awake()
     {
@@ -23,6 +24,11 @@ public class SettingsManager : MonoBehaviour
                 AudioManager.Instance.ChangeVolume(audio.Name, SFXSlider.value);
             }
         }
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 
     public void OnBGMValueChange()
