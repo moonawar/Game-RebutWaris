@@ -41,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
 
     /* Inputs */
     private Vector2 moveInput;
-    private Vector2 aimInput;
 
     /* Movement Transformer */
     public delegate Vector3 MovementTransformer(Vector3 move);
@@ -58,6 +57,11 @@ public class PlayerMovement : MonoBehaviour
         deceleration = maxSpeed / timeToDecelerate;
 
         animator = GetComponent<Animator>();
+    }
+
+    public float getRangeAngle()
+    {
+        return prevAngle;
     }
 
     public void SetArena(Collider2D collider)
@@ -147,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isGrabbed", false);
         transform.position += new Vector3(0, 0.1f, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
+        stunnedEffect.transform.localPosition -= new Vector3(0, 11, 0);
     }
     #endregion
 
@@ -192,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        aimInput = context.ReadValue<Vector2>();
+        //aimInput = context.ReadValue<Vector2>();
     }
     #endregion
 
@@ -259,13 +264,13 @@ public class PlayerMovement : MonoBehaviour
             float angle;
             if (GetComponent<PlayerInput>().currentControlScheme == "Joystick" || GetComponent<PlayerInput>().currentControlScheme == "Gamepad")
             {
-                if(aimInput.x == 0 && aimInput.y == 0)
+                if(moveInput.x == 0 && moveInput.y == 0)
                 {
                     angle = prevAngle;
                 }
                 else
                 {
-                    angle = Mathf.Atan2(aimInput.y, aimInput.x) * Mathf.Rad2Deg;
+                    angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
                 }
                 prevAngle = angle;
             }
