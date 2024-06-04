@@ -312,6 +312,17 @@
                 },
                 {
                     "name": "",
+                    "id": "94a434fe-6a92-4a59-b26b-8e6d8b500858",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw Item",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1acff39d-717e-4b5a-a52e-de5a3240da7d",
                     "path": "<Keyboard>/escape",
                     "interactions": "",

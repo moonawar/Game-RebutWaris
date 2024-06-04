@@ -49,6 +49,9 @@ public class EndGameScreenManager : MonoBehaviour
 
         sequence.Append(restartButton.GetComponent<CanvasGroup>().DOFade(1, 0.5f));
         sequence.Join(mainMenuButton.GetComponent<CanvasGroup>().DOFade(1, 0.5f));
+        sequence.AppendCallback(() => {
+            Time.timeScale = 1;
+        });
     }
 
     private IEnumerator DofCour() {
