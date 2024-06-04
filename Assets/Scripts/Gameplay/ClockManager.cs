@@ -17,6 +17,7 @@ public class ClockManager : MonoBehaviour
     [SerializeField] private BoxCollider2D _arena;
     [SerializeField] private GameObject _clockPrefab;
     [SerializeField] private float _fallRadius;
+    [SerializeField] private float _offset = 2;
 
     public void SpawnClock()
     {
@@ -42,14 +43,14 @@ public class ClockManager : MonoBehaviour
         float randomx = Random.Range(_fallRadius * -1, _fallRadius);
         float randomy = Random.Range(_fallRadius * -1, _fallRadius);
 
-        if (Mathf.Abs(randomx) <= 3)
+        if (Mathf.Abs(randomx) <= _offset)
         {
-            randomx = randomx <= 0 ? randomx - 3 : randomx + 3;
+            randomx = randomx <= 0 ? randomx - _offset : randomx + -_offset;
         }
 
-        if (Mathf.Abs(randomy) <= 3)
+        if (Mathf.Abs(randomy) <= _offset)
         {
-            randomy = randomy <= 0 ? randomy - 3 : randomy + 3;
+            randomy = randomy <= 0 ? randomy - _offset : randomy + _offset;
         }
 
         randomx = center.x + randomx < _arena.bounds.min.x ? _arena.bounds.min.x - center.x : randomx;
@@ -61,11 +62,11 @@ public class ClockManager : MonoBehaviour
         float x = center.x + randomx;
         float y = center.y + randomy;
 
-        if (Mathf.Abs(x - center.x) <= 3)
+        if (Mathf.Abs(x - center.x) <= _offset)
         {
             x = center.x - randomx;
         }
-        if (Mathf.Abs(y - center.y) <= 3)
+        if (Mathf.Abs(y - center.y) <= _offset)
         {
             y = center.y - randomy;
         }
