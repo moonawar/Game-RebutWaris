@@ -62,14 +62,16 @@ public class AudioManager : MonoBehaviour
             {
                 if(bgmCount == 0)
                 {
+                    print("bgm one: " + audio.Name);
                     bgmSourceOne.clip = audio.Clip;
                     bgmSourceOne.enabled = true;
                 }
                 else
                 {
+                    print("bgm two: " + audio.Name);
                     bgmSourceTwo.clip = audio.Clip;
                 }
-                
+                bgmCount++;
             }
         }
     }
@@ -106,7 +108,18 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("AudioManager: SFX " + name + " not found!");
             return;
         }
-        audio.Source.volume = value;
+
+        print("Audio Name: " + name);
+
+        if (audio.Type == AudioType.BGM)
+        {
+            bgmSourceOne.volume = bgmSourceOne.clip == audio.Clip ? value : bgmSourceOne.volume;
+            bgmSourceTwo.volume = bgmSourceTwo.clip == audio.Clip ? value : bgmSourceTwo.volume;
+        }
+        else
+        {
+            audio.Source.volume = value;
+        }
     }
 
     public void PlayBGMOverwrite(string name) {

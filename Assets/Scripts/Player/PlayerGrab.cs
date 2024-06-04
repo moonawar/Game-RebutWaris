@@ -90,6 +90,7 @@ public class PlayerGrab : MonoBehaviour
                     if (!player.IsGrabbed) return;
 
                     animator.SetTrigger("Throw");
+                    AudioManager.Instance.PlaySFX("Thrown");
                     playerMovement.GrabMode = false;
                     if (Mathf.Abs(transform.rotation.eulerAngles.y) == 180)
                     {

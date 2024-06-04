@@ -6,6 +6,7 @@ public class Mantra : DurationPowerUp
 
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
+        AudioManager.Instance.PlaySFX("PowerUp_Mantra");
         this.target = target;
         GameObject emak = GameObject.FindGameObjectWithTag("Emak");
         EmakStateMachine emakStateMachine = emak.GetComponent<EmakStateMachine>();

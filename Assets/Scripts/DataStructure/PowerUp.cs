@@ -82,6 +82,7 @@ public abstract class PowerUp: MonoBehaviour
     {
         if (collision.CompareTag("PlayerBody") == false) return;
         StopAllCoroutines();
+        AudioManager.Instance.PlaySFX("PowerUp_PickUp");
         GameObject player = collision.gameObject.GetComponentInParent<PlayerMovement>().gameObject;
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
 

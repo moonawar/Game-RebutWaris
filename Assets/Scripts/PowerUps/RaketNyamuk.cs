@@ -8,6 +8,7 @@ public class RaketNyamuk : PowerUp
 
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
+        AudioManager.Instance.PlaySFX("PowerUp_RaketNyamuk");
         target.Stun(duration);
         if (target.GetComponent<PlayerMash>().HaveClock)
         {

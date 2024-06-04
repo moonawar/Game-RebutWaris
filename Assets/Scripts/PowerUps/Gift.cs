@@ -6,7 +6,7 @@ public class Gift : DurationPowerUp
 {
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
-
+        AudioManager.Instance.PlaySFX("PowerUp_Gift");
         this.target = target;
         FindOppositeTarget();
         float prevRate = this.target.GetComponent<PlayerMash>().GetIncreaseRate();

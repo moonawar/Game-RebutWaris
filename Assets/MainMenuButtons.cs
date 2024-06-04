@@ -14,6 +14,12 @@ public class MainMenuButtons : MonoBehaviour
     [SerializeField] private Button TutorialResumeButton;
     [SerializeField] private Button SettingsResumeButton;
 
+    private void Awake()
+    {
+        TutorialScreen.SetActive(false);
+        SettingsScreen.SetActive(true);
+        SettingsScreen.SetActive(false);
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -64,9 +70,15 @@ public class MainMenuButtons : MonoBehaviour
 
     public void Tutorial()
     {
-        ActivateTutorial();
+        if (TutorialScreen.activeInHierarchy)
+        {
+            DeactivateTutorial();
+        }
+        else
+        {
+            ActivateTutorial();
+        }
         SettingsScreen.SetActive(false);
-        //MenuScreen.SetActive(false);
     }
 
     public void Settings()
