@@ -138,7 +138,7 @@ public class MikaEvent : MonoBehaviour
     private void InitiateGeeseAttack() {
         foreach (GameObject goose in geese) {
             Vector3 dest = goose.transform.position + (endWalkPos - goose.transform.position).normalized * 100;
-            dest = dest + new Vector3(UnityEngine.Random.Range(-5, 5), UnityEngine.Random.Range(-5, 5), 0);
+            dest = dest + new Vector3(UnityEngine.Random.Range(-2, 2), UnityEngine.Random.Range(-2, 2), 0);
             float duration = Vector3.Distance(goose.transform.position, dest) / bcProps.duckSpeed;
             goose.GetComponent<SpriteRenderer>().flipX = !(dest.x < 0);
             goose.transform.DOMove(dest, duration).SetEase(Ease.Linear).SetDelay(UnityEngine.Random.Range(0, 1));

@@ -11,7 +11,7 @@ public class EndGameScreenManager : MonoBehaviour
     [SerializeField] private PostProcessVolume postProcessVolume;
     [SerializeField] private GameObject p1WinScreen;
     [SerializeField] private GameObject p2WinScreen;
-    [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private Image gameOverText;
     [SerializeField] private GameObject gameplayUI;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button mainMenuButton;
@@ -19,7 +19,7 @@ public class EndGameScreenManager : MonoBehaviour
         Time.timeScale = 0.5f;
 
         gameplayUI.SetActive(false);
-        gameOverText.alpha = 0;
+        gameOverText.color = new Color(1, 1, 1, 0);
         gameOverText.gameObject.SetActive(true);
         CameraManager.Instance.SetPreGameCamActive();
 
@@ -38,7 +38,7 @@ public class EndGameScreenManager : MonoBehaviour
 
         // position winner screen off screen to up
         winnerScreen.transform.localPosition = new Vector3(0, winnerScreen.GetComponent<RectTransform>().rect.height, 0);
-        sequence.Append(winnerScreen.transform.DOLocalMove(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.OutBounce));
+        sequence.Append(winnerScreen.transform.DOLocalMove(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.OutCubic));
         sequence.AppendInterval(0.5f);
         sequence.AppendCallback(() => {
             restartButton.GetComponent<CanvasGroup>().alpha = 0;

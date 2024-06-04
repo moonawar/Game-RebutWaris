@@ -119,11 +119,11 @@ MonoBehaviour:
   - gameEvents:
     - {fileID: 11400000, guid: 565c3118fd401af45a1f220d2f1e2929, type: 2}
   - gameEvents:
-    - {fileID: 11400000, guid: 565c3118fd401af45a1f220d2f1e2929, type: 2}
     - {fileID: 11400000, guid: 7b4c4419e38cfed48845a5b6ab313287, type: 2}
+    - {fileID: 11400000, guid: 565c3118fd401af45a1f220d2f1e2929, type: 2}
   - gameEvents:
-    - {fileID: 11400000, guid: 565c3118fd401af45a1f220d2f1e2929, type: 2}
     - {fileID: 11400000, guid: 7b4c4419e38cfed48845a5b6ab313287, type: 2}
+    - {fileID: 11400000, guid: 565c3118fd401af45a1f220d2f1e2929, type: 2}
   leafblowerEvent: {fileID: 11400000, guid: 565c3118fd401af45a1f220d2f1e2929, type: 2}
   breadcrumbEvent: {fileID: 11400000, guid: 7b4c4419e38cfed48845a5b6ab313287, type: 2}
   timeBetweenEvent:
@@ -228,6 +228,7 @@ MonoBehaviour:
     endGame:
       winningScreen: {fileID: 0}
   pauseScreen: {fileID: 0}
+  settingsScreen: {fileID: 0}
   endOfGameScreen: {fileID: 0}
   Players: []
 --- !u!1 &4060022202853750374
@@ -277,8 +278,8 @@ MonoBehaviour:
   StartSpawn: 0
   SpawnArea: {fileID: 0}
   SpawnInterval:
-    min: 17
-    max: 28
+    min: 8
+    max: 21
   PowerUps:
   - {fileID: 803113122638342189, guid: 71aeb3bc0d2572f4494eef20901225da, type: 3}
   - {fileID: -2401447154450122687, guid: 97dbaf76d7d394443980e28bc6c0aa51, type: 3}
@@ -287,7 +288,7 @@ MonoBehaviour:
   - {fileID: 788654425227486254, guid: 6c85127c67b8f1e4bbb517e61d4e55da, type: 3}
   PowerUpPanelP1: {fileID: 0}
   PowerUpPanelP2: {fileID: 0}
-  maxPowerUpInScene: 3
+  maxPowerUpInScene: 4
 --- !u!1 &4060022203635202048
 GameObject:
   m_ObjectHideFlags: 0

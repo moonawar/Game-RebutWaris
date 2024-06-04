@@ -181,7 +181,7 @@
                 {
                     "name": "",
                     "id": "48e28431-4f67-4029-a0df-c3052f2459f0",
-                    "path": "<HID::Logitech Logitech Dual Action>/button2",
+                    "path": "<HID::Logitech Logitech Dual Action>/button6",
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
