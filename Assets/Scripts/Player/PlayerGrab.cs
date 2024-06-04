@@ -13,7 +13,10 @@ public class PlayerGrab : MonoBehaviour
     [SerializeField] private Collider2D selfCollider;
     [SerializeField] private Transform arrow;
     [SerializeField] private float Cooldown;
+    [SerializeField] private float GrabDuration = 3f;
+    public float initialThrowSpeed = 50;
     private float timer;
+    private float grabTimer;
     private GameObject cooldownIndicator;
     private bool OnCooldown = false;
     private Animator animator;
@@ -36,6 +39,11 @@ public class PlayerGrab : MonoBehaviour
             cooldownIndicator.GetComponent<Image>().fillAmount = Mathf.InverseLerp(0, Cooldown, timer);
         }
 
+        //if (!OnCooldown && grabTimer > 0)
+        //{
+        //    grabTimer -= Time.deltaTime;
+        //}
+
     }
 
     private IEnumerator CooldownTimer()
@@ -44,6 +52,15 @@ public class PlayerGrab : MonoBehaviour
         timer = Cooldown;
         yield return new WaitForSeconds(Cooldown);
         OnCooldown = false;
+    }
+
+    private IEnumerator GrabTimer()
+    {
+        grabTimer = GrabDuration;
+        yield return new WaitForSeconds(GrabDuration);
+        playerMovement.GrabMode = false;
+        animator.SetTrigger("Throw");
+        arrow.gameObject.SetActive(false);
     }
 
     public void OnGrab(InputAction.CallbackContext context)
@@ -63,6 +80,7 @@ public class PlayerGrab : MonoBehaviour
                 if (collider != selfCollider && collider.TryGetComponent(out PlayerMovement player))
                 {
                     if (player.IsGrabbed) return;
+                    StartCoroutine(GrabTimer());
                     animator.SetTrigger("Grab");
                     player.Grabbed(gameObject.transform.position);
                     arrow.gameObject.SetActive(true);

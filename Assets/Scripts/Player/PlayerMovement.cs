@@ -124,7 +124,6 @@ public class PlayerMovement : MonoBehaviour
     public void Ungrab(float theta, int flip)
     {
         IsGrabbed = false;
-        IsStunned = false;
 
         animator.SetBool("isGrabbed", false);
         transform.position += new Vector3(0, 0.1f, 0);
@@ -138,6 +137,15 @@ public class PlayerMovement : MonoBehaviour
         CurrentSpeed = GetComponent<PlayerGrab>().initialThrowSpeed;
         StartCoroutine(Thrown(1));
 
+    }
+
+    public void CancelGrab()
+    {
+        IsGrabbed = false;
+
+        animator.SetBool("isGrabbed", false);
+        transform.position += new Vector3(0, 0.1f, 0);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
     #endregion
 
