@@ -42,7 +42,8 @@ public class GameEventsManager : MonoBehaviour
         }
     }
 
-    private void TriggerEvent() {
+    public void TriggerEvent() {
+        Debug.Log("Triggering event for phase " + currentGamePhase);
         if (_eventsOnPhases[currentGamePhase].gameEvents.Count > 0) {
             int randomEventIndex = Random.Range(0, _eventsOnPhases[currentGamePhase].gameEvents.Count);
             GameEvent eventToTrigger = _eventsOnPhases[currentGamePhase].gameEvents[randomEventIndex];
@@ -74,6 +75,11 @@ public class GameEventsManagerEditor : Editor
     {
         base.OnInspectorGUI();
         GameEventsManager gameEventsManager = (GameEventsManager)target;
+
+        if (GUILayout.Button("Trigger Random Event"))
+        {
+            gameEventsManager.TriggerEvent();
+        }
 
         if (GUILayout.Button("Trigger Leafblower Event"))
         {

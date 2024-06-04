@@ -38,7 +38,7 @@ public class EndGameScreenManager : MonoBehaviour
 
         // position winner screen off screen to up
         winnerScreen.transform.localPosition = new Vector3(0, winnerScreen.GetComponent<RectTransform>().rect.height, 0);
-        sequence.Append(winnerScreen.transform.DOLocalMove(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.OutBounce));
+        sequence.Append(winnerScreen.transform.DOLocalMove(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.OutCubic));
         sequence.AppendInterval(0.5f);
         sequence.AppendCallback(() => {
             restartButton.GetComponent<CanvasGroup>().alpha = 0;

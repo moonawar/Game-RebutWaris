@@ -5744,7 +5744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789035359105869661, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4789035359745374354, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5790,6 +5790,10 @@ PrefabInstance:
     - target: {fileID: 8371883649399859649, guid: 2bdb540fb02a8dd44a3ce8ed4c0129c4, type: 3}
       propertyPath: m_Name
       value: DeviceManagerUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371883649399859649, guid: 2bdb540fb02a8dd44a3ce8ed4c0129c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8371883649399859679, guid: 2bdb540fb02a8dd44a3ce8ed4c0129c4, type: 3}
       propertyPath: m_Pivot.x

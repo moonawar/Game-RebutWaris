@@ -19,7 +19,6 @@ public class PlayerMash : MonoBehaviour
     private float _increaseRate;
     private float _baseValue = 0;
     private float _nextPhaseValue;
-    private float _lastTimeEmakInArea = 0;
     private Collider2D emakPersistenceRef;
     private bool emakInArea = false;
     private Animator animator;
@@ -116,8 +115,6 @@ public class PlayerMash : MonoBehaviour
 
         Collider2D emak = IsEmakInArea();
         if (emak) {
-            _lastTimeEmakInArea = Time.time;
-
             if (!emakInArea && haveClock) {
                 emakInArea = true;
                 animator.SetBool("EmakInArea", true);
@@ -152,6 +149,7 @@ public class PlayerMash : MonoBehaviour
         _nextPhaseValue = _phaseM.GamePhases[_loveLevel].limit;
         _increaseRate = _phaseM.GamePhases[_loveLevel].increase;
 
+        _phaseM.OnPlayerAdvancePhase(PlayerIdx, _loveLevel);
 
         UpdateUI();
     }

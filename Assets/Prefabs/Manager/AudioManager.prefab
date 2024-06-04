@@ -44,4 +44,137 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88fc0ec52ccc7004fb7b0b1ccad9c902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Audios: []
+  Audios:
+  - Name: MainMenu
+    Clip: {fileID: 8300000, guid: 30ed2ba6a9267294e8cbe291ec253790, type: 3}
+    Type: 0
+    Volume: 0
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
+  - Name: BGM2
+    Clip: {fileID: 8300000, guid: 30ed2ba6a9267294e8cbe291ec253790, type: 3}
+    Type: 0
+    Volume: 0
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: ButtonPress
+    Clip: {fileID: 8300000, guid: c856a60d9b5184f45950814fa82f2361, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: ButtonHover
+    Clip: {fileID: 8300000, guid: 091c01c74d23a0f418a04afd0bb8f882, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: ZoomIn
+    Clip: {fileID: 8300000, guid: b6bd176cac2bada4b92c657618f5155a, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Static
+    Clip: {fileID: 8300000, guid: 99fefdb1bcbe97b439f15d227a6829cd, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
+  - Name: TVTurnOn
+    Clip: {fileID: 8300000, guid: 10826668cb37765489b357cb167d14c3, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Punch
+    Clip: {fileID: 8300000, guid: fd936884fb47ce44590797a2729ec13d, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: PlayerThrown
+    Clip: {fileID: 8300000, guid: bff973ed879b996428f45ae4e4e58510, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Stunned
+    Clip: {fileID: 8300000, guid: bef0fc586235bd243ba6481041f79a23, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Heartbeat
+    Clip: {fileID: 8300000, guid: 6a00928b79b67db44981cb3e52e7900c, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
+  - Name: PowerUp_PickUp
+    Clip: {fileID: 8300000, guid: f7aae1998ddb75f42ad62b794e421826, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: PowerUp_Fitnah
+    Clip: {fileID: 8300000, guid: 29ce6547f23017b4faa46706eda03c3a, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: PowerUp_Gift
+    Clip: {fileID: 8300000, guid: d3c3357fdbbf18241bd3cbedb2077926, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: PowerUp_Immunity
+    Clip: {fileID: 8300000, guid: bba6c552962145c44845493f1c76c017, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: PowerUp_Mantra
+    Clip: {fileID: 8300000, guid: 631c4643271723e439cc53f06824f951, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: PowerUp_RaketNyamuk
+    Clip: {fileID: 8300000, guid: 00354ce8b6974b84483474283b6b769a, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: SendalThrown
+    Clip: {fileID: 8300000, guid: 117777a42b600534ba80a09f8498f8d9, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: SendalHit
+    Clip: {fileID: 8300000, guid: 13c6b4bf5cea591488ff8c178d64e2ca, type: 3}
+    Type: 1
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
