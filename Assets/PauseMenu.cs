@@ -15,7 +15,7 @@ public class PauseMenu : MenuManager
     public void Home()
     {
         GameplayManager.Instance.UnpauseGame();
-        SceneManager.LoadScene("MainMenu");
+        FlowManager.Instance.LoadMainMenuScene();
     }
 
     public void Settings()

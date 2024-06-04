@@ -119,6 +119,10 @@ public class PlayerMash : MonoBehaviour
         }
     }
 
+    private bool EndedOrPaused() {
+        return GameplayManager.Instance.GameEnded || GameplayManager.Instance.Paused;
+    }
+
     void Update()
     {
         if (_loveLevel >= 3) return;
@@ -128,7 +132,7 @@ public class PlayerMash : MonoBehaviour
             if (!emakInArea && haveClock) {
                 emakInArea = true;
                 animator.SetBool("EmakInArea", true);
-                if (!GameplayManager.Instance.GameEnded) AudioManager.Instance.PlaySFX(GetTalkAudioName());
+                if (!EndedOrPaused()) AudioManager.Instance.PlaySFX(GetTalkAudioName());
                 emakPersistenceRef.GetComponentInChildren<EmakCircle>().OnPlayerEnter();
             }
         }
@@ -136,7 +140,7 @@ public class PlayerMash : MonoBehaviour
         if (!emak && emakInArea) {
             emakInArea = false;
             animator.SetBool("EmakInArea", false);
-            if (!GameplayManager.Instance.GameEnded) AudioManager.Instance.StopSFX(GetTalkAudioName());
+            if (!EndedOrPaused()) AudioManager.Instance.StopSFX(GetTalkAudioName());
             emakPersistenceRef.GetComponentInChildren<EmakCircle>().OnPlayerExit();
         }
 

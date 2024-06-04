@@ -46,6 +46,7 @@ public class GameplayManager : MonoBehaviour
 
     public void PauseGame()
     {
+        AudioManager.Instance.StopAllSFX();
         AudioManager.Instance.PlaySFX("Static");
         AudioManager.Instance.PauseBGM();
         Paused = true;

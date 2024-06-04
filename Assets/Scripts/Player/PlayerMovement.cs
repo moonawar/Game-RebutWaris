@@ -197,7 +197,6 @@ public class PlayerMovement : MonoBehaviour
     public void OnMovement(InputAction.CallbackContext context)
     {
         if (GameplayManager.Instance.Paused) return;
-        if (GameplayManager.Instance.GameEnded) return;
         moveInput = context.ReadValue<Vector2>();
     }
 

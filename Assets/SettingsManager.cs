@@ -2,13 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class SettingsManager : MenuManager
 {
     [SerializeField] private Slider BGMSlider;
     [SerializeField] private Slider SFXSlider;
-
+    [SerializeField] private Button ResumeButton;
+    [SerializeField] private Button SettingButton;
+    private EventSystem _eventSystem;
 
     private void Awake()
     {
@@ -24,6 +27,15 @@ public class SettingsManager : MenuManager
                 SFXSlider.value = audio.Volume;
             }
         }
+    }
+
+    private void OnEnable() {
+        _eventSystem = FindObjectOfType<EventSystem>();
+        _eventSystem.SetSelectedGameObject(ResumeButton.gameObject);
+    }
+
+    private void OnDisable() {
+        _eventSystem.SetSelectedGameObject(SettingButton.gameObject);
     }
 
     public void Hide()

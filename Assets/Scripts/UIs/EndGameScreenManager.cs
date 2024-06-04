@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class EndGameScreenManager : MonoBehaviour
 {
@@ -15,7 +16,15 @@ public class EndGameScreenManager : MonoBehaviour
     [SerializeField] private GameObject gameplayUI;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button mainMenuButton;
+    [SerializeField] private EventSystem eventSystem;
+
+    private void Awake() {
+        eventSystem = FindObjectOfType<EventSystem>();
+    }
+
     public void ShowTheWinner(int playerIdx) {
+        eventSystem.SetSelectedGameObject(restartButton.gameObject);
+
         Time.timeScale = 0.5f;
 
         gameplayUI.SetActive(false);

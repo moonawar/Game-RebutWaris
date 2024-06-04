@@ -27,6 +27,8 @@ public class FlowManager : MonoBehaviour
 
         currentScene = "LoadingScreen";
         SceneManager.LoadScene("LoadingScreen");
+        AudioManager.Instance.StopAllSFX();
+        AudioManager.Instance.StopBGM();
     }
 
     private IEnumerator LoadSceneAsync(string sceneName)

@@ -68,7 +68,6 @@ public class MainMenuButtons : MenuManager
         AudioManager.Instance.ChangeVolume("Static", 1);
         AudioManager.Instance.StopSFX("Static");
         AudioManager.Instance.StopBGM();
-        // SceneManager.LoadScene("Addin-Game");
         FlowManager.Instance.LoadGameScene();
     }
 

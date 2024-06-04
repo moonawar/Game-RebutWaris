@@ -40,10 +40,13 @@ public class GameEventsManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1)) {
             TriggerEvent();
         }
+
+        if (GameplayManager.Instance.GameEnded) {
+            enabled = false;
+        }
     }
 
     public void TriggerEvent() {
-        Debug.Log("Triggering event for phase " + currentGamePhase);
         if (_eventsOnPhases[currentGamePhase].gameEvents.Count > 0) {
             int randomEventIndex = Random.Range(0, _eventsOnPhases[currentGamePhase].gameEvents.Count);
             GameEvent eventToTrigger = _eventsOnPhases[currentGamePhase].gameEvents[randomEventIndex];
