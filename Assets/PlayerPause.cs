@@ -7,6 +7,7 @@ public class PlayerPause : MonoBehaviour
 {
     public void OnPause(InputAction.CallbackContext context)
     {
+        if (GameplayManager.Instance.GameEnded) return;
         if (context.performed)
         {
             if (GameplayManager.Instance.Paused)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -71,6 +72,7 @@ public class MikaEvent : MonoBehaviour
     public void MikaLeafblowerOnFrame() {
         Sequence sequence = DOTween.Sequence();
         leafblowerOnCallback();
+        AudioManager.Instance.PlaySFX("Leafblower");
         CameraManager.Instance.SetInGameCamActive();
         sequence.AppendInterval(lbProps.leafblowerDuration);
         sequence.AppendCallback(() => {
@@ -142,7 +144,13 @@ public class MikaEvent : MonoBehaviour
             float duration = Vector3.Distance(goose.transform.position, dest) / bcProps.duckSpeed;
             goose.GetComponent<SpriteRenderer>().flipX = !(dest.x < 0);
             goose.transform.DOMove(dest, duration).SetEase(Ease.Linear).SetDelay(UnityEngine.Random.Range(0, 1));
+            StartCoroutine(DelayedGooseAudio(1));
         }
+    }
+
+    private IEnumerator DelayedGooseAudio(float delay) {
+        yield return new WaitForSeconds(delay);
+        AudioManager.Instance.PlaySFX("Goose");
     }
 
    private Vector2 GetRandomInsideArea()

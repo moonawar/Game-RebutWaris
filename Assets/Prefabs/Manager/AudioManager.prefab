@@ -55,7 +55,7 @@ MonoBehaviour:
   - Name: Main
     Clip: {fileID: 8300000, guid: 8686c4c581d81924fb76cdc916d9fb42, type: 3}
     Type: 0
-    Volume: 0.5
+    Volume: 0.3
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
@@ -191,4 +191,32 @@ MonoBehaviour:
     Volume: 0.5
     Pitch: 1
     Loop: 1
+    Source: {fileID: 0}
+  - Name: P1Talk
+    Clip: {fileID: 8300000, guid: 0c6d343edc53cc9469fd9130883a5630, type: 3}
+    Type: 1
+    Volume: 0.5
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
+  - Name: P2Talk
+    Clip: {fileID: 8300000, guid: f73c215ad6843ca488f0ec3e04f55f3a, type: 3}
+    Type: 1
+    Volume: 0.5
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
+  - Name: Goose
+    Clip: {fileID: 8300000, guid: d0f98045b83aed444b713dbb06085ca0, type: 3}
+    Type: 1
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Leafblower
+    Clip: {fileID: 8300000, guid: 8851a37a1d0952f48a027fae386dd15c, type: 3}
+    Type: 1
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
     Source: {fileID: 0}

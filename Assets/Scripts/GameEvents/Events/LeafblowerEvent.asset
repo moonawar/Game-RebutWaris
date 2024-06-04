@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2693a82a22ffba4ea8923dbaae23840, type: 3}
   m_Name: LeafblowerEvent
   m_EditorClassIdentifier: 
-  duration: 5
-  strength: 4
+  strength: 6

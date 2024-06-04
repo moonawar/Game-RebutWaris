@@ -31,7 +31,7 @@ public abstract class PowerUp: MonoBehaviour
     public UnityEvent<PowerUp> PowerUpEnd;
     public UnityEvent<float> ProgressUpdate;
     private Material material;
-    private Range lifetime = new Range(10, 24);
+    private Range lifetime = new Range(15, 24);
 
     private void Awake() {
         material = GetComponent<SpriteRenderer>().material;

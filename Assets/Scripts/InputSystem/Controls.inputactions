@@ -70,9 +70,9 @@
                 },
                 {
                     "name": "Aim",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "9192d310-e263-4a0f-917b-ffd748b69462",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -357,7 +357,7 @@
                 {
                     "name": "",
                     "id": "8f1193c0-4228-4e1d-a3eb-4225fde6359e",
-                    "path": "<Joystick>/stick",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",

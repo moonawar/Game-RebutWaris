@@ -29,6 +29,7 @@ public class GameplayManager : MonoBehaviour
             Time.timeScale = value ? 0 : 1; 
         }
     }
+    public bool GameEnded { get; private set; } = false;
 
     [HideInInspector] public List<GameObject> Players;
 
@@ -39,6 +40,7 @@ public class GameplayManager : MonoBehaviour
             Instance = this;
         }
 
+        GameEnded = false;
         // endOfGameScreen.SetActive(false);
     }
 
@@ -74,7 +76,8 @@ public class GameplayManager : MonoBehaviour
 
     public void EndTheGame(int winnerIdx) {
         endOfGameScreen.SetActive(true);
-        AudioManager.Instance.StopSFX("Heartbeat");
+        GameEnded = true;
+        AudioManager.Instance.StopAllSFX();
         AudioManager.Instance.PlayBGMCrossfade("EndScreen");
         EndGameScreenManager endGameScreenManager = endOfGameScreen.GetComponent<EndGameScreenManager>();
         endGameScreenManager.ShowTheWinner(winnerIdx);

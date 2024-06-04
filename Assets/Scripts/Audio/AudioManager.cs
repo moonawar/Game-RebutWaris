@@ -89,6 +89,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopAllSFX() {
+        foreach (Audio audio in Audios) {
+            if (audio.Type == AudioType.SFX) {
+                audio.Source.Stop();
+            }
+        }
+    }
+
     private Audio FindAudio(string name) {
         return Audios.Find(audio => audio.Name == name);
     }

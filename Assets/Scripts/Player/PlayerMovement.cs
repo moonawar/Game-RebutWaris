@@ -196,11 +196,15 @@ public class PlayerMovement : MonoBehaviour
     #region input
     public void OnMovement(InputAction.CallbackContext context)
     {
+        if (GameplayManager.Instance.Paused) return;
+        if (GameplayManager.Instance.GameEnded) return;
         moveInput = context.ReadValue<Vector2>();
     }
 
     public void OnAim(InputAction.CallbackContext context)
     {
+        if (GameplayManager.Instance.Paused) return;
+        if (GameplayManager.Instance.GameEnded) return;
         aimInput = context.ReadValue<Vector2>();
     }
     #endregion
@@ -266,7 +270,7 @@ public class PlayerMovement : MonoBehaviour
             float angle;
             if (GetComponent<PlayerInput>().currentControlScheme == "Joystick" || GetComponent<PlayerInput>().currentControlScheme == "Gamepad")
             {
-                if(aimInput.x == 0 && aimInput.y == 0)
+                if(moveInput.x == 0 && moveInput.y == 0)
                 {
                     angle = prevAngle;
                 }

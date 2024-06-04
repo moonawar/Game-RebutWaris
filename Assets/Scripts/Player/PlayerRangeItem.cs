@@ -43,6 +43,7 @@ public class PlayerRangeItem : MonoBehaviour
     public void OnThrow(InputAction.CallbackContext context)
     {
         if (GameplayManager.Instance.Paused) return;
+        if (GameplayManager.Instance.GameEnded) return;
         if (throwableAmount > 0)
         {
             if (context.performed)

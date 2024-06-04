@@ -49,11 +49,11 @@ MonoBehaviour:
   DetectOffsetX: 0
   GamePhases:
   - limit: 30
-    increase: 1
+    increase: 0.7695
   - limit: 70
-    increase: 0.8
+    increase: 0.6156
   - limit: 100
-    increase: 0.6
+    increase: 0.4617
   DecreaseRate: 0.5
   TimeToStartDecreasing: 3
   onPhaseChange:
@@ -127,8 +127,8 @@ MonoBehaviour:
   leafblowerEvent: {fileID: 11400000, guid: 565c3118fd401af45a1f220d2f1e2929, type: 2}
   breadcrumbEvent: {fileID: 11400000, guid: 7b4c4419e38cfed48845a5b6ab313287, type: 2}
   timeBetweenEvent:
-    min: 30
-    max: 110
+    min: 28
+    max: 56
   mika: {fileID: 0}
 --- !u!1 &4060022202498550997
 GameObject:
@@ -177,6 +177,7 @@ MonoBehaviour:
   _arena: {fileID: 0}
   _clockPrefab: {fileID: 8524227866321938722, guid: 3553d8a3b8a25634d8db1b52b1c320c5, type: 3}
   _fallRadius: 0
+  _offset: 2
 --- !u!1 &4060022202579487686
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +280,7 @@ MonoBehaviour:
   SpawnArea: {fileID: 0}
   SpawnInterval:
     min: 8
-    max: 21
+    max: 20
   PowerUps:
   - {fileID: 803113122638342189, guid: 71aeb3bc0d2572f4494eef20901225da, type: 3}
   - {fileID: -2401447154450122687, guid: 97dbaf76d7d394443980e28bc6c0aa51, type: 3}
@@ -288,7 +289,7 @@ MonoBehaviour:
   - {fileID: 788654425227486254, guid: 6c85127c67b8f1e4bbb517e61d4e55da, type: 3}
   PowerUpPanelP1: {fileID: 0}
   PowerUpPanelP2: {fileID: 0}
-  maxPowerUpInScene: 4
+  maxPowerUpInScene: 3
 --- !u!1 &4060022203635202048
 GameObject:
   m_ObjectHideFlags: 0

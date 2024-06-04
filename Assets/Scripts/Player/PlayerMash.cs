@@ -74,6 +74,7 @@ public class PlayerMash : MonoBehaviour
 
     public void OnMashInput(InputAction.CallbackContext context) {
         if (GameplayManager.Instance.Paused) return;
+        if (GameplayManager.Instance.GameEnded) return;
         if (!context.canceled) return; // We will only register on button pressed, not on releaserd
         if (_loveLevel >= 3) return;   // Max Level, avoid crashing at all cost
         if (gameObject.GetComponent<PlayerMovement>().IsStunned) return;   // Max Level, avoid crashing at all cost
@@ -109,6 +110,15 @@ public class PlayerMash : MonoBehaviour
         return null;
     }
 
+    private string GetTalkAudioName() {
+        int playerIdx = GetComponent<PlayerInput>().playerIndex;
+        switch (playerIdx) {
+            case 0: return "P1Talk";
+            case 1: return "P2Talk";
+            default: return "Talk1";
+        }
+    }
+
     void Update()
     {
         if (_loveLevel >= 3) return;
@@ -118,6 +128,7 @@ public class PlayerMash : MonoBehaviour
             if (!emakInArea && haveClock) {
                 emakInArea = true;
                 animator.SetBool("EmakInArea", true);
+                if (!GameplayManager.Instance.GameEnded) AudioManager.Instance.PlaySFX(GetTalkAudioName());
                 emakPersistenceRef.GetComponentInChildren<EmakCircle>().OnPlayerEnter();
             }
         }
@@ -125,6 +136,7 @@ public class PlayerMash : MonoBehaviour
         if (!emak && emakInArea) {
             emakInArea = false;
             animator.SetBool("EmakInArea", false);
+            if (!GameplayManager.Instance.GameEnded) AudioManager.Instance.StopSFX(GetTalkAudioName());
             emakPersistenceRef.GetComponentInChildren<EmakCircle>().OnPlayerExit();
         }
 

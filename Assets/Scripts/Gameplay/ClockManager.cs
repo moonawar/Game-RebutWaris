@@ -17,15 +17,16 @@ public class ClockManager : MonoBehaviour
     [SerializeField] private BoxCollider2D _arena;
     [SerializeField] private GameObject _clockPrefab;
     [SerializeField] private float _fallRadius;
-    [SerializeField] private float _offset = 2;
 
     public void SpawnClock()
     {
+        print("clock spawn");
         Vector3 spawnPoint = GetRandomSpawnPoint();
         Instantiate(_clockPrefab, spawnPoint, Quaternion.identity);
     }
     public void SpawnClock(Vector3 position)
     {
+        print("clock fall");
         Vector3 spawnPoint = GetRandomFallPoint(position);
         Instantiate(_clockPrefab, spawnPoint, Quaternion.identity);
     }
@@ -43,34 +44,38 @@ public class ClockManager : MonoBehaviour
         float randomx = Random.Range(_fallRadius * -1, _fallRadius);
         float randomy = Random.Range(_fallRadius * -1, _fallRadius);
 
-        if (Mathf.Abs(randomx) <= _offset)
+        if (Mathf.Abs(randomx) <= 3)
         {
-            randomx = randomx <= 0 ? randomx - _offset : randomx + -_offset;
+            randomx = randomx <= 0 ? randomx - 3 : randomx + 3;
         }
 
-        if (Mathf.Abs(randomy) <= _offset)
+        if (Mathf.Abs(randomy) <= 3)
         {
-            randomy = randomy <= 0 ? randomy - _offset : randomy + _offset;
+            randomy = randomy <= 0 ? randomy - 3 : randomy + 3;
         }
-
-        randomx = center.x + randomx < _arena.bounds.min.x ? _arena.bounds.min.x - center.x : randomx;
-        randomx = center.x + randomx > _arena.bounds.max.x ? _arena.bounds.max.x - center.x : randomx;
-
-        randomy = center.y + randomy < _arena.bounds.min.y ? _arena.bounds.min.y - center.y : randomy;
-        randomy = center.y + randomy > _arena.bounds.max.y ? _arena.bounds.max.y - center.y : randomy;
 
         float x = center.x + randomx;
         float y = center.y + randomy;
 
-        if (Mathf.Abs(x - center.x) <= _offset)
+        if (Mathf.Abs(x - center.x) <= 3)
         {
             x = center.x - randomx;
         }
-        if (Mathf.Abs(y - center.y) <= _offset)
+        if (Mathf.Abs(y - center.y) <= 3)
         {
             y = center.y - randomy;
         }
 
+        if (IsOutsideArena(new Vector3(x, y, -1)))
+        {
+            return GetRandomSpawnPoint();
+        }
+
         return new Vector3(x, y, -1);
+    }
+
+    private bool IsOutsideArena(Vector3 position)
+    {
+        return position.x < _arena.bounds.min.x || position.x > _arena.bounds.max.x || position.y < _arena.bounds.min.y || position.y > _arena.bounds.max.y;
     }
 }

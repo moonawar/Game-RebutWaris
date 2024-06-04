@@ -155,14 +155,14 @@ public class DeviceManagerUI : MonoBehaviour
 
     IEnumerator StartGame()
     {
-        // gameStartText.text = "Game starts in 3";
-        // gameStartText.gameObject.SetActive(true);
-        // yield return new WaitForSeconds(1);
-        // gameStartText.text = "Game starts in 2";
-        // yield return new WaitForSeconds(1);
-        // gameStartText.text = "Game starts in 1";
-        // yield return new WaitForSeconds(1);
-        // gameStartText.gameObject.SetActive(false);
+        gameStartText.text = "Game starts in 3";
+        gameStartText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        gameStartText.text = "Game starts in 2";
+        yield return new WaitForSeconds(1);
+        gameStartText.text = "Game starts in 1";
+        yield return new WaitForSeconds(1);
+        gameStartText.gameObject.SetActive(false);
         
         // For faster testing
         yield return new WaitForSeconds(0.1f);

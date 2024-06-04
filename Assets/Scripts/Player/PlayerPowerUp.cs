@@ -63,6 +63,7 @@ public class PlayerPowerUp : MonoBehaviour
     public void OnUseItem(InputAction.CallbackContext context)
     {
         if (GameplayManager.Instance.Paused) return;
+        if (GameplayManager.Instance.GameEnded) return;
         if (context.performed && powerUp != null)
         {
             if (playerMovement.IsStunned) return;
