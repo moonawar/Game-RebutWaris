@@ -63,15 +63,20 @@ public class AudioManager : MonoBehaviour
                 if(bgmCount == 0)
                 {
                     bgmSourceOne.clip = audio.Clip;
+                    bgmSourceOne.playOnAwake = false;
                     bgmSourceOne.enabled = true;
                 }
                 else
                 {
                     bgmSourceTwo.clip = audio.Clip;
+                    bgmSourceTwo.playOnAwake = false;
+                    bgmSourceTwo.enabled = true;
                 }
                 bgmCount++;
             }
         }
+
+        PlayBGMOverwrite("MainMenu");
     }
 
     private Audio FindAudio(string name) {

@@ -216,8 +216,6 @@ public class PlayerMovement : MonoBehaviour
         
         // Input
         previousMove = move;
-        print("X: " + moveInput.x);
-        print("Y: " + moveInput.y);
         move = new(moveInput.x, moveInput.y, 0);
         
         if (GrabMode)

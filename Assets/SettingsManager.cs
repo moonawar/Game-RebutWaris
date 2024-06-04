@@ -16,12 +16,12 @@ public class SettingsManager : MenuManager
         {
             if (audio.Type == AudioType.BGM)
             {
-                AudioManager.Instance.ChangeVolume(audio.Name, BGMSlider.value);
+                BGMSlider.value = audio.Volume;
             }
 
             if (audio.Type == AudioType.SFX)
             {
-                AudioManager.Instance.ChangeVolume(audio.Name, SFXSlider.value);
+                SFXSlider.value = audio.Volume;
             }
         }
     }
