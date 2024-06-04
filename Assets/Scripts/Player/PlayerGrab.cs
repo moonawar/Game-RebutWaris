@@ -93,6 +93,7 @@ public class PlayerGrab : MonoBehaviour
                 {
                     if (player.IsGrabbed) return;
                     StartCoroutine(GrabTimer());
+                    AudioManager.Instance.PlaySFX("Grab");
                     animator.SetTrigger("Grab");
                     player.Grabbed(gameObject.transform.position);
                     arrow.gameObject.SetActive(true);

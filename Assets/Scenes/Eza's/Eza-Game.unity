@@ -805,7 +805,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
       propertyPath: Audios.Array.size
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
       propertyPath: Audios.Array.data[0].Clip
@@ -1068,6 +1068,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
+      propertyPath: Audios.Array.data[19].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 12fe2a54cfc988c4da4ee6199c11292c, type: 3}
+    - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
+      propertyPath: Audios.Array.data[19].Name
+      value: Grab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
+      propertyPath: Audios.Array.data[19].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
       propertyPath: Audios.Array.data[1].Pitch
       value: 1
       objectReference: {fileID: 0}
@@ -1144,6 +1156,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
+      propertyPath: Audios.Array.data[19].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
       propertyPath: Audios.Array.data[1].Volume
       value: 0
       objectReference: {fileID: 0}
@@ -1213,6 +1229,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
       propertyPath: Audios.Array.data[18].Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268738648031079176, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
+      propertyPath: Audios.Array.data[19].Volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6268738648031079179, guid: dd2204472c964234d8bbce7a644defcf, type: 3}
