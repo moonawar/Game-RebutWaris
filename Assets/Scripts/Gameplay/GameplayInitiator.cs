@@ -1,13 +1,12 @@
 using Cinemachine;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.PostProcessing;
 
 [System.Serializable]
 public class PlayerData {
-    public AnimatorController animator;
+    public RuntimeAnimatorController animator;
     public Sprite arrow;
     public TMP_Text throwableText;
     public GameObject activePowerUps;
