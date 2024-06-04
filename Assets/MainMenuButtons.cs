@@ -103,6 +103,7 @@ public class MainMenuButtons : MenuManager
         SettingsScreen.SetActive(true);
         MenuScreen.SetActive(false);
         TutorialScreen.SetActive(false);
+        SettingsResumeButton.Select();
     }
 
     public void BackToMenu()
@@ -111,5 +112,6 @@ public class MainMenuButtons : MenuManager
         SettingsScreen.SetActive(false);
         MenuScreen.SetActive(true);
         TutorialScreen.SetActive(false);
+        PlayButton.Select();
     }
 }

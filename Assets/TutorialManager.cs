@@ -40,6 +40,7 @@ public class TutorialManager : MonoBehaviour
         if(currentTutorial >= Tutorials.Count)
         {
             RightButton.gameObject.SetActive(false);
+            LeftButton.Select();
         }
         else
         {
@@ -49,6 +50,7 @@ public class TutorialManager : MonoBehaviour
         if (currentTutorial <= 1)
         {
             LeftButton.gameObject.SetActive(false);
+            RightButton.Select();
         }
         else
         {
