@@ -43,6 +43,7 @@ public class PlayerBonk : MonoBehaviour
         if (OnCooldown) return;
 
         gameObject.GetComponent<Animator>().SetTrigger("Bonk");
+        AudioManager.Instance.PlaySFX("Punch");
         if (playerMovement.IsStunned || playerMovement.IsGrabbed) return;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
         foreach (Collider2D collider in colliders)

@@ -83,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
     public void Stun(float stunDuration)
     {
         if (isImmune) return;
+        AudioManager.Instance.PlaySFX("Stunned");
         StartCoroutine(StunRoutine(stunDuration));
     }
 

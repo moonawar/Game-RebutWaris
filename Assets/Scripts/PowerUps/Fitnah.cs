@@ -7,6 +7,7 @@ public class Fitnah : PowerUp
 {
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
+        AudioManager.Instance.PlaySFX("PowerUp_Fitnah");
         target.GetComponent<PlayerMash>().DecreaseLoveHalf();
         yield return null;
         PowerUpEnd.Invoke(this);

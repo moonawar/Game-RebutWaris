@@ -164,6 +164,7 @@ public class PlayerMash : MonoBehaviour
         else if (_loveLevel == 2)
         {
             _heart.SetActive(true);
+            AudioManager.Instance.PlaySFX("Heartbeat");
         }
         else // Level 3
         {

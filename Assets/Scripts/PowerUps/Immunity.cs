@@ -6,6 +6,7 @@ public class Immunity : DurationPowerUp
 {
     public override IEnumerator PowerUpCoroutine(PlayerMovement target)
     {
+        AudioManager.Instance.PlaySFX("PowerUp_Immunity");
         this.target = target;
         FindOppositeTarget();
         this.target.isImmune = true;

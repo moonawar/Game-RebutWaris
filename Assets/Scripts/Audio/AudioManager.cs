@@ -69,7 +69,7 @@ public class AudioManager : MonoBehaviour
                 {
                     bgmSourceTwo.clip = audio.Clip;
                 }
-                
+                bgmCount++;
             }
         }
     }
@@ -106,7 +106,16 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("AudioManager: SFX " + name + " not found!");
             return;
         }
-        audio.Source.volume = value;
+
+        if (audio.Type == AudioType.BGM)
+        {
+            bgmSourceOne.volume = bgmSourceOne.clip == audio.Clip ? value : bgmSourceOne.volume;
+            bgmSourceTwo.volume = bgmSourceTwo.clip == audio.Clip ? value : bgmSourceTwo.volume;
+        }
+        else
+        {
+            audio.Source.volume = value;
+        }
     }
 
     public void PlayBGMOverwrite(string name) {
