@@ -11,7 +11,7 @@ public class EndGameScreenManager : MonoBehaviour
     [SerializeField] private PostProcessVolume postProcessVolume;
     [SerializeField] private GameObject p1WinScreen;
     [SerializeField] private GameObject p2WinScreen;
-    [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private Image gameOverText;
     [SerializeField] private GameObject gameplayUI;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button mainMenuButton;
@@ -19,7 +19,7 @@ public class EndGameScreenManager : MonoBehaviour
         Time.timeScale = 0.5f;
 
         gameplayUI.SetActive(false);
-        gameOverText.alpha = 0;
+        gameOverText.color = new Color(1, 1, 1, 0);
         gameOverText.gameObject.SetActive(true);
         CameraManager.Instance.SetPreGameCamActive();
 

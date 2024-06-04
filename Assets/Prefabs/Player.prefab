@@ -218,7 +218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6532141040417077209
 Transform:
   m_ObjectHideFlags: 0
@@ -716,6 +716,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 058da027-f60c-4dcf-af32-01e35af19638
     m_ActionName: Gameplay/Pause[/Keyboard/escape,/Logitech Logitech Dual Action/button10]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9192d310-e263-4a0f-917b-ffd748b69462
+    m_ActionName: Gameplay/Aim[/XInputControllerWindows/rightStick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PreGame
