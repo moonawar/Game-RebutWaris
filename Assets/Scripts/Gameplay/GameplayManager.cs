@@ -52,7 +52,7 @@ public class GameplayManager : MonoBehaviour
             Instance = this;
         }
 
-        endOfGameScreen.SetActive(false);
+        // endOfGameScreen.SetActive(false);
     }
 
     public void RestartGame() {
@@ -61,11 +61,8 @@ public class GameplayManager : MonoBehaviour
 
     public void EndTheGame(int winnerIdx) {
         endOfGameScreen.SetActive(true);
-        if (winnerIdx == 0) {
-            player1UiRefs.endGame.winningScreen.SetActive(true);
-        } else {
-            player2UiRefs.endGame.winningScreen.SetActive(true);
-        }
+        EndGameScreenManager endGameScreenManager = endOfGameScreen.GetComponent<EndGameScreenManager>();
+        endGameScreenManager.ShowTheWinner(winnerIdx);
     }
 }
 
