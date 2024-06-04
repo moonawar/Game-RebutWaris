@@ -45,6 +45,7 @@ public class GameplayManager : MonoBehaviour
     public void PauseGame()
     {
         AudioManager.Instance.PlaySFX("Static");
+        AudioManager.Instance.PauseBGM();
         Paused = true;
         pauseScreen.SetActive(true);
     }
@@ -52,6 +53,7 @@ public class GameplayManager : MonoBehaviour
     public void UnpauseGame()
     {
         AudioManager.Instance.StopSFX("Static");
+        AudioManager.Instance.UnpauseBGM();
         Paused = false;
         pauseScreen.SetActive(false);
     }
@@ -67,7 +69,6 @@ public class GameplayManager : MonoBehaviour
     }
 
     public void RestartGame() {
-        AudioManager.Instance.PlayBGMOverwrite("Main");
         FlowManager.Instance.RestartGame();
     }
 

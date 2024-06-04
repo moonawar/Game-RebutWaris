@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,6 +7,7 @@ public class FlowManager : MonoBehaviour
 {
     public static FlowManager Instance { get; private set; }
     private string currentScene;
+    private Action onLoaderCallback;
     private void Awake() {
         if (Instance != null && Instance != this) {
             Destroy(gameObject);
@@ -18,7 +21,22 @@ public class FlowManager : MonoBehaviour
 
     private void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        onLoaderCallback = () => {
+            StartCoroutine(LoadSceneAsync(sceneName));
+        };
+
+        currentScene = "LoadingScreen";
+        SceneManager.LoadScene("LoadingScreen");
+    }
+
+    private IEnumerator LoadSceneAsync(string sceneName)
+    {
+        yield return null;
+        AsyncOperation op = SceneManager.LoadSceneAsync(sceneName);
+        while (!op.isDone)
+        {
+            yield return null;
+        }
         currentScene = sceneName;
     }
 
@@ -35,5 +53,14 @@ public class FlowManager : MonoBehaviour
     public void RestartGame()
     {
         LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public static void LoaderCallback()
+    {
+        if (Instance.onLoaderCallback != null)
+        {
+            Instance.onLoaderCallback();
+            Instance.onLoaderCallback = null;
+        }
     }
 }

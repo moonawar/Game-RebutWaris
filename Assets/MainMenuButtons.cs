@@ -67,9 +67,9 @@ public class MainMenuButtons : MenuManager
     {
         AudioManager.Instance.ChangeVolume("Static", 1);
         AudioManager.Instance.StopSFX("Static");
-        AudioManager.Instance.PlayBGMCrossfade("Main");
-        //AudioManager.Instance.StopBGM();
-        SceneManager.LoadScene("Addin-Game");
+        AudioManager.Instance.StopBGM();
+        // SceneManager.LoadScene("Addin-Game");
+        FlowManager.Instance.LoadGameScene();
     }
 
     private void ActivateTutorial()

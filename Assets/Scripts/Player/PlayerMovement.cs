@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     /* Inputs */
     private Vector2 moveInput;
+    private Vector2 aimInput;
 
     /* Movement Transformer */
     public delegate Vector3 MovementTransformer(Vector3 move);
@@ -48,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator animator;
     [SerializeField] private GameObject stunnedEffect;
+    private Coroutine stunRoutine;
     #endregion
 
     private void Awake()
@@ -90,7 +92,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isImmune) return;
         AudioManager.Instance.PlaySFX("Stunned");
-        StartCoroutine(StunRoutine(stunDuration));
+        stunnedEffect.SetActive(false);
+        if (stunRoutine != null) StopCoroutine(stunRoutine);
+        stunRoutine = StartCoroutine(StunRoutine(stunDuration));
     }
 
     private IEnumerator StunRoutine(float stunDuration)
@@ -197,7 +201,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        //aimInput = context.ReadValue<Vector2>();
+        aimInput = context.ReadValue<Vector2>();
     }
     #endregion
 
@@ -262,7 +266,7 @@ public class PlayerMovement : MonoBehaviour
             float angle;
             if (GetComponent<PlayerInput>().currentControlScheme == "Joystick" || GetComponent<PlayerInput>().currentControlScheme == "Gamepad")
             {
-                if(moveInput.x == 0 && moveInput.y == 0)
+                if(aimInput.x == 0 && aimInput.y == 0)
                 {
                     angle = prevAngle;
                 }

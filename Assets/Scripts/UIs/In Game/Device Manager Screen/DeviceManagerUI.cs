@@ -34,6 +34,9 @@ public class DeviceManagerUI : MonoBehaviour
 
     private Coroutine startGameCoroutine;
     private bool gameStarting = false;
+    private void Start() {
+        AudioManager.Instance.PlayBGMOverwrite("Main");
+    }
 
     public void OnPlayerJoined(PlayerInput playerInput)
     {

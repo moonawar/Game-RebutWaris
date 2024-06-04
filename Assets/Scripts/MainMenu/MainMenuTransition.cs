@@ -20,6 +20,7 @@ public class MainMenuTransition : MonoBehaviour
     private void Start()
     {
         AudioManager.Instance.PlaySFX("Static");
+        AudioManager.Instance.PlayBGMOverwrite("MainMenu");
     }
 
     private void Update()

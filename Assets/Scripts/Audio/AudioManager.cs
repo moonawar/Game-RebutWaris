@@ -75,8 +75,18 @@ public class AudioManager : MonoBehaviour
                 bgmCount++;
             }
         }
+    }
 
-        PlayBGMOverwrite("MainMenu");
+    public void PauseBGM() {
+        if (currentBGM != null) {
+            currentBGM.Source.Pause();
+        }
+    }
+
+    public void UnpauseBGM() {
+        if (currentBGM != null) {
+            currentBGM.Source.UnPause();
+        }
     }
 
     private Audio FindAudio(string name) {
@@ -171,6 +181,9 @@ public class AudioManager : MonoBehaviour
     }
 
     private IEnumerator FadeOut(Audio audio, float duration) {
+        if (audio == null) {
+            yield break;
+        }
         float startVolume = audio.Source.volume;
 
         float timer = 0f;
