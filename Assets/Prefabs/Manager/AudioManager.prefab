@@ -57,7 +57,7 @@ MonoBehaviour:
     Type: 0
     Volume: 0.3
     Pitch: 1
-    Loop: 0
+    Loop: 1
     Source: {fileID: 0}
   - Name: ButtonPress
     Clip: {fileID: 8300000, guid: c856a60d9b5184f45950814fa82f2361, type: 3}
@@ -209,7 +209,7 @@ MonoBehaviour:
   - Name: Goose
     Clip: {fileID: 8300000, guid: d0f98045b83aed444b713dbb06085ca0, type: 3}
     Type: 1
-    Volume: 0.5
+    Volume: 0.633
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}

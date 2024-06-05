@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LoaderCallback : MonoBehaviour
@@ -8,7 +9,12 @@ public class LoaderCallback : MonoBehaviour
         if (_isFirstUpdate)
         {
             _isFirstUpdate = false;
-            FlowManager.LoaderCallback();
+            StartCoroutine(Callback());
         }
+    }
+
+    private IEnumerator Callback() {
+        yield return new WaitForSeconds(5f);
+        FlowManager.LoaderCallback();
     }
 }
