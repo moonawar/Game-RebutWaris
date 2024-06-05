@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position += new Vector3(0, 0.1f, 0);
         transform.rotation = Quaternion.Euler(0, 0, 0);
         IsStunned = false;
-        thrownAngle = new Vector3(Mathf.Cos(theta * Mathf.Deg2Rad), Mathf.Sin(theta * Mathf.Deg2Rad), 0);
+        thrownAngle = new Vector3(Mathf.Cos(theta * Mathf.Deg2Rad * -1), Mathf.Sin(theta * Mathf.Deg2Rad), 0);
         thrownAngle.x *= flip;
 
         lookDirection = Math.Sign(thrownAngle.x);
