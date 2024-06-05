@@ -786,9 +786,9 @@ MonoBehaviour:
   playerMovement: {fileID: 8652144860922909440}
   selfCollider: {fileID: 470906341831932076}
   arrow: {fileID: 3666096469289222552}
-  Cooldown: 3
+  Cooldown: 6
   GrabDuration: 3
-  initialThrowSpeed: 35
+  initialThrowSpeed: 30
 --- !u!61 &470906341831932076
 BoxCollider2D:
   m_ObjectHideFlags: 0

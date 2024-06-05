@@ -1,4 +1,7 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
@@ -13,11 +16,15 @@ public class GameplayUIRefs {
 
 public class GameplayManager : MonoBehaviour
 {
+    private bool isTimerActive = false;
+    private double GameTimer;
+    [SerializeField] private float GameTime;
+    [SerializeField] private TMP_Text TimerText;
+    [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject settingsScreen;
     [Header("End of Game")]
     [SerializeField] private GameplayUIRefs player1UiRefs;
     [SerializeField] private GameplayUIRefs player2UiRefs;
-    [SerializeField] private GameObject pauseScreen;
-    [SerializeField] private GameObject settingsScreen;
     [SerializeField] private GameObject endOfGameScreen;
 
     public static GameplayManager Instance { get; private set; }
@@ -29,6 +36,18 @@ public class GameplayManager : MonoBehaviour
             Time.timeScale = value ? 0 : 1; 
         }
     }
+
+    public void Update()
+    {
+        if (isTimerActive)
+        {
+            GameTimer -= Time.deltaTime;
+            TimeSpan time = TimeSpan.FromSeconds(GameTimer);
+            string displayTime = time.ToString(@"mm\:ss");
+            TimerText.text = displayTime;
+        }
+    }
+
     public bool GameEnded { get; private set; } = false;
 
     [HideInInspector] public List<GameObject> Players;
@@ -82,6 +101,29 @@ public class GameplayManager : MonoBehaviour
         AudioManager.Instance.PlayBGMCrossfade("EndScreen");
         EndGameScreenManager endGameScreenManager = endOfGameScreen.GetComponent<EndGameScreenManager>();
         endGameScreenManager.ShowTheWinner(winnerIdx);
+    }
+    
+    public void StartGameTimer()
+    {
+        print("Countdown start");
+        isTimerActive = true;
+        GameTimer = GameTime;
+        StartCoroutine(GameTimerCoroutine());
+    }
+
+    public IEnumerator GameTimerCoroutine()
+    {
+        yield return new WaitForSeconds(GameTime);
+        if (Players[0].GetComponent<PlayerMash>().GetLoveValue() >= Players[0].GetComponent<PlayerMash>().GetLoveValue())
+        {
+            EndTheGame(0);
+        }
+        else
+        {
+            EndTheGame(1);
+        }
+        isTimerActive= false;
+        
     }
 }
 

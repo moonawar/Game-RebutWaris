@@ -53,6 +53,11 @@ public class PlayerMash : MonoBehaviour
         _heart.GetComponent<Image>().color = Color.white;
     }
 
+    public float GetLoveValue()
+    {
+        return _loveMeter.value;
+    }
+
     public void DecreaseLoveHalf()
     {
         _loveMeter.value = _baseValue + (_loveMeter.value - _baseValue) / 2;
