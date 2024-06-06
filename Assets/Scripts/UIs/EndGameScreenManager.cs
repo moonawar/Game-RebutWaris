@@ -22,6 +22,12 @@ public class EndGameScreenManager : MonoBehaviour
         eventSystem = FindObjectOfType<EventSystem>();
     }
 
+    private void Start()
+    {
+        mainMenuButton.onClick.AddListener(FlowManager.Instance.LoadMainMenuScene);
+        restartButton.onClick.AddListener(FlowManager.Instance.RestartGame);
+    }
+
     public void ShowTheWinner(int playerIdx) {
         eventSystem.SetSelectedGameObject(restartButton.gameObject);
 

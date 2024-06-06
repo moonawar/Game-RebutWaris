@@ -2999,7 +2999,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 169943027}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FlowManager, Assembly-CSharp
         m_MethodName: LoadMainMenuScene
         m_Mode: 1
@@ -5941,7 +5941,7 @@ PrefabInstance:
       objectReference: {fileID: 227685262}
     - target: {fileID: 4060022202579487685, guid: 388a6940f1a429d46a313ed90ce07650, type: 3}
       propertyPath: GameTime
-      value: 180
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4060022202579487685, guid: 388a6940f1a429d46a313ed90ce07650, type: 3}
       propertyPath: GameTimer
