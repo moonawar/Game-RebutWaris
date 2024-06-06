@@ -659,6 +659,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c33a367e0d3b54eb2b76c49e1b195b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &172040521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3744775654426686203, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
+  m_PrefabInstance: {fileID: 4789035359587570321}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &191425026 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4789035359745374355, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
@@ -794,6 +799,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &387268852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1466339825771153180, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
+  m_PrefabInstance: {fileID: 4789035359587570321}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &444532989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,6 +2531,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1107490303}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: OnButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &883376214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2905,6 +2927,7 @@ GameObject:
   - component: {fileID: 1096511100}
   - component: {fileID: 1096511099}
   - component: {fileID: 1096511102}
+  - component: {fileID: 1096511103}
   m_Layer: 5
   m_Name: MainMenuBtn
   m_TagString: Untagged
@@ -2988,6 +3011,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1107490303}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: OnButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1096511100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3038,6 +3073,51 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1096511103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096511097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1107490303}
+          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+          m_MethodName: OnButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1107490303}
+          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+          m_MethodName: OnButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1107490302
 GameObject:
   m_ObjectHideFlags: 0
@@ -5692,9 +5772,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 686598900}
     - target: {fileID: 2355163626199879382, guid: 370074dc0788f164db369ecbe7d0b582, type: 3}
+      propertyPath: dataPlayer1.rangeIndicator
+      value: 
+      objectReference: {fileID: 172040521}
+    - target: {fileID: 2355163626199879382, guid: 370074dc0788f164db369ecbe7d0b582, type: 3}
       propertyPath: dataPlayer2.activePowerUps
       value: 
       objectReference: {fileID: 1086930681}
+    - target: {fileID: 2355163626199879382, guid: 370074dc0788f164db369ecbe7d0b582, type: 3}
+      propertyPath: dataPlayer2.rangeIndicator
+      value: 
+      objectReference: {fileID: 387268852}
     - target: {fileID: 2355163626199879382, guid: 370074dc0788f164db369ecbe7d0b582, type: 3}
       propertyPath: dataPlayer1.uiRefs.loveMeter
       value: 
@@ -6021,6 +6109,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1466339825771153180, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
+      propertyPath: m_Name
+      value: RangeLoadP2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744775654426686203, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
+      propertyPath: m_Name
+      value: RangeLoadP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180764421932564454, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
+      propertyPath: m_Name
+      value: BonkLoadP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180764422063167999, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
+      propertyPath: m_Name
+      value: BonkLoadP2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180764422512898840, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
+      propertyPath: m_Name
+      value: GrabLoadP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180764422582490623, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
+      propertyPath: m_Name
+      value: GrabLoadP2
+      objectReference: {fileID: 0}
     - target: {fileID: 4789035358559167741, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6083,7 +6195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789035359105869661, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4789035359745374354, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
       propertyPath: m_AnchorMax.y

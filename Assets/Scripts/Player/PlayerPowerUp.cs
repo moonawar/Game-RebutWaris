@@ -64,6 +64,8 @@ public class PlayerPowerUp : MonoBehaviour
     {
         if (GameplayManager.Instance.Paused) return;
         if (GameplayManager.Instance.GameEnded) return;
+        if (playerMovement.IsStunned || playerMovement.IsGrabbed || playerMovement.IsThrown) return;
+
         if (context.performed && powerUp != null)
         {
             if (playerMovement.IsStunned) return;

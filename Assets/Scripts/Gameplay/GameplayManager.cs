@@ -105,7 +105,6 @@ public class GameplayManager : MonoBehaviour
     
     public void StartGameTimer()
     {
-        print("Countdown start");
         isTimerActive = true;
         GameTimer = GameTime;
         StartCoroutine(GameTimerCoroutine());

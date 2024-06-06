@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 3666096469289222552}
-  maxSpeed: 7.2
+  maxSpeed: 10
   timeToAccelerate: 0.3
   timeToDecelerate: 0.2
   lookDirection: 0
@@ -846,6 +846,7 @@ MonoBehaviour:
   throwableAmount: 2
   arrow: {fileID: 3666096469289222552}
   playerBody: {fileID: 7945191380886146226}
+  Cooldown: 3
 --- !u!114 &-2318203246032300268
 MonoBehaviour:
   m_ObjectHideFlags: 0

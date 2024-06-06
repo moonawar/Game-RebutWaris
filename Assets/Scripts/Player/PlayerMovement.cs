@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrabbed { get; set; } = false;
     public bool GrabMode { get; set; } = false;
     public bool AimMode { get; set; } = false;
-    private bool IsThrown = false;
+    public bool IsThrown {  get; set; } = false;
     private Vector3 thrownAngle;
     private float prevAngle = 0;
     #endregion

@@ -80,11 +80,13 @@ public class PlayerGrab : MonoBehaviour
         if (GameplayManager.Instance.Paused) return;
         if (GameplayManager.Instance.GameEnded) return;
         if (OnCooldown) return;
+        if (playerMovement.IsStunned || playerMovement.IsGrabbed || playerMovement.IsThrown) return;
+
+
 
 
         if (context.performed)
         {
-            if (playerMovement.IsStunned || playerMovement.IsGrabbed) return;
 
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
@@ -93,6 +95,8 @@ public class PlayerGrab : MonoBehaviour
                 if (collider != selfCollider && collider.TryGetComponent(out PlayerMovement player))
                 {
                     if (player.IsGrabbed) return;
+                    if (player.isImmune) return;
+
                     StartCoroutine(GrabTimer());
                     AudioManager.Instance.PlaySFX("Grab");
                     animator.SetTrigger("Grab");

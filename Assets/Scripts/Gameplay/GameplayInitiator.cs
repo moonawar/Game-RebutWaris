@@ -12,6 +12,7 @@ public class PlayerData {
     public GameObject activePowerUps;
     public GameObject bonkIndicator;
     public GameObject grabIndicator;
+    public GameObject rangeIndicator;
     public PlayerMashUIRefs uiRefs;
 }
 
@@ -43,6 +44,7 @@ public class GameplayInitiator : MonoBehaviour
             playerObj.GetComponent<PlayerPowerUp>().SetActivePanel(dataPlayer1.activePowerUps);
             playerObj.GetComponent<PlayerBonk>().SetBonkIndicator(dataPlayer1.bonkIndicator);
             playerObj.GetComponent<PlayerGrab>().SetGrabIndicator(dataPlayer1.grabIndicator);
+            playerObj.GetComponent<PlayerRangeItem>().SetRangeIndicator(dataPlayer1.rangeIndicator);
             GameplayManager.Instance.Players.Add(playerObj);
 
         } else if (playerIndex == 1) {
@@ -56,6 +58,7 @@ public class GameplayInitiator : MonoBehaviour
             playerObj.GetComponent<PlayerPowerUp>().SetActivePanel(dataPlayer2.activePowerUps);
             playerObj.GetComponent<PlayerBonk>().SetBonkIndicator(dataPlayer2.bonkIndicator);
             playerObj.GetComponent<PlayerGrab>().SetGrabIndicator(dataPlayer2.grabIndicator);
+            playerObj.GetComponent<PlayerRangeItem>().SetRangeIndicator(dataPlayer2.rangeIndicator);
             GameplayManager.Instance.Players.Add(playerObj);
         }
     }

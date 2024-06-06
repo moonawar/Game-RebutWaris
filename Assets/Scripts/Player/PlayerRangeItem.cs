@@ -12,6 +12,33 @@ public class PlayerRangeItem : MonoBehaviour
     [SerializeField] private Transform arrow;
     [SerializeField] private GameObject playerBody;
     private TMP_Text amountText;
+    [SerializeField] private float Cooldown;
+    private float timer;
+    private GameObject cooldownIndicator;
+    private bool OnCooldown = false;
+
+    private void Update()
+    {
+        if (OnCooldown && timer > 0)
+        {
+            timer -= Time.deltaTime;
+            cooldownIndicator.GetComponent<Image>().fillAmount = Mathf.InverseLerp(0, Cooldown, timer);
+        }
+
+    }
+
+    private IEnumerator CooldownTimer()
+    {
+        OnCooldown = true;
+        timer = Cooldown;
+        yield return new WaitForSeconds(Cooldown);
+        OnCooldown = false;
+    }
+
+    public void SetRangeIndicator(GameObject indicator)
+    {
+        cooldownIndicator = indicator;
+    }
 
     public void SetAmountText(TMP_Text text)
     {
@@ -44,6 +71,9 @@ public class PlayerRangeItem : MonoBehaviour
     {
         if (GameplayManager.Instance.Paused) return;
         if (GameplayManager.Instance.GameEnded) return;
+        if (OnCooldown) return;
+        if (GetComponent<PlayerMovement>().IsStunned || GetComponent<PlayerMovement>().IsGrabbed || GetComponent<PlayerMovement>().IsThrown) return;
+
         if (throwableAmount > 0)
         {
             if (context.performed)
@@ -79,6 +109,7 @@ public class PlayerRangeItem : MonoBehaviour
 
                 DecrementThrowable();
                 arrow.gameObject.SetActive(false);
+                StartCoroutine(CooldownTimer());
             }
         }
     }

@@ -25,7 +25,7 @@ public class PlayerBonk : MonoBehaviour
         cooldownIndicator = indicator;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if(OnCooldown && timer > 0)
         {
@@ -34,6 +34,7 @@ public class PlayerBonk : MonoBehaviour
         }
         
     }
+
     private IEnumerator CooldownTimer()
     {
         OnCooldown = true;
@@ -47,10 +48,10 @@ public class PlayerBonk : MonoBehaviour
         if (GameplayManager.Instance.Paused) return;
         if (GameplayManager.Instance.GameEnded) return;
         if (OnCooldown) return;
+        if (playerMovement.IsStunned || playerMovement.IsGrabbed || playerMovement.IsThrown) return;
 
         gameObject.GetComponent<Animator>().SetTrigger("Bonk");
         AudioManager.Instance.PlaySFX("Punch");
-        if (playerMovement.IsStunned || playerMovement.IsGrabbed) return;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
         foreach (Collider2D collider in colliders)
         {
