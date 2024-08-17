@@ -3,21 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class initiate : MonoBehaviour
+public class Initiate : MonoBehaviour
 {
+    public static Initiate Instance { get; private set; }
+
 
     [SerializeField] private GameplayInitiator gameplayInitiator;
-    [SerializeField] private PlayerInput player1;
-    [SerializeField] private PlayerInput player2;
+    [SerializeField] private PlayerMovement NPC;
     private void Awake()
     {
-        gameplayInitiator.OnPlayerJoined(player1.gameObject, 0);
-        gameplayInitiator.OnPlayerJoined(player2.gameObject, 1);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
-    //private void Start()
-    //{
-    //    gameplayInitiator.OnPlayerJoined(player1.gameObject, 0);
-    //    gameplayInitiator.OnPlayerJoined(player2.gameObject, 1);
-    //}
+    public void ConnectNPC()
+    {
+
+        gameplayInitiator.OnPlayerJoined(NPC.gameObject, 1);
+        NPC.gameObject.SetActive(true);
+        print("INITIATED");
+    }
 }

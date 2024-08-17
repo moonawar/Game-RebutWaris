@@ -46,6 +46,7 @@ public class GameplayInitiator : MonoBehaviour
             playerObj.GetComponent<PlayerGrab>().SetGrabIndicator(dataPlayer1.grabIndicator);
             playerObj.GetComponent<PlayerRangeItem>().SetRangeIndicator(dataPlayer1.rangeIndicator);
             GameplayManager.Instance.Players.Add(playerObj);
+            Initiate.Instance.ConnectNPC();
 
         } else if (playerIndex == 1) {
             radar.InitUIs(dataPlayer2.uiRefs);
@@ -62,6 +63,27 @@ public class GameplayInitiator : MonoBehaviour
             GameplayManager.Instance.Players.Add(playerObj);
         }
     }
+
+    //public void OnNPCJoined(GameObject playerObj, int playerIndex)
+    //{
+    //    PlayerMash radar = playerObj.GetComponent<PlayerMash>();
+    //    targetGroup.AddMember(playerObj.transform, 1, 0);
+
+        
+    //        radar.InitUIs(dataPlayer2.uiRefs);
+    //        playerObj.GetComponent<Animator>().runtimeAnimatorController = dataPlayer2.animator;
+    //        playerObj.GetComponent<PlayerMovement>().SetArena(Arena);
+    //        playerObj.GetComponent<PlayerMovement>().SetArrow(dataPlayer2.arrow);
+    //        playerObj.GetComponent<PlayerMovement>().SetCamera(cam);
+    //        playerObj.GetComponent<PlayerRangeItem>().SetThrowablePrefab(throwablePrefab);
+    //        playerObj.GetComponent<PlayerRangeItem>().SetAmountText(dataPlayer2.throwableText);
+    //        playerObj.GetComponent<PlayerPowerUp>().SetActivePanel(dataPlayer2.activePowerUps);
+    //        playerObj.GetComponent<PlayerBonk>().SetBonkIndicator(dataPlayer2.bonkIndicator);
+    //        playerObj.GetComponent<PlayerGrab>().SetGrabIndicator(dataPlayer2.grabIndicator);
+    //        playerObj.GetComponent<PlayerRangeItem>().SetRangeIndicator(dataPlayer2.rangeIndicator);
+    //        GameplayManager.Instance.Players.Add(playerObj);
+        
+    //}
 
     public void StartGame(PlayerInput p1, PlayerInput p2) {
         p1.SwitchCurrentActionMap("Gameplay");

@@ -14,8 +14,11 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Addin's/Addin-Game.unity
     guid: 728457bba3f57e242b33b227af6d9f5b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 90adaf475617d6d46a02fb80e38ed89a
+  - enabled: 1
+    path: Assets/Scenes/Debug.unity
+    guid: f8c4ed138884f524ca6dc19556336622
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7d80d5903c6e24e49808cc95632f0378, type: 2}

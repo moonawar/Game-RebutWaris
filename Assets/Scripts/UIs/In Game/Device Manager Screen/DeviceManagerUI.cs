@@ -53,6 +53,8 @@ public class DeviceManagerUI : MonoBehaviour
             playerInput1.SwitchCurrentActionMap("PreGame");
 
             UpdateKeyInstructionText(playerInput1, 0);
+
+            player2Ready = true;
         }
         else if (playerInput.playerIndex == 1)
         {
@@ -167,6 +169,6 @@ public class DeviceManagerUI : MonoBehaviour
         // For faster testing
         yield return new WaitForSeconds(0.1f);
         gameObject.SetActive(false);
-        gameplayInitiator.StartGame(playerInput1, playerInput2);
+        gameplayInitiator.StartGame(playerInput1, playerInput1);
     }
 }
