@@ -23,6 +23,7 @@ public class TutorialManager : MonoBehaviour
     public void Deactivate()
     {
         _active = false;
+        isButtonActive = false;
     }
 
     private void ChangeTutorial()

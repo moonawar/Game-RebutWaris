@@ -60,7 +60,11 @@ public class MainMenuButtons : MenuManager
         {
             isButtonActive = true;
             EventSystem.current.SetSelectedGameObject(PlayButton.gameObject, new BaseEventData(EventSystem.current));
-        }
+        } 
+        else if(isButtonActive && EventSystem.current.currentSelectedGameObject == null && (Input.anyKeyDown || Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+        {
+            isButtonActive = false;
+        } 
     }
 
     private void OnEnable()
