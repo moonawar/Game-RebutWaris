@@ -29,11 +29,23 @@ public class GameplayManager : MonoBehaviour
 
     public static GameplayManager Instance { get; private set; }
     private bool _paused;
+    private bool _playing;
+
     public bool Paused {
         get { return _paused; }
         set { 
             _paused = value;
             Time.timeScale = value ? 0 : 1; 
+            _playing = !value;
+        }
+    }
+
+    public bool Playing
+    {
+        get { return _playing; }
+        set
+        {
+            _playing = value;
         }
     }
 

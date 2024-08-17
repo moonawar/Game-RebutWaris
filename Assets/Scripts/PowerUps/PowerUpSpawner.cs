@@ -60,7 +60,7 @@ public class PowerUpSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (StartSpawn)
+        if (StartSpawn && GameplayManager.Instance.Playing)
         {
             StartCoroutine(WaitInterval());
             SpawnPowerUp();

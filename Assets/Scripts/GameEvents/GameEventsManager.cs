@@ -47,7 +47,7 @@ public class GameEventsManager : MonoBehaviour
     }
 
     public void TriggerEvent() {
-        if (_eventsOnPhases[currentGamePhase].gameEvents.Count > 0) {
+        if (_eventsOnPhases[currentGamePhase].gameEvents.Count > 0 && GameplayManager.Instance.Playing) {
             int randomEventIndex = Random.Range(0, _eventsOnPhases[currentGamePhase].gameEvents.Count);
             GameEvent eventToTrigger = _eventsOnPhases[currentGamePhase].gameEvents[randomEventIndex];
             eventToTrigger.OnEnter(this);
