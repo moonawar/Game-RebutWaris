@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private Button LeftButton;
     [SerializeField] private Button RightButton;
     [SerializeField] private List<GameObject> Tutorials;
+    private bool isButtonActive = false;
 
     public void Activate()
     {
@@ -40,6 +42,7 @@ public class TutorialManager : MonoBehaviour
         if(currentTutorial >= Tutorials.Count)
         {
             RightButton.gameObject.SetActive(false);
+
             LeftButton.Select();
         }
         else
@@ -50,7 +53,7 @@ public class TutorialManager : MonoBehaviour
         if (currentTutorial <= 1)
         {
             LeftButton.gameObject.SetActive(false);
-            RightButton.Select();
+            if(isButtonActive) RightButton.Select();
         }
         else
         {
@@ -61,6 +64,7 @@ public class TutorialManager : MonoBehaviour
     public void NextTutorial()
     {
         if (!_active) return;
+        isButtonActive = true;
 
         currentTutorial++;
         ChangeTutorial();      

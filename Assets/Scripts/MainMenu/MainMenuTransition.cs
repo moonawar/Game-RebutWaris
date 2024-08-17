@@ -8,7 +8,13 @@ using UnityEngine.Video;
 public class MainMenuTransition : MonoBehaviour
 {
     private bool started = false;
-    private bool finished = false;
+    
+    private bool _finished = false;
+    public bool finished
+    {
+        get { return _finished; }
+        private set { _finished = value; }
+    }
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject initialScreen;
     [SerializeField] private GameObject secondScreen;
