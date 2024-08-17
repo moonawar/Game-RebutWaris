@@ -82,6 +82,7 @@ public class GameplayManager : MonoBehaviour
         AudioManager.Instance.PauseBGM();
         Paused = true;
         pauseScreen.SetActive(true);
+        Playing = false;
     }
 
     public void UnpauseGame()
@@ -90,6 +91,7 @@ public class GameplayManager : MonoBehaviour
         AudioManager.Instance.UnpauseBGM();
         Paused = false;
         pauseScreen.SetActive(false);
+        Playing = true;
     }
 
     public void OpenSettings()
@@ -104,9 +106,11 @@ public class GameplayManager : MonoBehaviour
 
     public void RestartGame() {
         FlowManager.Instance.RestartGame();
+        Playing = false;
     }
 
     public void EndTheGame(int winnerIdx) {
+        Playing = false;
         endOfGameScreen.SetActive(true);
         GameEnded = true;
         AudioManager.Instance.StopAllSFX();
@@ -120,6 +124,7 @@ public class GameplayManager : MonoBehaviour
         isTimerActive = true;
         GameTimer = GameTime;
         StartCoroutine(GameTimerCoroutine());
+        Playing = true;
     }
 
     public IEnumerator GameTimerCoroutine()
