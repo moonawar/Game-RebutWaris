@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -32,35 +33,48 @@ public class MainMenuButtons : MenuManager
 {
 
     [SerializeField] private Button PlayButton;
+    [SerializeField] private Button SettingsButton;
     [SerializeField] private GameObject MenuScreen;
     [SerializeField] private GameObject TutorialScreen;
     [SerializeField] private GameObject SettingsScreen;
     [SerializeField] private Button TutorialResumeButton;
     [SerializeField] private Button SettingsResumeButton;
+    private MainMenuTransition MainMenuTransition;
+    private bool isButtonActive = false;
 
     private void Awake()
     {
         TutorialScreen.SetActive(false);
-        SettingsScreen.SetActive(true);
+        //SettingsScreen.SetActive(true);
         SettingsScreen.SetActive(false);
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             BackToMenu();
         }
+
+        if (!isButtonActive && MainMenuTransition.finished && (Input.anyKeyDown || Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+        {
+            isButtonActive = true;
+            EventSystem.current.SetSelectedGameObject(PlayButton.gameObject, new BaseEventData(EventSystem.current));
+        } 
+        else if(isButtonActive && EventSystem.current.currentSelectedGameObject == null && (Input.anyKeyDown || Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+        {
+            isButtonActive = false;
+        } 
     }
 
     private void OnEnable()
     {
-        PlayButton.Select();
-
+        MainMenuTransition = gameObject.GetComponent<MainMenuTransition>();
     }
 
     private void Start()
     {
-        PlayButton.Select();
+        MainMenuTransition = gameObject.GetComponent<MainMenuTransition>();
     }
 
     public void Play()
@@ -102,7 +116,6 @@ public class MainMenuButtons : MenuManager
         SettingsScreen.SetActive(true);
         MenuScreen.SetActive(false);
         TutorialScreen.SetActive(false);
-        SettingsResumeButton.Select();
     }
 
     public void BackToMenu()
@@ -111,6 +124,5 @@ public class MainMenuButtons : MenuManager
         SettingsScreen.SetActive(false);
         MenuScreen.SetActive(true);
         TutorialScreen.SetActive(false);
-        PlayButton.Select();
     }
 }

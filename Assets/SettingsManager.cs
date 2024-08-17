@@ -11,7 +11,7 @@ public class SettingsManager : MenuManager
     [SerializeField] private Slider SFXSlider;
     [SerializeField] private Button ResumeButton;
     [SerializeField] private Button SettingButton;
-    private EventSystem _eventSystem;
+    private bool isButtonActive = false;
 
     private void Awake()
     {
@@ -30,12 +30,20 @@ public class SettingsManager : MenuManager
     }
 
     private void OnEnable() {
-        _eventSystem = FindObjectOfType<EventSystem>();
-        _eventSystem.SetSelectedGameObject(ResumeButton.gameObject);
+        isButtonActive = false;
     }
 
     private void OnDisable() {
-        _eventSystem.SetSelectedGameObject(SettingButton.gameObject);
+        EventSystem.current.SetSelectedGameObject(SettingButton.gameObject, new BaseEventData(EventSystem.current));
+    }
+
+    private void Update()
+    {
+        if (!isButtonActive && (Input.anyKeyDown || Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+        {
+            isButtonActive = true;
+            EventSystem.current.SetSelectedGameObject(ResumeButton.gameObject, new BaseEventData(EventSystem.current));
+        }
     }
 
     public void Hide()

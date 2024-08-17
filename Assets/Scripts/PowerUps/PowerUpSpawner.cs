@@ -30,6 +30,7 @@ public class PowerUpSpawner : MonoBehaviour
 
     private void Start() {
         StartSpawn = false;
+        print("Start, spawn false");
         StartCoroutine(WaitInterval());
     }
 

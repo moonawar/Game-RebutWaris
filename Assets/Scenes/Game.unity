@@ -311,7 +311,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -675,7 +675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c33a367e0d3b54eb2b76c49e1b195b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasStarted: 0
 --- !u!1 &172040521 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3744775654426686203, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
@@ -931,7 +930,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1895,7 +1894,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -5651,7 +5650,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -6256,6 +6255,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4789035358707685395, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4789035359105869660, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -6310,6 +6313,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789035359745374354, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4789035359896913660, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
