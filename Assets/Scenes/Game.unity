@@ -659,6 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c33a367e0d3b54eb2b76c49e1b195b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasStarted: 0
 --- !u!1 &172040521 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3744775654426686203, guid: 687594a56b36b1643b24f423dee3aaab, type: 3}

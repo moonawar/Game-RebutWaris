@@ -8,7 +8,16 @@ public class FlowManager : MonoBehaviour
     public static FlowManager Instance { get; private set; }
     private string currentScene;
     private Action onLoaderCallback;
-    public bool hasStarted;
+    private bool _hasStarted;
+
+    public bool hasStarted
+    {
+        get { return _hasStarted; }
+        private set 
+        { 
+            _hasStarted = value; 
+        }
+    }
 
     private void Awake() {
         if (Instance != null && Instance != this) {
