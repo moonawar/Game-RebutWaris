@@ -48,7 +48,7 @@ public class MainMenuTransition : MonoBehaviour
             cam.GetComponent<PostProcessVolume>().profile.GetSetting<MotionBlur>().enabled.value = false;
         }
 
-        if (started && animatorState.IsName("CameraZoom") && animatorState.normalizedTime >= 1.0f && !player.isPlaying)
+        if ( FlowManager.Instance.hasStarted || (started && animatorState.IsName("CameraZoom") && animatorState.normalizedTime >= 1.0f && !player.isPlaying))
         {
             AudioManager.Instance.ChangeVolume("Static", 0.5f);
             AudioManager.Instance.PlaySFX("TVTurnOn");

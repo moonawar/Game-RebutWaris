@@ -8,6 +8,8 @@ public class FlowManager : MonoBehaviour
     public static FlowManager Instance { get; private set; }
     private string currentScene;
     private Action onLoaderCallback;
+    public bool hasStarted;
+
     private void Awake() {
         if (Instance != null && Instance != this) {
             Destroy(gameObject);
@@ -45,6 +47,7 @@ public class FlowManager : MonoBehaviour
     public void LoadGameScene()
     {
         LoadScene("Game");
+        hasStarted = true;
     }
 
     public void LoadMainMenuScene()
